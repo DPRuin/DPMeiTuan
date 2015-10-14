@@ -57,14 +57,17 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // 类别
     DPHomeTopItem *categaryItem = [DPHomeTopItem item];
+    [categaryItem addTarget:self action:@selector(categaryClick)];
     UIBarButtonItem *categary = [[UIBarButtonItem alloc] initWithCustomView:categaryItem];
     
     // 地区
     DPHomeTopItem *districtItem = [DPHomeTopItem item];
+    [districtItem addTarget:self action:@selector(districtClick)];
     UIBarButtonItem *district = [[UIBarButtonItem alloc] initWithCustomView:districtItem];
     
     // 排序
     DPHomeTopItem *sortItem = [DPHomeTopItem item];
+    [sortItem addTarget:self action:@selector(sortClick)];
     UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortItem];
     
     self.navigationItem.leftBarButtonItems = @[logo, categary, district, sort];
@@ -78,6 +81,22 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem *search = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
     search.customView.width = 60;
     self.navigationItem.rightBarButtonItems = @[map, search];
+}
+
+#pragma mark - 导航栏按钮点击
+- (void)categaryClick
+{
+    NSLog(@"categary");
+}
+
+- (void)districtClick
+{
+    NSLog(@"district");
+}
+
+- (void)sortClick
+{
+    NSLog(@"sort");
 }
 
 /*
