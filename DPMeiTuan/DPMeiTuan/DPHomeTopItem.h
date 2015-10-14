@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DPHomeTopItem.h
 //  DPMeiTuan
 //
 //  Created by 土老帽 on 15/10/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
+@interface DPHomeTopItem : UIView
++ (instancetype)item;
 @end
-
