@@ -17,6 +17,14 @@ const int DPCoverTag = 999;
 @interface DPCityViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *cityGroups;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+/** 搜索框 */
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+/** 遮盖 */
+@property (weak, nonatomic) IBOutlet UIButton *cover;
+- (IBAction)coverClick:(UIButton *)sender;
+
 @end
 
 @implementation DPCityViewController
@@ -32,9 +40,20 @@ const int DPCoverTag = 999;
     self.cityGroups = [DPCityGroup objectArrayWithFilename:@"cityGroups.plist"];
 }
 
+#pragma mark - 按钮点击
+/**
+ *  导航栏返回点击
+ */
 - (void)close
 {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+/**
+ *  遮盖按钮点击
+ */
+- (IBAction)coverClick:(UIButton *)sender {
+    [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -50,18 +69,22 @@ const int DPCoverTag = 999;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     
     // 显示遮盖
-    UIView *cover = [[UIView alloc] init];
-    cover.backgroundColor = [UIColor blackColor];
-    cover.alpha = 0.5;
-    cover.tag = DPCoverTag;
-    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:searchBar action:@selector(resignFirstResponder)]];
-    [self.view addSubview:cover];
-    [cover mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tableView.mas_top);
-        make.bottom.equalTo(self.tableView.mas_bottom);
-        make.right.equalTo(self.tableView.mas_right);
-        make.left.equalTo(self.tableView.mas_left);
+    [UIView animateWithDuration:0.5 animations:^{
+        self.cover.alpha = 0.5;
     }];
+    
+//    UIView *cover = [[UIView alloc] init];
+//    cover.backgroundColor = [UIColor blackColor];
+//    cover.alpha = 0.5;
+//    cover.tag = DPCoverTag;
+//    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:searchBar action:@selector(resignFirstResponder)]];
+//    [self.view addSubview:cover];
+//    [cover mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.tableView.mas_top);
+//        make.bottom.equalTo(self.tableView.mas_bottom);
+//        make.right.equalTo(self.tableView.mas_right);
+//        make.left.equalTo(self.tableView.mas_left);
+//    }];
     
 }
 /**
@@ -76,7 +99,11 @@ const int DPCoverTag = 999;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     // 隐藏遮盖
-    [[self.view viewWithTag:DPCoverTag] removeFromSuperview];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.cover.alpha = 0;
+    }];
+    
+//    [[self.view viewWithTag:DPCoverTag] removeFromSuperview];
 }
 
 #pragma mark - UITableViewDataSource
@@ -118,5 +145,6 @@ const int DPCoverTag = 999;
 }
 
 #pragma mark - UITableViewDelegate
+
 
 @end

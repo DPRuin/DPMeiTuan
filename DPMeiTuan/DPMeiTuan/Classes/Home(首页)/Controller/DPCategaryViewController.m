@@ -19,20 +19,28 @@
 
 @implementation DPCategaryViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
+- (void)loadView
+{
     DPHomeDropdown *dropdown = [DPHomeDropdown dropdown];
     // 加载分类数据
     dropdown.categaries = [DPCategary objectArrayWithFilename:@"categories.plist"];
-    [self.view addSubview:dropdown];
+    self.view = dropdown;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
-    [dropdown mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
-        make.left.equalTo(self.view.mas_left);
-    }];
+//    DPHomeDropdown *dropdown = [DPHomeDropdown dropdown];
+//    // 加载分类数据
+//    dropdown.categaries = [DPCategary objectArrayWithFilename:@"categories.plist"];
+//    [self.view addSubview:dropdown];
+    
+//    [dropdown mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.view.mas_top);
+//        make.right.equalTo(self.view.mas_right);
+//        make.bottom.equalTo(self.view.mas_bottom);
+//        make.left.equalTo(self.view.mas_left);
+//    }];
     
     // 设置控制器view在popo中的尺寸
 //    self.preferredContentSize = dropdown.size;
