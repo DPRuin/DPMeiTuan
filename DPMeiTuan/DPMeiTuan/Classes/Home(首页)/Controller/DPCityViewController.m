@@ -10,8 +10,8 @@
 #import "UIBarButtonItem+Extension.h"
 #import "DPCityGroup.h"
 #import "MJExtension.h"
-#import "Masonry.h"
 #import "DPCitySearchResultViewController.h"
+#import "UIView+AutoLayout.h"
 
 @interface DPCityViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *cityGroups;
@@ -121,7 +121,10 @@
 {
     if (searchText.length) {
         [self.view addSubview:self.citySearchResult.view];
-        
+        [self.citySearchResult.view autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+        [self.citySearchResult.view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:searchBar withOffset:15];
+    } else {
+        [self.citySearchResult.view removeFromSuperview];
     }
 }
 

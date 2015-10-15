@@ -11,7 +11,6 @@
 #import "UIView+Extension.h"
 #import "MJExtension.h"
 #import "DPCategary.h"
-#import "Masonry.h"
 
 @interface DPCategaryViewController ()
 
