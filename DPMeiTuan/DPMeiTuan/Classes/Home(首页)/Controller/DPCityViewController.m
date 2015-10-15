@@ -12,8 +12,6 @@
 #import "MJExtension.h"
 #import "Masonry.h"
 
-const int DPCoverTag = 999;
-
 @interface DPCityViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *cityGroups;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -36,8 +34,16 @@ const int DPCoverTag = 999;
     [UIImage imageNamed:@"btn_navigation_close_hl"];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(close) Image:@"btn_navigation_close" highlightImage:@"btn_navigation_close_hl"];
     
+    // self.tableView.sectionIndexBackgroundColor = [UIColor blackColor];
+    // 修改城市组索引颜色
+    self.tableView.sectionIndexColor = DPGreenColor;
+    
     // 加载组数据
     self.cityGroups = [DPCityGroup objectArrayWithFilename:@"cityGroups.plist"];
+    
+    // 搜索框取消按钮和光标的颜色为绿色
+    self.searchBar.tintColor = DPGreenColor;
+    
 }
 
 #pragma mark - 按钮点击
@@ -67,25 +73,13 @@ const int DPCoverTag = 999;
     
     // 隐藏导航栏
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    // 显示搜索框取消按钮
+    [self.searchBar setShowsCancelButton:YES animated:YES];
     
     // 显示遮盖
     [UIView animateWithDuration:0.5 animations:^{
         self.cover.alpha = 0.5;
     }];
-    
-//    UIView *cover = [[UIView alloc] init];
-//    cover.backgroundColor = [UIColor blackColor];
-//    cover.alpha = 0.5;
-//    cover.tag = DPCoverTag;
-//    [cover addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:searchBar action:@selector(resignFirstResponder)]];
-//    [self.view addSubview:cover];
-//    [cover mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.tableView.mas_top);
-//        make.bottom.equalTo(self.tableView.mas_bottom);
-//        make.right.equalTo(self.tableView.mas_right);
-//        make.left.equalTo(self.tableView.mas_left);
-//    }];
-    
 }
 /**
  *  键盘退下：搜索框文字结束编辑
@@ -98,12 +92,13 @@ const int DPCoverTag = 999;
     // 显示导航栏
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     
+    // 隐藏搜索框取消按钮
+    [self.searchBar setShowsCancelButton:NO animated:YES];
+    
     // 隐藏遮盖
     [UIView animateWithDuration:0.5 animations:^{
         self.cover.alpha = 0;
     }];
-    
-//    [[self.view viewWithTag:DPCoverTag] removeFromSuperview];
 }
 
 #pragma mark - UITableViewDataSource
@@ -138,6 +133,9 @@ const int DPCoverTag = 999;
     return cityGroup.title;
 }
 
+/**
+ *  显示城市组索引
+ */
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
     // kvc
