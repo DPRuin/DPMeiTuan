@@ -54,6 +54,9 @@
 		35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C241BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m */; };
 		35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */; };
 		35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */; };
+		35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2D1BCF6E430006E2B1 /* DPCity.m */; };
+		35DB3C311BCF6EEB0006E2B1 /* DPRegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */; };
+		35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C361BCF72530006E2B1 /* DPCityGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +163,12 @@
 		35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		35DB3C291BCF5CF70006E2B1 /* DPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPNavigationController.h; sourceTree = "<group>"; };
 		35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPNavigationController.m; sourceTree = "<group>"; };
+		35DB3C2C1BCF6E430006E2B1 /* DPCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCity.h; sourceTree = "<group>"; };
+		35DB3C2D1BCF6E430006E2B1 /* DPCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCity.m; sourceTree = "<group>"; };
+		35DB3C2F1BCF6EEB0006E2B1 /* DPRegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRegin.h; sourceTree = "<group>"; };
+		35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRegin.m; sourceTree = "<group>"; };
+		35DB3C351BCF72530006E2B1 /* DPCityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCityGroup.h; sourceTree = "<group>"; };
+		35DB3C361BCF72530006E2B1 /* DPCityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCityGroup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +284,12 @@
 			children = (
 				3521D62D1BCE88D200C4BF0D /* DPCategary.h */,
 				3521D62E1BCE88D200C4BF0D /* DPCategary.m */,
+				35DB3C2C1BCF6E430006E2B1 /* DPCity.h */,
+				35DB3C2D1BCF6E430006E2B1 /* DPCity.m */,
+				35DB3C2F1BCF6EEB0006E2B1 /* DPRegin.h */,
+				35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */,
+				35DB3C351BCF72530006E2B1 /* DPCityGroup.h */,
+				35DB3C361BCF72530006E2B1 /* DPCityGroup.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -544,7 +559,9 @@
 				35DB3C221BCF5BEB0006E2B1 /* main.m in Sources */,
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
 				3521D6531BCF3CD600C4BF0D /* MASConstraint.m in Sources */,
+				35DB3C311BCF6EEB0006E2B1 /* DPRegin.m in Sources */,
 				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
+				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				3521D6571BCF3CD600C4BF0D /* MASViewConstraint.m in Sources */,
 				3521D65A1BCF3CD600C4BF0D /* View+MASAdditions.m in Sources */,
@@ -561,6 +578,7 @@
 				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
 				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
+				35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */,
 				3521D6551BCF3CD600C4BF0D /* MASLayoutConstraint.m in Sources */,
 				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,
 				35DB3C141BCF5BA20006E2B1 /* DPHomeViewController.m in Sources */,

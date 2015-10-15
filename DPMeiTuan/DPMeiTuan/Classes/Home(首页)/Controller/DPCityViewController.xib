@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DPCityViewController">
             <connections>
+                <outlet property="tableView" destination="1bL-vM-hhm" id="Pen-Yr-CTX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -13,7 +14,40 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1bL-vM-hhm">
+                    <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="gGA-oS-lbh"/>
+                        <outlet property="delegate" destination="-1" id="ekF-FV-i6b"/>
+                    </connections>
+                </tableView>
+                <searchBar contentMode="redraw" placeholder="请输入城市名或拼音" backgroundImage="bg_login_textfield" translatesAutoresizingMaskIntoConstraints="NO" id="pbA-2H-f1g">
+                    <rect key="frame" x="15" y="15" width="570" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3dg-e8-gzq"/>
+                    </constraints>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ARV-3q-qpO"/>
+                    </connections>
+                </searchBar>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1bL-vM-hhm" firstAttribute="top" secondItem="pbA-2H-f1g" secondAttribute="bottom" constant="15" id="00m-uv-1pP"/>
+                <constraint firstItem="pbA-2H-f1g" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="QX2-LD-Ae0"/>
+                <constraint firstAttribute="bottom" secondItem="1bL-vM-hhm" secondAttribute="bottom" id="Uqe-7g-kmQ"/>
+                <constraint firstAttribute="trailing" secondItem="pbA-2H-f1g" secondAttribute="trailing" constant="15" id="cQo-Wc-Xxe"/>
+                <constraint firstItem="pbA-2H-f1g" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="fnp-s1-04i"/>
+                <constraint firstItem="1bL-vM-hhm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rkD-hh-oak"/>
+                <constraint firstAttribute="trailing" secondItem="1bL-vM-hhm" secondAttribute="trailing" id="sul-gs-gyP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="bg_login_textfield" width="9" height="11"/>
+    </resources>
 </document>

@@ -7,6 +7,8 @@
 //
 
 #import "DPDistrictViewController.h"
+#import "DPCityViewController.h"
+#import "DPNavigationController.h"
 
 @interface DPDistrictViewController ()
 - (IBAction)changeCity:(UIButton *)sender;
@@ -20,8 +22,15 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+/**
+ *  切换城市
+ */
 - (IBAction)changeCity:(UIButton *)sender {
     
+    DPCityViewController *city = [[DPCityViewController alloc] init];
+    DPNavigationController *nav = [[DPNavigationController alloc] initWithRootViewController:city];
+    nav.modalPresentationStyle = UIModalPresentationFormSheet;
     
+    [self presentViewController:nav animated:YES completion:nil];
 }
 @end
