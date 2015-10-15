@@ -57,6 +57,7 @@
 		35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2D1BCF6E430006E2B1 /* DPCity.m */; };
 		35DB3C311BCF6EEB0006E2B1 /* DPRegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */; };
 		35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C361BCF72530006E2B1 /* DPCityGroup.m */; };
+		35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C391BCFA8530006E2B1 /* DPCitySearchResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +170,8 @@
 		35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRegin.m; sourceTree = "<group>"; };
 		35DB3C351BCF72530006E2B1 /* DPCityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCityGroup.h; sourceTree = "<group>"; };
 		35DB3C361BCF72530006E2B1 /* DPCityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCityGroup.m; sourceTree = "<group>"; };
+		35DB3C381BCFA8530006E2B1 /* DPCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCitySearchResultViewController.h; sourceTree = "<group>"; };
+		35DB3C391BCFA8530006E2B1 /* DPCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCitySearchResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +278,8 @@
 				35DB3C0D1BCF58380006E2B1 /* DPCityViewController.h */,
 				35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */,
 				35DB3C0F1BCF58380006E2B1 /* DPCityViewController.xib */,
+				35DB3C381BCFA8530006E2B1 /* DPCitySearchResultViewController.h */,
+				35DB3C391BCFA8530006E2B1 /* DPCitySearchResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -576,6 +581,7 @@
 				35DB3C201BCF5BEB0006E2B1 /* AppDelegate.m in Sources */,
 				3521D6281BCE88AE00C4BF0D /* MJType.m in Sources */,
 				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
+				35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */,
 				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
 				35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */,

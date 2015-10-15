@@ -11,6 +11,7 @@
 #import "DPCityGroup.h"
 #import "MJExtension.h"
 #import "Masonry.h"
+#import "DPCitySearchResultViewController.h"
 
 @interface DPCityViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) NSArray *cityGroups;
@@ -22,6 +23,8 @@
 /** 遮盖 */
 @property (weak, nonatomic) IBOutlet UIButton *cover;
 - (IBAction)coverClick:(UIButton *)sender;
+
+@property (nonatomic, weak) DPCitySearchResultViewController *citySearchResult;
 
 @end
 
@@ -44,6 +47,17 @@
     // 搜索框取消按钮和光标的颜色为绿色
     self.searchBar.tintColor = DPGreenColor;
     
+}
+
+#pragma mark - 懒加载
+- (DPCitySearchResultViewController *)citySearchResult
+{
+    if (!_citySearchResult) {
+        DPCitySearchResultViewController *citySearchResult = [[DPCitySearchResultViewController alloc] init];
+        [self addChildViewController:citySearchResult];
+        self.citySearchResult = citySearchResult;
+    }
+    return _citySearchResult;
 }
 
 #pragma mark - 按钮点击
@@ -100,6 +114,16 @@
         self.cover.alpha = 0;
     }];
 }
+/**
+ *  搜索框里面的文字改变就会调用
+ */
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length) {
+        [self.view addSubview:self.citySearchResult.view];
+        
+    }
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -143,6 +167,7 @@
 }
 
 #pragma mark - UITableViewDelegate
+
 
 
 @end
