@@ -19,10 +19,10 @@
     return  [[[NSBundle mainBundle] loadNibNamed:@"DPHomeTopItem" owner:nil options:nil] lastObject];
 }
 
-- (void)awakeFromNib
-{
-    self.autoresizingMask = UIViewAutoresizingNone;
-}
+//- (void)awakeFromNib
+//{
+//    self.autoresizingMask = UIViewAutoresizingNone;
+//}
 
 - (void)addTarget:(id)target action:(SEL)action
 {

@@ -27,6 +27,8 @@
         
         self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_dropdown_rightpart"]];
         self.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_dropdown_right_selected"]];
+        // self.textLabel.adjustsFontSizeToFitWidth = YES;
+        self.textLabel.font = [UIFont systemFontOfSize:15];
     }
     return self;
 }

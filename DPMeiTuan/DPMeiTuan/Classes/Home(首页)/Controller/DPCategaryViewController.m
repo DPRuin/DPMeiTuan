@@ -11,6 +11,7 @@
 #import "UIView+Extension.h"
 #import "MJExtension.h"
 #import "DPCategary.h"
+#import "Masonry.h"
 
 @interface DPCategaryViewController ()
 
@@ -26,8 +27,15 @@
     dropdown.categaries = [DPCategary objectArrayWithFilename:@"categories.plist"];
     [self.view addSubview:dropdown];
     
+    [dropdown mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top);
+        make.right.equalTo(self.view.mas_right);
+        make.bottom.equalTo(self.view.mas_bottom);
+        make.left.equalTo(self.view.mas_left);
+    }];
+    
     // 设置控制器view在popo中的尺寸
-    self.preferredContentSize = dropdown.size;
+//    self.preferredContentSize = dropdown.size;
 
 }
 
