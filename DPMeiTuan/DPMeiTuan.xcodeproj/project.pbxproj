@@ -20,6 +20,25 @@
 		3521D5EE1BCE33D400C4BF0D /* DPHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5ED1BCE33D400C4BF0D /* DPHomeTopItem.xib */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
 		3521D5FD1BCE489500C4BF0D /* DPHomeDropdown.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */; };
+		3521D6001BCE7C4800C4BF0D /* DPCategaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FF1BCE7C4800C4BF0D /* DPCategaryViewController.m */; };
+		3521D6061BCE888000C4BF0D /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3521D6021BCE888000C4BF0D /* categories.plist */; };
+		3521D6071BCE888000C4BF0D /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3521D6031BCE888000C4BF0D /* cities.plist */; };
+		3521D6081BCE888000C4BF0D /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3521D6041BCE888000C4BF0D /* cityGroups.plist */; };
+		3521D6091BCE888000C4BF0D /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3521D6051BCE888000C4BF0D /* sorts.plist */; };
+		3521D6221BCE88AE00C4BF0D /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D60C1BCE88AD00C4BF0D /* MJArgument.m */; };
+		3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D60E1BCE88AD00C4BF0D /* MJConst.m */; };
+		3521D6241BCE88AE00C4BF0D /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6111BCE88AD00C4BF0D /* MJFoundation.m */; };
+		3521D6251BCE88AE00C4BF0D /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6131BCE88AD00C4BF0D /* MJIvar.m */; };
+		3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6151BCE88AD00C4BF0D /* MJMember.m */; };
+		3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6171BCE88AD00C4BF0D /* MJMethod.m */; };
+		3521D6281BCE88AE00C4BF0D /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6191BCE88AD00C4BF0D /* MJType.m */; };
+		3521D6291BCE88AE00C4BF0D /* MJTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D61B1BCE88AD00C4BF0D /* MJTypeEncoding.m */; };
+		3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D61D1BCE88AD00C4BF0D /* NSObject+MJCoding.m */; };
+		3521D62B1BCE88AE00C4BF0D /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D61F1BCE88AD00C4BF0D /* NSObject+MJKeyValue.m */; };
+		3521D62C1BCE88AE00C4BF0D /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6211BCE88AE00C4BF0D /* NSObject+MJMember.m */; };
+		3521D62F1BCE88D200C4BF0D /* DPCategary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D62E1BCE88D200C4BF0D /* DPCategary.m */; };
+		3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */; };
+		3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +78,41 @@
 		3521D5F91BCE487800C4BF0D /* DPHomeDropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeDropdown.h; sourceTree = "<group>"; };
 		3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdown.m; sourceTree = "<group>"; };
 		3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPHomeDropdown.xib; sourceTree = "<group>"; };
+		3521D5FE1BCE7C4800C4BF0D /* DPCategaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCategaryViewController.h; sourceTree = "<group>"; };
+		3521D5FF1BCE7C4800C4BF0D /* DPCategaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCategaryViewController.m; sourceTree = "<group>"; };
+		3521D6021BCE888000C4BF0D /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = categories.plist; sourceTree = "<group>"; };
+		3521D6031BCE888000C4BF0D /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cities.plist; sourceTree = "<group>"; };
+		3521D6041BCE888000C4BF0D /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cityGroups.plist; sourceTree = "<group>"; };
+		3521D6051BCE888000C4BF0D /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sorts.plist; sourceTree = "<group>"; };
+		3521D60B1BCE88AD00C4BF0D /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
+		3521D60C1BCE88AD00C4BF0D /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
+		3521D60D1BCE88AD00C4BF0D /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
+		3521D60E1BCE88AD00C4BF0D /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
+		3521D60F1BCE88AD00C4BF0D /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		3521D6101BCE88AD00C4BF0D /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		3521D6111BCE88AD00C4BF0D /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		3521D6121BCE88AD00C4BF0D /* MJIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJIvar.h; sourceTree = "<group>"; };
+		3521D6131BCE88AD00C4BF0D /* MJIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJIvar.m; sourceTree = "<group>"; };
+		3521D6141BCE88AD00C4BF0D /* MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMember.h; sourceTree = "<group>"; };
+		3521D6151BCE88AD00C4BF0D /* MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMember.m; sourceTree = "<group>"; };
+		3521D6161BCE88AD00C4BF0D /* MJMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMethod.h; sourceTree = "<group>"; };
+		3521D6171BCE88AD00C4BF0D /* MJMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMethod.m; sourceTree = "<group>"; };
+		3521D6181BCE88AD00C4BF0D /* MJType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJType.h; sourceTree = "<group>"; };
+		3521D6191BCE88AD00C4BF0D /* MJType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJType.m; sourceTree = "<group>"; };
+		3521D61A1BCE88AD00C4BF0D /* MJTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJTypeEncoding.h; sourceTree = "<group>"; };
+		3521D61B1BCE88AD00C4BF0D /* MJTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJTypeEncoding.m; sourceTree = "<group>"; };
+		3521D61C1BCE88AD00C4BF0D /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		3521D61D1BCE88AD00C4BF0D /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		3521D61E1BCE88AD00C4BF0D /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		3521D61F1BCE88AD00C4BF0D /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		3521D6201BCE88AE00C4BF0D /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
+		3521D6211BCE88AE00C4BF0D /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		3521D62D1BCE88D200C4BF0D /* DPCategary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCategary.h; sourceTree = "<group>"; };
+		3521D62E1BCE88D200C4BF0D /* DPCategary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCategary.m; sourceTree = "<group>"; };
+		3521D6301BCE9B1600C4BF0D /* DPHomeDropdownMainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeDropdownMainCell.h; sourceTree = "<group>"; };
+		3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdownMainCell.m; sourceTree = "<group>"; };
+		3521D6331BCE9B3200C4BF0D /* DPHomeDropdownSubCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeDropdownSubCell.h; sourceTree = "<group>"; };
+		3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdownSubCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +163,7 @@
 		3521D5B41BCDEA0B00C4BF0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3521D6011BCE888000C4BF0D /* Plist */,
 				3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */,
 				3521D5B51BCDEA0B00C4BF0D /* Info.plist */,
 			);
@@ -156,6 +211,8 @@
 			children = (
 				3521D5DA1BCE0B6500C4BF0D /* DPHomeViewController.h */,
 				3521D5DB1BCE0B6500C4BF0D /* DPHomeViewController.m */,
+				3521D5FE1BCE7C4800C4BF0D /* DPCategaryViewController.h */,
+				3521D5FF1BCE7C4800C4BF0D /* DPCategaryViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -163,6 +220,8 @@
 		3521D5F21BCE40C200C4BF0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3521D62D1BCE88D200C4BF0D /* DPCategary.h */,
+				3521D62E1BCE88D200C4BF0D /* DPCategary.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +235,10 @@
 				3521D5F91BCE487800C4BF0D /* DPHomeDropdown.h */,
 				3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */,
 				3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */,
+				3521D6301BCE9B1600C4BF0D /* DPHomeDropdownMainCell.h */,
+				3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */,
+				3521D6331BCE9B3200C4BF0D /* DPHomeDropdownSubCell.h */,
+				3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +277,7 @@
 		3521D5F71BCE40C200C4BF0D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				3521D60A1BCE88AD00C4BF0D /* MJExtension */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -229,6 +293,47 @@
 				3521D5B91BCDEA0B00C4BF0D /* AppDelegate.m */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		3521D6011BCE888000C4BF0D /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				3521D6021BCE888000C4BF0D /* categories.plist */,
+				3521D6031BCE888000C4BF0D /* cities.plist */,
+				3521D6041BCE888000C4BF0D /* cityGroups.plist */,
+				3521D6051BCE888000C4BF0D /* sorts.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		3521D60A1BCE88AD00C4BF0D /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				3521D60B1BCE88AD00C4BF0D /* MJArgument.h */,
+				3521D60C1BCE88AD00C4BF0D /* MJArgument.m */,
+				3521D60D1BCE88AD00C4BF0D /* MJConst.h */,
+				3521D60E1BCE88AD00C4BF0D /* MJConst.m */,
+				3521D60F1BCE88AD00C4BF0D /* MJExtension.h */,
+				3521D6101BCE88AD00C4BF0D /* MJFoundation.h */,
+				3521D6111BCE88AD00C4BF0D /* MJFoundation.m */,
+				3521D6121BCE88AD00C4BF0D /* MJIvar.h */,
+				3521D6131BCE88AD00C4BF0D /* MJIvar.m */,
+				3521D6141BCE88AD00C4BF0D /* MJMember.h */,
+				3521D6151BCE88AD00C4BF0D /* MJMember.m */,
+				3521D6161BCE88AD00C4BF0D /* MJMethod.h */,
+				3521D6171BCE88AD00C4BF0D /* MJMethod.m */,
+				3521D6181BCE88AD00C4BF0D /* MJType.h */,
+				3521D6191BCE88AD00C4BF0D /* MJType.m */,
+				3521D61A1BCE88AD00C4BF0D /* MJTypeEncoding.h */,
+				3521D61B1BCE88AD00C4BF0D /* MJTypeEncoding.m */,
+				3521D61C1BCE88AD00C4BF0D /* NSObject+MJCoding.h */,
+				3521D61D1BCE88AD00C4BF0D /* NSObject+MJCoding.m */,
+				3521D61E1BCE88AD00C4BF0D /* NSObject+MJKeyValue.h */,
+				3521D61F1BCE88AD00C4BF0D /* NSObject+MJKeyValue.m */,
+				3521D6201BCE88AE00C4BF0D /* NSObject+MJMember.h */,
+				3521D6211BCE88AE00C4BF0D /* NSObject+MJMember.m */,
+			);
+			path = MJExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +417,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3521D6061BCE888000C4BF0D /* categories.plist in Resources */,
 				3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */,
+				3521D6091BCE888000C4BF0D /* sorts.plist in Resources */,
 				3521D5EE1BCE33D400C4BF0D /* DPHomeTopItem.xib in Resources */,
+				3521D6071BCE888000C4BF0D /* cities.plist in Resources */,
 				3521D5FD1BCE489500C4BF0D /* DPHomeDropdown.xib in Resources */,
+				3521D6081BCE888000C4BF0D /* cityGroups.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,15 +441,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3521D6221BCE88AE00C4BF0D /* MJArgument.m in Sources */,
+				3521D6291BCE88AE00C4BF0D /* MJTypeEncoding.m in Sources */,
 				3521D5E61BCE1FCB00C4BF0D /* UIView+Extension.m in Sources */,
+				3521D6251BCE88AE00C4BF0D /* MJIvar.m in Sources */,
 				3521D5EC1BCE33B100C4BF0D /* DPHomeTopItem.m in Sources */,
 				3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */,
 				3521D5E91BCE202F00C4BF0D /* UIBarButtonItem+Extension.m in Sources */,
 				3521D5DC1BCE0B6500C4BF0D /* DPHomeViewController.m in Sources */,
+				3521D62B1BCE88AE00C4BF0D /* NSObject+MJKeyValue.m in Sources */,
 				3521D5BA1BCDEA0B00C4BF0D /* AppDelegate.m in Sources */,
+				3521D6241BCE88AE00C4BF0D /* MJFoundation.m in Sources */,
 				3521D5B71BCDEA0B00C4BF0D /* main.m in Sources */,
+				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
 				3521D5E21BCE1DEE00C4BF0D /* DPConst.m in Sources */,
+				3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */,
+				3521D62C1BCE88AE00C4BF0D /* NSObject+MJMember.m in Sources */,
+				3521D6001BCE7C4800C4BF0D /* DPCategaryViewController.m in Sources */,
+				3521D6281BCE88AE00C4BF0D /* MJType.m in Sources */,
+				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
+				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
+				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
+				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,
 				3521D5DF1BCE0BF900C4BF0D /* DPNavigationController.m in Sources */,
+				3521D62F1BCE88D200C4BF0D /* DPCategary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

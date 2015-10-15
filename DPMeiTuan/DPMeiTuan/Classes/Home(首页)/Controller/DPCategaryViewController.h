@@ -1,5 +1,5 @@
 //
-//  DPHomeDropdown.h
+//  DPCategaryViewController.h
 //  DPMeiTuan
 //
 //  Created by 土老帽 on 15/10/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DPHomeDropdown : UIView
-+ (instancetype)dropdown;
+@interface DPCategaryViewController : UIViewController
 
-@property (nonatomic, strong) NSArray *categaries;
 @end

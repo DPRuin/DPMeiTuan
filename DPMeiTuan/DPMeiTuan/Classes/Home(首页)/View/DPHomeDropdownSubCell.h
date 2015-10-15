@@ -1,5 +1,5 @@
 //
-//  DPHomeDropdown.h
+//  DPHomeDropdownSubCell.h
 //  DPMeiTuan
 //
 //  Created by 土老帽 on 15/10/14.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DPHomeDropdown : UIView
-+ (instancetype)dropdown;
-
-@property (nonatomic, strong) NSArray *categaries;
+@interface DPHomeDropdownSubCell : UITableViewCell
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

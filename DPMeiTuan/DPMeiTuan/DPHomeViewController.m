@@ -10,8 +10,15 @@
 #import "UIBarButtonItem+Extension.h"
 #import "UIView+Extension.h"
 #import "DPHomeTopItem.h"
+#import "DPCategaryViewController.h"
 
 @interface DPHomeViewController ()
+/** 分类 */
+@property (nonatomic, weak) UIBarButtonItem *categaryItem;
+/** 地区 */
+@property (nonatomic, weak) UIBarButtonItem *districtItem;
+/** 排序 */
+@property (nonatomic, weak) UIBarButtonItem *sortItem;
 
 @end
 
@@ -52,41 +59,48 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)setupLeftNav
 {
     // logo
-    UIBarButtonItem *logo = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStyleDone target:nil action:nil];
-    logo.enabled = NO;
+    UIBarButtonItem *logoItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_meituan_logo"] style:UIBarButtonItemStyleDone target:nil action:nil];
+    logoItem.enabled = NO;
     
     // 类别
-    DPHomeTopItem *categaryItem = [DPHomeTopItem item];
-    [categaryItem addTarget:self action:@selector(categaryClick)];
-    UIBarButtonItem *categary = [[UIBarButtonItem alloc] initWithCustomView:categaryItem];
+    DPHomeTopItem *categaryTopItem = [DPHomeTopItem item];
+    [categaryTopItem addTarget:self action:@selector(categaryClick)];
+    UIBarButtonItem *categaryItem = [[UIBarButtonItem alloc] initWithCustomView:categaryTopItem];
+    self.categaryItem = categaryItem;
     
     // 地区
-    DPHomeTopItem *districtItem = [DPHomeTopItem item];
-    [districtItem addTarget:self action:@selector(districtClick)];
-    UIBarButtonItem *district = [[UIBarButtonItem alloc] initWithCustomView:districtItem];
+    DPHomeTopItem *districtTopItem = [DPHomeTopItem item];
+    [districtTopItem addTarget:self action:@selector(districtClick)];
+    UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];
+    self.districtItem = districtItem;
     
     // 排序
-    DPHomeTopItem *sortItem = [DPHomeTopItem item];
-    [sortItem addTarget:self action:@selector(sortClick)];
-    UIBarButtonItem *sort = [[UIBarButtonItem alloc] initWithCustomView:sortItem];
+    DPHomeTopItem *sortTopItem = [DPHomeTopItem item];
+    [sortTopItem addTarget:self action:@selector(sortClick)];
+    UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
+    self.sortItem = sortItem;
     
-    self.navigationItem.leftBarButtonItems = @[logo, categary, district, sort];
+    self.navigationItem.leftBarButtonItems = @[logoItem, categaryItem, districtItem, sortItem];
 }
 
 - (void)setupRightNav
 {
-    UIBarButtonItem *map = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_map" highlightImage:@"icon_map_highlighted"];
-    map.customView.width = 60;
+    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_map" highlightImage:@"icon_map_highlighted"];
+    mapItem.customView.width = 60;
     
-    UIBarButtonItem *search = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
-    search.customView.width = 60;
-    self.navigationItem.rightBarButtonItems = @[map, search];
+    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
+    searchItem.customView.width = 60;
+    self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
 #pragma mark - 导航栏按钮点击
 - (void)categaryClick
 {
-    NSLog(@"categary");
+    // 显示分类菜单
+    // 创建popo
+    UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPCategaryViewController alloc] init]];
+    // 显示popo
+    [popo presentPopoverFromBarButtonItem:self.categaryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)districtClick
