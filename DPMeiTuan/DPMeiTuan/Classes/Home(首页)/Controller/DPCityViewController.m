@@ -56,6 +56,10 @@
         DPCitySearchResultViewController *citySearchResult = [[DPCitySearchResultViewController alloc] init];
         [self addChildViewController:citySearchResult];
         self.citySearchResult = citySearchResult;
+        
+        [self.view addSubview:self.citySearchResult.view];
+        [self.citySearchResult.view autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+        [self.citySearchResult.view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.searchBar withOffset:15];
     }
     return _citySearchResult;
 }
@@ -120,11 +124,9 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     if (searchText.length) {
-        [self.view addSubview:self.citySearchResult.view];
-        [self.citySearchResult.view autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
-        [self.citySearchResult.view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:searchBar withOffset:15];
+        self.citySearchResult.view.hidden = NO;
     } else {
-        [self.citySearchResult.view removeFromSuperview];
+        self.citySearchResult.view.hidden = YES;
     }
 }
 
