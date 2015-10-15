@@ -7,17 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3521D5B71BCDEA0B00C4BF0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5B61BCDEA0B00C4BF0D /* main.m */; };
-		3521D5BA1BCDEA0B00C4BF0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5B91BCDEA0B00C4BF0D /* AppDelegate.m */; };
 		3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */; };
 		3521D5D11BCDEA0B00C4BF0D /* DPMeiTuanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */; };
-		3521D5DC1BCE0B6500C4BF0D /* DPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5DB1BCE0B6500C4BF0D /* DPHomeViewController.m */; };
-		3521D5DF1BCE0BF900C4BF0D /* DPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5DE1BCE0BF900C4BF0D /* DPNavigationController.m */; };
-		3521D5E21BCE1DEE00C4BF0D /* DPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5E11BCE1DEE00C4BF0D /* DPConst.m */; };
-		3521D5E61BCE1FCB00C4BF0D /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5E51BCE1FCB00C4BF0D /* UIView+Extension.m */; };
-		3521D5E91BCE202F00C4BF0D /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5E81BCE202F00C4BF0D /* UIBarButtonItem+Extension.m */; };
-		3521D5EC1BCE33B100C4BF0D /* DPHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5EB1BCE33B100C4BF0D /* DPHomeTopItem.m */; };
-		3521D5EE1BCE33D400C4BF0D /* DPHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5ED1BCE33D400C4BF0D /* DPHomeTopItem.xib */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
 		3521D5FD1BCE489500C4BF0D /* DPHomeDropdown.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */; };
 		3521D6001BCE7C4800C4BF0D /* DPCategaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FF1BCE7C4800C4BF0D /* DPCategaryViewController.m */; };
@@ -50,6 +41,19 @@
 		3521D6591BCF3CD600C4BF0D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D64B1BCF3CD600C4BF0D /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		3521D65A1BCF3CD600C4BF0D /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D64D1BCF3CD600C4BF0D /* View+MASAdditions.m */; };
 		3521D65B1BCF3CD600C4BF0D /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6501BCF3CD600C4BF0D /* ViewController+MASAdditions.m */; };
+		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
+		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
+		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
+		35DB3C111BCF58380006E2B1 /* DPCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0F1BCF58380006E2B1 /* DPCityViewController.xib */; };
+		35DB3C141BCF5BA20006E2B1 /* DPHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C131BCF5BA20006E2B1 /* DPHomeViewController.m */; };
+		35DB3C181BCF5BC80006E2B1 /* DPHomeTopItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C161BCF5BC80006E2B1 /* DPHomeTopItem.m */; };
+		35DB3C191BCF5BC80006E2B1 /* DPHomeTopItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C171BCF5BC80006E2B1 /* DPHomeTopItem.xib */; };
+		35DB3C201BCF5BEB0006E2B1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C1B1BCF5BEB0006E2B1 /* AppDelegate.m */; };
+		35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C1D1BCF5BEB0006E2B1 /* DPConst.m */; };
+		35DB3C221BCF5BEB0006E2B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C1E1BCF5BEB0006E2B1 /* main.m */; };
+		35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C241BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m */; };
+		35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */; };
+		35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,27 +69,10 @@
 /* Begin PBXFileReference section */
 		3521D5B11BCDEA0B00C4BF0D /* DPMeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPMeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5B51BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3521D5B61BCDEA0B00C4BF0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../main.m; sourceTree = "<group>"; };
-		3521D5B81BCDEA0B00C4BF0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
-		3521D5B91BCDEA0B00C4BF0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../../AppDelegate.m; sourceTree = "<group>"; };
 		3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3521D5CA1BCDEA0B00C4BF0D /* DPMeiTuanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DPMeiTuanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5CF1BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DPMeiTuanTests.m; sourceTree = "<group>"; };
-		3521D5DA1BCE0B6500C4BF0D /* DPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPHomeViewController.h; path = ../../../DPHomeViewController.h; sourceTree = "<group>"; };
-		3521D5DB1BCE0B6500C4BF0D /* DPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPHomeViewController.m; path = ../../../DPHomeViewController.m; sourceTree = "<group>"; };
-		3521D5DD1BCE0BF900C4BF0D /* DPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPNavigationController.h; path = ../../../DPNavigationController.h; sourceTree = "<group>"; };
-		3521D5DE1BCE0BF900C4BF0D /* DPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPNavigationController.m; path = ../../../DPNavigationController.m; sourceTree = "<group>"; };
-		3521D5E01BCE1DEE00C4BF0D /* DPConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPConst.h; path = ../../../DPConst.h; sourceTree = "<group>"; };
-		3521D5E11BCE1DEE00C4BF0D /* DPConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPConst.m; path = ../../../DPConst.m; sourceTree = "<group>"; };
-		3521D5E31BCE1E6100C4BF0D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../../../PrefixHeader.pch; sourceTree = "<group>"; };
-		3521D5E41BCE1FCB00C4BF0D /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Extension.h"; path = "../../../UIView+Extension.h"; sourceTree = "<group>"; };
-		3521D5E51BCE1FCB00C4BF0D /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Extension.m"; path = "../../../UIView+Extension.m"; sourceTree = "<group>"; };
-		3521D5E71BCE202F00C4BF0D /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Extension.h"; path = "../../../UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
-		3521D5E81BCE202F00C4BF0D /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Extension.m"; path = "../../../UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
-		3521D5EA1BCE33B100C4BF0D /* DPHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DPHomeTopItem.h; path = ../../../DPHomeTopItem.h; sourceTree = "<group>"; };
-		3521D5EB1BCE33B100C4BF0D /* DPHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DPHomeTopItem.m; path = ../../../DPHomeTopItem.m; sourceTree = "<group>"; };
-		3521D5ED1BCE33D400C4BF0D /* DPHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DPHomeTopItem.xib; path = ../../../DPHomeTopItem.xib; sourceTree = "<group>"; };
 		3521D5F91BCE487800C4BF0D /* DPHomeDropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeDropdown.h; sourceTree = "<group>"; };
 		3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdown.m; sourceTree = "<group>"; };
 		3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPHomeDropdown.xib; sourceTree = "<group>"; };
@@ -150,6 +137,29 @@
 		3521D64E1BCF3CD600C4BF0D /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		3521D64F1BCF3CD600C4BF0D /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		3521D6501BCF3CD600C4BF0D /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
+		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
+		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
+		35DB3C0D1BCF58380006E2B1 /* DPCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCityViewController.h; sourceTree = "<group>"; };
+		35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCityViewController.m; sourceTree = "<group>"; };
+		35DB3C0F1BCF58380006E2B1 /* DPCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPCityViewController.xib; sourceTree = "<group>"; };
+		35DB3C121BCF5BA20006E2B1 /* DPHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeViewController.h; sourceTree = "<group>"; };
+		35DB3C131BCF5BA20006E2B1 /* DPHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeViewController.m; sourceTree = "<group>"; };
+		35DB3C151BCF5BC80006E2B1 /* DPHomeTopItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeTopItem.h; sourceTree = "<group>"; };
+		35DB3C161BCF5BC80006E2B1 /* DPHomeTopItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeTopItem.m; sourceTree = "<group>"; };
+		35DB3C171BCF5BC80006E2B1 /* DPHomeTopItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPHomeTopItem.xib; sourceTree = "<group>"; };
+		35DB3C1A1BCF5BEB0006E2B1 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		35DB3C1B1BCF5BEB0006E2B1 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		35DB3C1C1BCF5BEB0006E2B1 /* DPConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConst.h; sourceTree = "<group>"; };
+		35DB3C1D1BCF5BEB0006E2B1 /* DPConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPConst.m; sourceTree = "<group>"; };
+		35DB3C1E1BCF5BEB0006E2B1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		35DB3C1F1BCF5BEB0006E2B1 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		35DB3C231BCF5CE30006E2B1 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		35DB3C241BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		35DB3C251BCF5CE30006E2B1 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		35DB3C291BCF5CF70006E2B1 /* DPNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPNavigationController.h; sourceTree = "<group>"; };
+		35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,10 +256,16 @@
 		3521D5F11BCE40C200C4BF0D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3521D5DA1BCE0B6500C4BF0D /* DPHomeViewController.h */,
-				3521D5DB1BCE0B6500C4BF0D /* DPHomeViewController.m */,
+				35DB3C121BCF5BA20006E2B1 /* DPHomeViewController.h */,
+				35DB3C131BCF5BA20006E2B1 /* DPHomeViewController.m */,
 				3521D5FE1BCE7C4800C4BF0D /* DPCategaryViewController.h */,
 				3521D5FF1BCE7C4800C4BF0D /* DPCategaryViewController.m */,
+				35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */,
+				35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */,
+				35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */,
+				35DB3C0D1BCF58380006E2B1 /* DPCityViewController.h */,
+				35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */,
+				35DB3C0F1BCF58380006E2B1 /* DPCityViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -266,9 +282,9 @@
 		3521D5F31BCE40C200C4BF0D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3521D5EA1BCE33B100C4BF0D /* DPHomeTopItem.h */,
-				3521D5EB1BCE33B100C4BF0D /* DPHomeTopItem.m */,
-				3521D5ED1BCE33D400C4BF0D /* DPHomeTopItem.xib */,
+				35DB3C151BCF5BC80006E2B1 /* DPHomeTopItem.h */,
+				35DB3C161BCF5BC80006E2B1 /* DPHomeTopItem.m */,
+				35DB3C171BCF5BC80006E2B1 /* DPHomeTopItem.xib */,
 				3521D5F91BCE487800C4BF0D /* DPHomeDropdown.h */,
 				3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */,
 				3521D5FC1BCE489400C4BF0D /* DPHomeDropdown.xib */,
@@ -294,10 +310,10 @@
 		3521D5F51BCE40C200C4BF0D /* Categary */ = {
 			isa = PBXGroup;
 			children = (
-				3521D5E41BCE1FCB00C4BF0D /* UIView+Extension.h */,
-				3521D5E51BCE1FCB00C4BF0D /* UIView+Extension.m */,
-				3521D5E71BCE202F00C4BF0D /* UIBarButtonItem+Extension.h */,
-				3521D5E81BCE202F00C4BF0D /* UIBarButtonItem+Extension.m */,
+				35DB3C231BCF5CE30006E2B1 /* UIBarButtonItem+Extension.h */,
+				35DB3C241BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m */,
+				35DB3C251BCF5CE30006E2B1 /* UIView+Extension.h */,
+				35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */,
 			);
 			path = Categary;
 			sourceTree = "<group>";
@@ -305,8 +321,8 @@
 		3521D5F61BCE40C200C4BF0D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3521D5DD1BCE0BF900C4BF0D /* DPNavigationController.h */,
-				3521D5DE1BCE0BF900C4BF0D /* DPNavigationController.m */,
+				35DB3C291BCF5CF70006E2B1 /* DPNavigationController.h */,
+				35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -323,12 +339,12 @@
 		3521D5F81BCE40C200C4BF0D /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				3521D5B61BCDEA0B00C4BF0D /* main.m */,
-				3521D5E31BCE1E6100C4BF0D /* PrefixHeader.pch */,
-				3521D5E01BCE1DEE00C4BF0D /* DPConst.h */,
-				3521D5E11BCE1DEE00C4BF0D /* DPConst.m */,
-				3521D5B81BCDEA0B00C4BF0D /* AppDelegate.h */,
-				3521D5B91BCDEA0B00C4BF0D /* AppDelegate.m */,
+				35DB3C1A1BCF5BEB0006E2B1 /* AppDelegate.h */,
+				35DB3C1B1BCF5BEB0006E2B1 /* AppDelegate.m */,
+				35DB3C1C1BCF5BEB0006E2B1 /* DPConst.h */,
+				35DB3C1D1BCF5BEB0006E2B1 /* DPConst.m */,
+				35DB3C1E1BCF5BEB0006E2B1 /* main.m */,
+				35DB3C1F1BCF5BEB0006E2B1 /* PrefixHeader.pch */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -492,7 +508,9 @@
 				3521D6061BCE888000C4BF0D /* categories.plist in Resources */,
 				3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */,
 				3521D6091BCE888000C4BF0D /* sorts.plist in Resources */,
-				3521D5EE1BCE33D400C4BF0D /* DPHomeTopItem.xib in Resources */,
+				35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */,
+				35DB3C191BCF5BC80006E2B1 /* DPHomeTopItem.xib in Resources */,
+				35DB3C111BCF58380006E2B1 /* DPCityViewController.xib in Resources */,
 				3521D6071BCE888000C4BF0D /* cities.plist in Resources */,
 				3521D5FD1BCE489500C4BF0D /* DPHomeDropdown.xib in Resources */,
 				3521D6081BCE888000C4BF0D /* cityGroups.plist in Resources */,
@@ -517,35 +535,37 @@
 				3521D6291BCE88AE00C4BF0D /* MJTypeEncoding.m in Sources */,
 				3521D6561BCF3CD600C4BF0D /* MASViewAttribute.m in Sources */,
 				3521D6581BCF3CD600C4BF0D /* NSArray+MASAdditions.m in Sources */,
-				3521D5E61BCE1FCB00C4BF0D /* UIView+Extension.m in Sources */,
+				35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */,
+				35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */,
 				3521D6251BCE88AE00C4BF0D /* MJIvar.m in Sources */,
-				3521D5EC1BCE33B100C4BF0D /* DPHomeTopItem.m in Sources */,
 				3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */,
-				3521D5E91BCE202F00C4BF0D /* UIBarButtonItem+Extension.m in Sources */,
-				3521D5DC1BCE0B6500C4BF0D /* DPHomeViewController.m in Sources */,
 				3521D62B1BCE88AE00C4BF0D /* NSObject+MJKeyValue.m in Sources */,
-				3521D5BA1BCDEA0B00C4BF0D /* AppDelegate.m in Sources */,
 				3521D6241BCE88AE00C4BF0D /* MJFoundation.m in Sources */,
-				3521D5B71BCDEA0B00C4BF0D /* main.m in Sources */,
+				35DB3C221BCF5BEB0006E2B1 /* main.m in Sources */,
+				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
 				3521D6531BCF3CD600C4BF0D /* MASConstraint.m in Sources */,
 				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
+				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				3521D6571BCF3CD600C4BF0D /* MASViewConstraint.m in Sources */,
 				3521D65A1BCF3CD600C4BF0D /* View+MASAdditions.m in Sources */,
+				35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */,
 				3521D6541BCF3CD600C4BF0D /* MASConstraintMaker.m in Sources */,
-				3521D5E21BCE1DEE00C4BF0D /* DPConst.m in Sources */,
 				3521D6521BCF3CD600C4BF0D /* MASCompositeConstraint.m in Sources */,
 				3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */,
+				35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */,
 				3521D62C1BCE88AE00C4BF0D /* NSObject+MJMember.m in Sources */,
 				3521D6001BCE7C4800C4BF0D /* DPCategaryViewController.m in Sources */,
 				3521D6591BCF3CD600C4BF0D /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				35DB3C201BCF5BEB0006E2B1 /* AppDelegate.m in Sources */,
 				3521D6281BCE88AE00C4BF0D /* MJType.m in Sources */,
 				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
 				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
 				3521D6551BCF3CD600C4BF0D /* MASLayoutConstraint.m in Sources */,
 				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,
-				3521D5DF1BCE0BF900C4BF0D /* DPNavigationController.m in Sources */,
+				35DB3C141BCF5BA20006E2B1 /* DPHomeViewController.m in Sources */,
 				3521D65B1BCF3CD600C4BF0D /* ViewController+MASAdditions.m in Sources */,
+				35DB3C181BCF5BC80006E2B1 /* DPHomeTopItem.m in Sources */,
 				3521D62F1BCE88D200C4BF0D /* DPCategary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,7 +676,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PREFIX_HEADER = DPMeiTuan/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = DPMeiTuan/Classes/Main/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = DPMeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -668,7 +688,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PREFIX_HEADER = DPMeiTuan/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = DPMeiTuan/Classes/Main/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = DPMeiTuan/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -728,6 +748,7 @@
 				3521D5D61BCDEA0B00C4BF0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3521D5D71BCDEA0B00C4BF0D /* Build configuration list for PBXNativeTarget "DPMeiTuanTests" */ = {
 			isa = XCConfigurationList;
@@ -736,6 +757,7 @@
 				3521D5D91BCDEA0B00C4BF0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

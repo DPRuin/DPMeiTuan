@@ -11,6 +11,7 @@
 #import "UIView+Extension.h"
 #import "DPHomeTopItem.h"
 #import "DPCategaryViewController.h"
+#import "DPDistrictViewController.h"
 
 @interface DPHomeViewController ()
 /** 分类 */
@@ -105,7 +106,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)districtClick
 {
-    NSLog(@"district");
+    // 显示区域菜单
+    UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPDistrictViewController alloc] init]];
+    [popo presentPopoverFromBarButtonItem:self.districtItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 - (void)sortClick
