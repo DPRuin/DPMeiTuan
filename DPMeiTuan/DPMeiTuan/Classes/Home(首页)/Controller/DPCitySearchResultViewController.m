@@ -7,8 +7,16 @@
 //
 
 #import "DPCitySearchResultViewController.h"
+#import "DPCity.h"
+#import "MJExtension.h"
 
 @interface DPCitySearchResultViewController ()
+/** 所有模型数组 （存放DPCity） */
+@property (nonatomic, strong) NSArray *cities;
+
+/** 搜索结果 模型数组（DPCity） */
+@property (nonatomic, strong) NSMutableArray *resultCities;
+
 
 @end
 
@@ -24,14 +32,36 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSArray *)cities
+{
+    if (!_cities) {
+        self.cities = [DPCity objectArrayWithFilename:@"cities.plist"];
+    }
+    return  _cities;
+}
+
+- (void)setSearchText:(NSString *)searchText
+{
+    _searchText = searchText;
+    
+    // 搜索城市
+    self.resultCities = [NSMutableArray array];
+    for (DPCity *city in self.cities) {
+        searchText = searchText.lowercaseString;
+        if ([city.name containsString:searchText] || [city.pinYin containsString:searchText] || [city.pinYinHead containsString:searchText]) {
+            [self.resultCities addObject:city];
+        }
+    }
+    
+    // 刷新数据
+    [self.tableView reloadData];
+    
+    
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 50;
+    return self.resultCities.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -41,10 +71,16 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
+    DPCity *resultCity = self.resultCities[indexPath.row];
+    cell.textLabel.text = resultCity.name;
     
     return cell;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [NSString stringWithFormat:@"共有%zd个搜索结果", self.resultCities.count];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -117,7 +117,20 @@
     [UIView animateWithDuration:0.5 animations:^{
         self.cover.alpha = 0;
     }];
+    
+    // 搜索结果移除
+    self.citySearchResult.view.hidden = YES;
+    self.searchBar.text = nil;
 }
+
+/**
+ *  搜索框右边取消按钮点击了就会调用
+ */
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
+
 /**
  *  搜索框里面的文字改变就会调用
  */
@@ -125,6 +138,7 @@
 {
     if (searchText.length) {
         self.citySearchResult.view.hidden = NO;
+        self.citySearchResult.searchText = searchText;
     } else {
         self.citySearchResult.view.hidden = YES;
     }
