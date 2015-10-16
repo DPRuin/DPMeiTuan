@@ -15,7 +15,8 @@
 @property (nonatomic, strong) NSArray *cities;
 
 /** 搜索结果 模型数组（DPCity） */
-@property (nonatomic, strong) NSMutableArray *resultCities;
+// @property (nonatomic, strong) NSMutableArray *resultCities;
+@property (nonatomic, strong) NSArray *resultCities;
 
 
 @end
@@ -44,15 +45,19 @@
 {
     _searchText = searchText;
     
-    // 搜索城市
-    self.resultCities = [NSMutableArray array];
-    for (DPCity *city in self.cities) {
-        searchText = searchText.lowercaseString;
-        if ([city.name containsString:searchText] || [city.pinYin containsString:searchText] || [city.pinYinHead containsString:searchText]) {
-            [self.resultCities addObject:city];
-        }
-    }
+    // 根据关键字搜索城市数据
+//    self.resultCities = [NSMutableArray array];
+//    for (DPCity *city in self.cities) {
+//        searchText = searchText.lowercaseString;
+//        if ([city.name containsString:searchText] || [city.pinYin containsString:searchText] || [city.pinYinHead containsString:searchText]) {
+//            [self.resultCities addObject:city];
+//        }
+//    }
     
+    // 谓词\过滤器:能利用一定的条件从一个数组中过滤出想要的数据
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@ OR pinYin CONTAINS %@ OR pinYinHead CONTAINS %@", searchText, searchText, searchText];
+    NSArray *resultCities = [self.cities filteredArrayUsingPredicate:predicate];
+    self.resultCities = resultCities;
     // 刷新数据
     [self.tableView reloadData];
     
