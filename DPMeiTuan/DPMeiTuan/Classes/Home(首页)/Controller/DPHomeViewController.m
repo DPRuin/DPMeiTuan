@@ -49,11 +49,23 @@ static NSString * const reuseIdentifier = @"Cell";
     [self setupLeftNav];
     [self setupRightNav];
     
+    // 监听通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:DPCityDidChangeNotification object:nil];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+/**
+ *  通知方法
+ */
+- (void)cityDidChange:(NSNotification *)notification
+{
+    NSString *cityName = notification.userInfo[DPSelectCityName];
+    NSLog(@"%@", cityName);
 }
 
 #pragma mark - 设置导航栏内容

@@ -87,6 +87,18 @@
     return [NSString stringWithFormat:@"共有%zd个搜索结果", self.resultCities.count];
 }
 
+#pragma mark - TableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DPCity *resultCity = self.resultCities[indexPath.row];
+    
+    // 发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPCityDidChangeNotification object:nil userInfo:@{DPSelectCityName : resultCity.name}];
+    
+    // 移除控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

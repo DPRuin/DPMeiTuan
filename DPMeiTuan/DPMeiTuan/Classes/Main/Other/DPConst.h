@@ -1,3 +1,4 @@
+#import <Foundation/Foundation.h>
 
 #ifdef DEBUG
 #define DPLog(...) NSLog(__VA_ARGS__)
@@ -9,3 +10,6 @@
 #define DPGlobalBg DPColor(230, 230, 230)
 
 #define DPGreenColor DPColor(32, 191, 179)
+
+extern NSString *const DPCityDidChangeNotification;
+extern NSString *const DPSelectCityName;

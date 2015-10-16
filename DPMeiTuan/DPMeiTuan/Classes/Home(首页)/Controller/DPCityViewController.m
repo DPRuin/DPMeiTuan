@@ -186,7 +186,15 @@
 }
 
 #pragma mark - UITableViewDelegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DPCityGroup *cityGroup = self.cityGroups[indexPath.section];
+    // 发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPCityDidChangeNotification object:nil userInfo:@{DPSelectCityName : cityGroup.cities[indexPath.row]}];
+    
+    // 移除控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 @end
