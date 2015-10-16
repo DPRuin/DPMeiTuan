@@ -66,6 +66,13 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     NSString *cityName = notification.userInfo[DPSelectCityName];
     NSLog(@"%@", cityName);
+    // 更改顶部区域item的文字
+    DPHomeTopItem *topItem = (DPHomeTopItem *)self.districtItem.customView;
+    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部", cityName]];
+    [topItem setSubTitle:nil];
+    
+    // 刷新表格数据
+    
 }
 
 #pragma mark - 设置导航栏内容

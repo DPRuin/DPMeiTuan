@@ -18,4 +18,8 @@
  *  @param action 监听方法
  */
 - (void)addTarget:(id)target action:(SEL)action;
+
+- (void)setTitle:(NSString *)title;
+- (void)setSubTitle:(NSString *)subTitle;
+- (void)setIcon:(UIImage *)icon highIcon:(UIImage *)highIcon;
 @end
