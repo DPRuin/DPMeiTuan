@@ -11,4 +11,6 @@
 @interface DPDistrictViewController : UIViewController
 /** 区域模型数组（存放DPRegion模型） */
 @property (nonatomic, strong) NSArray *regions;
+
+@property (nonatomic, weak) UIPopoverController *districtPopo;
 @end

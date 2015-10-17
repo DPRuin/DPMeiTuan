@@ -22,9 +22,9 @@
     if (self = [super initWithFrame:frame]) {
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
-        [self setBackgroundImage:[UIImage imageNamed:@"btn_filter_normal"] forState:UIControlStateNormal];
+        // [self setBackgroundImage:[UIImage imageNamed:@"btn_filter_normal"] forState:UIControlStateNormal];
         [self setBackgroundImage:[UIImage imageNamed:@"btn_filter_selected"] forState:UIControlStateHighlighted];
-        self.titleLabel.font = [UIFont systemFontOfSize:15];
+        self.titleLabel.font = [UIFont systemFontOfSize:15]; 
     }
     return self;
 }
@@ -67,7 +67,7 @@
     [subviews autoDistributeViewsAlongAxis:ALAxisVertical withFixedSize:30.0f insetSpacing:YES alignment:NSLayoutFormatAlignAllCenterX];
     
      // 设置popover的尺寸
-     self.preferredContentSize = CGSizeMake(130, 300);
+     self.preferredContentSize = CGSizeMake(120, 280);
 }
 
 - (void)buttonClick:(DPSortButton *)btn

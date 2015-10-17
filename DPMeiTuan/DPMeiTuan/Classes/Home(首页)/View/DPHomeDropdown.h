@@ -14,8 +14,8 @@
 - (NSString *)title;
 - (NSArray *)subData;
 @optional
-- (UIImage *)icon;
-- (UIImage *)selectedIcon;
+- (UIImage *)cellIcon;
+- (UIImage *)selectedCellIcon;
 
 @end
 
@@ -33,34 +33,19 @@
  */
 - (id<DPHomeDropdownData>)homeDropdown:(DPHomeDropdown *)dropdown dataForRow:(NSInteger)row;
 
-///**
-// *  每一行的表标题
-// *  @param row      行号
-// */
-//- (NSString *)homeDropdown:(DPHomeDropdown *)dropdown titleForRow:(NSInteger)row;
-///**
-// *  每一行的次表的数据
-// *  @param row      行号
-// */
-//- (NSArray *)homeDropdown:(DPHomeDropdown *)dropdown subdataForRow:(NSInteger)row;
-//
-//@optional
-///**
-// *  每一行图标
-// *  @param row      行号
-// */
-//- (UIImage *)homeDropdown:(DPHomeDropdown *)dropdown iconForRow:(NSInteger)row;
-///**
-// *  每一行的选中图标
-// *  @param row      行号
-// */
-//- (UIImage *)homeDropdown:(DPHomeDropdown *)dropdown selectedIconForRow:(NSInteger)row;
+@end
 
+@protocol DPHomeDropdownDelegate <NSObject>
+
+@optional
+- (void)homeDropdown:(DPHomeDropdown *)dropdown didSelectRowInMainTable:(NSInteger)row;
+- (void)homeDropdown:(DPHomeDropdown *)dropdown didSelectRowInSubTable:(NSInteger)subRow inMainTable:(NSInteger)mainRow;
 @end
 
 @interface DPHomeDropdown : UIView
 + (instancetype)dropdown;
 
 @property (nonatomic, weak) id<DPHomeDropdownDataSource> dataSource;
+@property (nonatomic, weak) id<DPHomeDropdownDelegate> delegate;
 
 @end

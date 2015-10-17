@@ -15,5 +15,16 @@
 extern NSString *const DPCityDidChangeNotification;
 extern NSString *const DPSelectCityName;
 
+// 通知 排序改变
 extern NSString *const DPSortDidChangeNotification;
 extern NSString *const DPSelectSort;
+
+// 通知 区域改变
+extern NSString *const DPDistrictDidChangeNotification;
+extern NSString *const DPSelectRegion;
+extern NSString *const DPSelectSubregionName;
+
+// 通知 分类改变
+extern NSString *const DPCategaryDidChangeNotification;
+extern NSString *const DPSelectCategary;
+extern NSString *const DPSelectSubCategaryName;

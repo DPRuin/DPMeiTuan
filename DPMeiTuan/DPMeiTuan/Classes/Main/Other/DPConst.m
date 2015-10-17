@@ -5,3 +5,11 @@ NSString *const DPSelectCityName = @"DPSelectCityName";
 
 NSString *const DPSortDidChangeNotification = @"DPSortDidChangeNotification";
 NSString *const DPSelectSort = @"DPSelectSort";
+
+NSString *const DPDistrictDidChangeNotification = @"DPDistrictDidChangeNotification";
+NSString *const DPSelectRegion = @"DPSelectRegion";
+NSString *const DPSelectSubregionName = @"DPSelectSubregionName";
+
+NSString *const DPCategaryDidChangeNotification = @"DPCategaryDidChangeNotification";
+NSString *const DPSelectCategary = @"DPSelectCategary";
+NSString *const DPSelectSubCategaryName = @"DPSelectSubCategaryName";

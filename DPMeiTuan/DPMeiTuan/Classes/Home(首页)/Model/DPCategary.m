@@ -22,11 +22,11 @@
 {
     return self.subcategories;
 }
-- (UIImage *)icon
+- (UIImage *)cellIcon
 {
     return [UIImage imageNamed:self.small_icon];
 }
-- (UIImage *)selectedIcon
+- (UIImage *)selectedCellIcon
 {
     return [UIImage imageNamed:self.small_highlighted_icon];
 }

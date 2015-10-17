@@ -18,18 +18,17 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-yj-0Yf">
-                    <rect key="frame" x="60" y="0.0" width="100" height="18"/>
+                    <rect key="frame" x="54" y="0.0" width="106" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="18" id="dST-zD-PDc"/>
-                        <constraint firstAttribute="width" constant="100" id="tAc-H1-p16"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="子标题" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADE-v6-W6G" userLabel="子标题">
-                    <rect key="frame" x="60" y="18" width="100" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="54" y="18" width="106" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -43,6 +42,7 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="bTa-yj-0Yf" firstAttribute="leading" secondItem="TvQ-1p-3IZ" secondAttribute="trailing" constant="48" id="0N3-gs-w8z"/>
                 <constraint firstItem="ABS-dz-hh0" firstAttribute="top" secondItem="yM5-SD-LIa" secondAttribute="top" id="7mO-iO-OwD"/>
                 <constraint firstItem="bTa-yj-0Yf" firstAttribute="top" secondItem="yM5-SD-LIa" secondAttribute="top" id="8e0-CG-fNl"/>
                 <constraint firstItem="TvQ-1p-3IZ" firstAttribute="leading" secondItem="yM5-SD-LIa" secondAttribute="leading" constant="5" id="Ipn-I6-6Ol"/>

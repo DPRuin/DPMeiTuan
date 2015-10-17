@@ -16,6 +16,8 @@
 #import "DPCity.h"
 #import "DPSortViewController.h"
 #import "DPSort.h"
+#import "DPRegion.h"
+#import "DPCategary.h"
 
 @interface DPHomeViewController ()
 /** 分类 */
@@ -29,6 +31,13 @@
 @property (nonatomic, copy) NSString *selectedCityName;
 /** 选中的排序 */
 @property (nonatomic, strong) DPSort *selectedSort;
+
+/** 分类popover */
+@property (nonatomic, strong) UIPopoverController *categaryPopo;
+/** 地区popover */
+@property (nonatomic, strong) UIPopoverController *districtPopo;
+/** 排序popover */
+@property (nonatomic, strong) UIPopoverController *sortPopo;
 @end
 
 @implementation DPHomeViewController
@@ -61,12 +70,55 @@ static NSString * const reuseIdentifier = @"Cell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:DPCityDidChangeNotification object:nil];
     // 监听排序改变通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sortDidChange:) name:DPSortDidChangeNotification object:nil];
-    
+    // 监听区域改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(districtDidChange:) name:DPDistrictDidChangeNotification object:nil];
+    // 监听分类改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categaryDidChange:) name:DPCategaryDidChangeNotification object:nil];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 监听通知方法
+/**
+ *  分类改变通知方法
+ */
+- (void)categaryDidChange:(NSNotification *)notification
+{
+    DPCategary *categary = notification.userInfo[DPSelectCategary];
+    NSString *subCategaryName = notification.userInfo[DPSelectSubCategaryName];
+    // 更改顶部区域item的文字
+    DPHomeTopItem *topItem = (DPHomeTopItem *)self.categaryItem.customView;
+    [topItem setTitle:categary.name];
+    [topItem setSubTitle:subCategaryName];
+    [topItem setIcon:[UIImage imageNamed:categary.icon] highIcon:[UIImage imageNamed:categary.highlighted_icon]];
+    
+    // 关闭popover
+    [self.categaryPopo dismissPopoverAnimated:YES];
+    
+    // 刷新表格数据
+#warning todo
+}
+
+/**
+ *  区域改变通知方法
+ */
+- (void)districtDidChange:(NSNotification *)notification
+{
+    DPRegion *region = notification.userInfo[DPSelectRegion];
+    NSString *subregionName = notification.userInfo[DPSelectSubregionName];
+    // 更改顶部区域item的文字
+    DPHomeTopItem *topItem = (DPHomeTopItem *)self.districtItem.customView;
+    [topItem setTitle:[NSString stringWithFormat:@"%@ - %@", self.selectedCityName, region.name]];
+    [topItem setSubTitle:subregionName];
+    
+    // 关闭popover
+    [self.districtPopo dismissPopoverAnimated:YES];
+    
+    // 刷新表格数据
+#warning todo
 }
 
 /**
@@ -77,9 +129,13 @@ static NSString * const reuseIdentifier = @"Cell";
     self.selectedSort = notification.userInfo[DPSelectSort];
     // 更改顶部区域item的文字
     DPHomeTopItem *topItem = (DPHomeTopItem *)self.sortItem.customView;
-    [topItem setSubTitle:[NSString stringWithFormat:@"%@", self.selectedSort.label]];
+    [topItem setSubTitle:self.selectedSort.label];
+    
+    // 关闭popover
+    [self.sortPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
+#warning todo
 }
 
 /**
@@ -94,6 +150,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [topItem setSubTitle:nil];
     
     // 刷新表格数据
+#warning todo
     
 }
 
@@ -113,6 +170,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 地区
     DPHomeTopItem *districtTopItem = [DPHomeTopItem item];
     [districtTopItem addTarget:self action:@selector(districtClick)];
+    [districtTopItem setIcon:[UIImage imageNamed:@"icon_district"] highIcon:[UIImage imageNamed:@"icon_district_highlighted"]];
     UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];
     self.districtItem = districtItem;
     
@@ -120,6 +178,7 @@ static NSString * const reuseIdentifier = @"Cell";
     DPHomeTopItem *sortTopItem = [DPHomeTopItem item];
     [sortTopItem addTarget:self action:@selector(sortClick)];
     [sortTopItem setTitle:@"排序"];
+    [sortTopItem setIcon:[UIImage imageNamed:@"icon_sort"] highIcon:[UIImage imageNamed:@"icon_sort_highlighted"]];
     UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
     self.sortItem = sortItem;
     
@@ -144,6 +203,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPCategaryViewController alloc] init]];
     // 显示popo
     [popo presentPopoverFromBarButtonItem:self.categaryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    self.categaryPopo = popo;
 }
 
 - (void)districtClick
@@ -156,9 +216,12 @@ static NSString * const reuseIdentifier = @"Cell";
         //加载区域数据
         districtViewController.regions = selectedCity.regions;
     }
+    
     // 显示区域菜单
     UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:districtViewController];
     [popo presentPopoverFromBarButtonItem:self.districtItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    self.districtPopo = popo;
+    districtViewController.districtPopo = popo;
 }
 
 - (void)sortClick
@@ -166,6 +229,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 显示区域菜单
     UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPSortViewController alloc] init]];
     [popo presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    self.sortPopo = popo;
 }
 
 /*

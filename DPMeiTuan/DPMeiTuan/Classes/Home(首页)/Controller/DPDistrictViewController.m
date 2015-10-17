@@ -12,8 +12,9 @@
 #import "DPHomeDropdown.h"
 #import "UIView+AutoLayout.h"
 #import "DPMetalTool.h"
+#import "DPRegion.h"
 
-@interface DPDistrictViewController () <DPHomeDropdownDataSource>
+@interface DPDistrictViewController () <DPHomeDropdownDataSource, DPHomeDropdownDelegate>
 - (IBAction)changeCity:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 
@@ -25,8 +26,8 @@
     [super viewDidLoad];
     // 创建下拉菜单
     DPHomeDropdown *dropdown = [DPHomeDropdown dropdown];
-    dropdown.backgroundColor = [UIColor redColor];
     dropdown.dataSource = self;
+    dropdown.delegate = self;
     [self.view addSubview:dropdown];
     // 添加约束
     [dropdown autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
@@ -38,12 +39,14 @@
  *  切换城市
  */
 - (IBAction)changeCity:(UIButton *)sender {
+    // 清除popo
+    [self.districtPopo dismissPopoverAnimated:YES];
     
     DPCityViewController *city = [[DPCityViewController alloc] init];
     DPNavigationController *nav = [[DPNavigationController alloc] initWithRootViewController:city];
     nav.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    [self presentViewController:nav animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - DPHomeDropdownDataSource
@@ -57,4 +60,23 @@
     return self.regions[row];
 }
 
+#pragma mark - DPHomeDropdownDelegate
+- (void)homeDropdown:(DPHomeDropdown *)dropdown didSelectRowInMainTable:(NSInteger)row
+{
+    // 取出模型
+    DPRegion *region = self.regions[row];
+    // 发出通知
+    if (region.subregions.count == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:DPDistrictDidChangeNotification object:nil userInfo:@{DPSelectRegion : region}];
+    }
+    
+}
+- (void)homeDropdown:(DPHomeDropdown *)dropdown didSelectRowInSubTable:(NSInteger)subRow inMainTable:(NSInteger)mainRow
+{
+    // 取出模型
+    DPRegion *region = self.regions[mainRow];
+    
+    // 发出通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPDistrictDidChangeNotification object:nil userInfo:@{DPSelectRegion : region, DPSelectSubregionName : region.subregions[subRow]}];
+}
 @end

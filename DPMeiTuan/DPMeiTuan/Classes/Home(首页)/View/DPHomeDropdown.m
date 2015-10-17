@@ -14,7 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
-@property (nonatomic, assign) id<DPHomeDropdownData> selectedData;
+@property (nonatomic, strong) id<DPHomeDropdownData> selectedData;
+
 @end
 
 @implementation DPHomeDropdown
@@ -43,11 +44,11 @@
         // 加载数据模型
         id<DPHomeDropdownData> cellData = [self.dataSource homeDropdown:self dataForRow:indexPath.row];
         cell.textLabel.text = cellData.title;
-        if ([cellData respondsToSelector:@selector(icon)]) {
-            cell.imageView.image = cellData.icon;
+        if ([cellData respondsToSelector:@selector(cellIcon)]) {
+            cell.imageView.image = cellData.cellIcon;
         }
-        if ([cellData respondsToSelector:@selector(selectedIcon)]) {
-            cell.imageView.highlightedImage = cellData.selectedIcon;
+        if ([cellData respondsToSelector:@selector(selectedCellIcon)]) {
+            cell.imageView.highlightedImage = cellData.selectedCellIcon;
         }
     
         if (cellData.subData.count) {
@@ -66,13 +67,24 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == self.mainTableView) {
+    static NSInteger selectedMainRow;
+    if (tableView == self.mainTableView) { // 主表
         // 被点击的分类
         self.selectedData = [self.dataSource homeDropdown:self dataForRow:indexPath.row];
+        selectedMainRow = indexPath.row;
         
-        // 刷新次菜单数据
+        // 刷新次列表数据
         [self.subTableView reloadData];
+        // 通知代理
+        if ([self.delegate respondsToSelector:@selector(homeDropdown:didSelectRowInMainTable:)]) {
+            [self.delegate homeDropdown:self didSelectRowInMainTable:selectedMainRow];
+        }
 
+    } else { // 次表
+        // 通知代理
+        if ([self.delegate respondsToSelector:@selector(homeDropdown:didSelectRowInSubTable:inMainTable:)]) {
+            [self.delegate homeDropdown:self didSelectRowInSubTable:indexPath.row inMainTable:selectedMainRow];
+        }
     }
 
 }
