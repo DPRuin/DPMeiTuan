@@ -9,9 +9,13 @@
 #import "DPDistrictViewController.h"
 #import "DPCityViewController.h"
 #import "DPNavigationController.h"
+#import "DPHomeDropdown.h"
+#import "UIView+AutoLayout.h"
+#import "DPMetalTool.h"
 
-@interface DPDistrictViewController ()
+@interface DPDistrictViewController () <DPHomeDropdownDataSource>
 - (IBAction)changeCity:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 @end
 
@@ -19,7 +23,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // 创建下拉菜单
+    DPHomeDropdown *dropdown = [DPHomeDropdown dropdown];
+    dropdown.backgroundColor = [UIColor redColor];
+    dropdown.dataSource = self;
+    [self.view addSubview:dropdown];
+    // 添加约束
+    [dropdown autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+    [dropdown autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.topView];
+
 }
 
 /**
@@ -33,4 +45,16 @@
     
     [self presentViewController:nav animated:YES completion:nil];
 }
+
+#pragma mark - DPHomeDropdownDataSource
+- (NSInteger)numberOfRowsHomeDropdow:(DPHomeDropdown *)dropdown
+{
+    return self.regions.count;
+}
+
+- (id<DPHomeDropdownData>)homeDropdown:(DPHomeDropdown *)dropdown dataForRow:(NSInteger)row
+{
+    return self.regions[row];
+}
+
 @end

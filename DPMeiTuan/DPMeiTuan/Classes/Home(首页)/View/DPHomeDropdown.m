@@ -7,7 +7,6 @@
 //
 
 #import "DPHomeDropdown.h"
-#import "DPCategary.h"
 #import "DPHomeDropdownSubCell.h"
 #import "DPHomeDropdownMainCell.h"
 
@@ -15,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *mainTableView;
 @property (weak, nonatomic) IBOutlet UITableView *subTableView;
 
-@property (nonatomic, strong) DPCategary *selectCategary;
+@property (nonatomic, assign) id<DPHomeDropdownData> selectedData;
 @end
 
 @implementation DPHomeDropdown
@@ -29,9 +28,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.mainTableView) {
-        return self.categaries.count;
+        return [self.dataSource numberOfRowsHomeDropdow:self];
     } else {
-        return self.selectCategary.subcategories.count;
+        return self.selectedData.subData.count;
     }
     
 }
@@ -42,17 +41,23 @@
         cell = [DPHomeDropdownMainCell cellWithTableView:tableView];
         
         // 加载数据模型
-        DPCategary *categary = self.categaries[indexPath.row];
-        cell.textLabel.text = categary.name;
-        cell.imageView.image = [UIImage imageNamed:categary.small_icon];
-        if (categary.subcategories.count) {
+        id<DPHomeDropdownData> cellData = [self.dataSource homeDropdown:self dataForRow:indexPath.row];
+        cell.textLabel.text = cellData.title;
+        if ([cellData respondsToSelector:@selector(icon)]) {
+            cell.imageView.image = cellData.icon;
+        }
+        if ([cellData respondsToSelector:@selector(selectedIcon)]) {
+            cell.imageView.highlightedImage = cellData.selectedIcon;
+        }
+    
+        if (cellData.subData.count) {
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         } else {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
     } else { // 次表
         cell = [DPHomeDropdownSubCell cellWithTableView:tableView];
-        cell.textLabel.text = self.selectCategary.subcategories[indexPath.row];
+        cell.textLabel.text = self.selectedData.subData[indexPath.row];
     }
 
     return cell;
@@ -63,7 +68,7 @@
 {
     if (tableView == self.mainTableView) {
         // 被点击的分类
-        self.selectCategary = self.categaries[indexPath.row];
+        self.selectedData = [self.dataSource homeDropdown:self dataForRow:indexPath.row];
         
         // 刷新次菜单数据
         [self.subTableView reloadData];

@@ -8,12 +8,12 @@
 
 #import "DPCity.h"
 #import "MJExtension.h"
-#import "DPRegin.h"
+#import "DPRegion.h"
 
 @implementation DPCity
 
-- (NSDictionary *)dictionaryWithValuesForKeys:(NSArray *)keys
+- (NSDictionary *)objectClassInArray
 {
-    return @{@"regions" : [DPRegin class]};
+    return @{@"regions" : [DPRegion class]};
 }
 @end

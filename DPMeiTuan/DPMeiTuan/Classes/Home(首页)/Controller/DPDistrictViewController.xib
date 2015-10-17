@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DPDistrictViewController">
             <connections>
+                <outlet property="topView" destination="b2L-hp-1Xj" id="dp9-4G-N15"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -57,6 +58,7 @@
                 <constraint firstItem="b2L-hp-1Xj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mRt-fZ-exd"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="331" y="366"/>
         </view>
     </objects>
     <resources>

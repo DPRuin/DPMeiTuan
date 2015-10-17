@@ -7,7 +7,27 @@
 //
 
 #import "DPCategary.h"
+#import "DPHomeDropdown.h"
+
+@interface DPCategary () <DPHomeDropdownData>
+
+@end
 
 @implementation DPCategary
-
+- (NSString *)title
+{
+    return self.name;
+}
+- (NSArray *)subData
+{
+    return self.subcategories;
+}
+- (UIImage *)icon
+{
+    return [UIImage imageNamed:self.small_icon];
+}
+- (UIImage *)selectedIcon
+{
+    return [UIImage imageNamed:self.small_highlighted_icon];
+}
 @end

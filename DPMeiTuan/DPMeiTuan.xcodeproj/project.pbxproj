@@ -44,10 +44,12 @@
 		35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C261BCF5CE30006E2B1 /* UIView+Extension.m */; };
 		35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */; };
 		35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C2D1BCF6E430006E2B1 /* DPCity.m */; };
-		35DB3C311BCF6EEB0006E2B1 /* DPRegin.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */; };
 		35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C361BCF72530006E2B1 /* DPCityGroup.m */; };
 		35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C391BCFA8530006E2B1 /* DPCitySearchResultViewController.m */; };
 		35DB3C3E1BCFAC630006E2B1 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C3D1BCFAC630006E2B1 /* UIView+AutoLayout.m */; };
+		35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C411BD105C40006E2B1 /* DPMetalTool.m */; };
+		35DB3C451BD11DD70006E2B1 /* DPRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C441BD11DD70006E2B1 /* DPRegion.m */; };
+		35DB3C471BD13EB20006E2B1 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C461BD13EB20006E2B1 /* Foundation+Log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,14 +132,17 @@
 		35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPNavigationController.m; sourceTree = "<group>"; };
 		35DB3C2C1BCF6E430006E2B1 /* DPCity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCity.h; sourceTree = "<group>"; };
 		35DB3C2D1BCF6E430006E2B1 /* DPCity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCity.m; sourceTree = "<group>"; };
-		35DB3C2F1BCF6EEB0006E2B1 /* DPRegin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRegin.h; sourceTree = "<group>"; };
-		35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRegin.m; sourceTree = "<group>"; };
 		35DB3C351BCF72530006E2B1 /* DPCityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCityGroup.h; sourceTree = "<group>"; };
 		35DB3C361BCF72530006E2B1 /* DPCityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCityGroup.m; sourceTree = "<group>"; };
 		35DB3C381BCFA8530006E2B1 /* DPCitySearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCitySearchResultViewController.h; sourceTree = "<group>"; };
 		35DB3C391BCFA8530006E2B1 /* DPCitySearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCitySearchResultViewController.m; sourceTree = "<group>"; };
 		35DB3C3C1BCFAC630006E2B1 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
 		35DB3C3D1BCFAC630006E2B1 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		35DB3C401BD105C40006E2B1 /* DPMetalTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMetalTool.h; sourceTree = "<group>"; };
+		35DB3C411BD105C40006E2B1 /* DPMetalTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMetalTool.m; sourceTree = "<group>"; };
+		35DB3C431BD11DD70006E2B1 /* DPRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRegion.h; sourceTree = "<group>"; };
+		35DB3C441BD11DD70006E2B1 /* DPRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRegion.m; sourceTree = "<group>"; };
+		35DB3C461BD13EB20006E2B1 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +229,7 @@
 		3521D5F01BCE40C200C4BF0D /* Home(首页) */ = {
 			isa = PBXGroup;
 			children = (
+				35DB3C3F1BD105840006E2B1 /* Tool */,
 				3521D5F11BCE40C200C4BF0D /* Controller */,
 				3521D5F21BCE40C200C4BF0D /* Model */,
 				3521D5F31BCE40C200C4BF0D /* View */,
@@ -257,8 +263,8 @@
 				3521D62E1BCE88D200C4BF0D /* DPCategary.m */,
 				35DB3C2C1BCF6E430006E2B1 /* DPCity.h */,
 				35DB3C2D1BCF6E430006E2B1 /* DPCity.m */,
-				35DB3C2F1BCF6EEB0006E2B1 /* DPRegin.h */,
-				35DB3C301BCF6EEB0006E2B1 /* DPRegin.m */,
+				35DB3C431BD11DD70006E2B1 /* DPRegion.h */,
+				35DB3C441BD11DD70006E2B1 /* DPRegion.m */,
 				35DB3C351BCF72530006E2B1 /* DPCityGroup.h */,
 				35DB3C361BCF72530006E2B1 /* DPCityGroup.m */,
 			);
@@ -296,6 +302,7 @@
 		3521D5F51BCE40C200C4BF0D /* Categary */ = {
 			isa = PBXGroup;
 			children = (
+				35DB3C461BD13EB20006E2B1 /* Foundation+Log.m */,
 				35DB3C231BCF5CE30006E2B1 /* UIBarButtonItem+Extension.h */,
 				35DB3C241BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m */,
 				35DB3C251BCF5CE30006E2B1 /* UIView+Extension.h */,
@@ -383,6 +390,15 @@
 				35DB3C3D1BCFAC630006E2B1 /* UIView+AutoLayout.m */,
 			);
 			path = "UIView-AutoLayout";
+			sourceTree = "<group>";
+		};
+		35DB3C3F1BD105840006E2B1 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				35DB3C401BD105C40006E2B1 /* DPMetalTool.h */,
+				35DB3C411BD105C40006E2B1 /* DPMetalTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,14 +513,16 @@
 				35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */,
 				35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */,
 				3521D6251BCE88AE00C4BF0D /* MJIvar.m in Sources */,
+				35DB3C471BD13EB20006E2B1 /* Foundation+Log.m in Sources */,
 				3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */,
 				35DB3C3E1BCFAC630006E2B1 /* UIView+AutoLayout.m in Sources */,
 				3521D62B1BCE88AE00C4BF0D /* NSObject+MJKeyValue.m in Sources */,
+				35DB3C451BD11DD70006E2B1 /* DPRegion.m in Sources */,
 				3521D6241BCE88AE00C4BF0D /* MJFoundation.m in Sources */,
 				35DB3C221BCF5BEB0006E2B1 /* main.m in Sources */,
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
-				35DB3C311BCF6EEB0006E2B1 /* DPRegin.m in Sources */,
 				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
+				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */,

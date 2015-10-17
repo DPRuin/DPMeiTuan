@@ -12,6 +12,8 @@
 #import "DPHomeTopItem.h"
 #import "DPCategaryViewController.h"
 #import "DPDistrictViewController.h"
+#import "DPMetalTool.h"
+#import "DPCity.h"
 
 @interface DPHomeViewController ()
 /** 分类 */
@@ -21,6 +23,8 @@
 /** 排序 */
 @property (nonatomic, weak) UIBarButtonItem *sortItem;
 
+/** 选中的城市 */
+@property (nonatomic, copy) NSString *selectedCityName;
 @end
 
 @implementation DPHomeViewController
@@ -64,11 +68,10 @@ static NSString * const reuseIdentifier = @"Cell";
  */
 - (void)cityDidChange:(NSNotification *)notification
 {
-    NSString *cityName = notification.userInfo[DPSelectCityName];
-    NSLog(@"%@", cityName);
+    self.selectedCityName = notification.userInfo[DPSelectCityName];
     // 更改顶部区域item的文字
     DPHomeTopItem *topItem = (DPHomeTopItem *)self.districtItem.customView;
-    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部", cityName]];
+    [topItem setTitle:[NSString stringWithFormat:@"%@ - 全部", self.selectedCityName]];
     [topItem setSubTitle:nil];
     
     // 刷新表格数据
@@ -125,8 +128,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)districtClick
 {
+    DPDistrictViewController *districtViewController = [[DPDistrictViewController alloc] init];
+    if (self.selectedCityName) {
+        // 当前选中的城市
+        NSPredicate *perdicate = [NSPredicate predicateWithFormat:@"name = %@", self.selectedCityName];
+        DPCity *selectedCity = [[[DPMetalTool cities] filteredArrayUsingPredicate:perdicate] lastObject];
+        //加载区域数据
+        districtViewController.regions = selectedCity.regions;
+    }
     // 显示区域菜单
-    UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPDistrictViewController alloc] init]];
+    UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:districtViewController];
     [popo presentPopoverFromBarButtonItem:self.districtItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
