@@ -10,14 +10,18 @@
 
 @interface DPMetalTool : NSObject
 /**
- *  返回所有城市模型
+ *  返回所有城市模型数组
  */
 + (NSArray *)cities;
 
 /**
- *  返回所有分类模型
+ *  返回分类模型数组
  */
 +(NSArray *)categaries;
 
+/**
+ *  返回排序模型数组
+ */
++(NSArray *)sorts;
 
 @end

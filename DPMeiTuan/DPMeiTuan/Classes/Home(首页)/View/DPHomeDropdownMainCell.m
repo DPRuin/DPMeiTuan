@@ -29,7 +29,8 @@
         self.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg_dropdown_left_selected"]];
         // self.textLabel.adjustsFontSizeToFitWidth = YES;
         self.textLabel.font = [UIFont systemFontOfSize:15];
-        
+        self.textLabel.highlightedTextColor = DPGreenColor;
+
     }
     return self;
 }

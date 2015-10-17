@@ -14,6 +14,8 @@
 #import "DPDistrictViewController.h"
 #import "DPMetalTool.h"
 #import "DPCity.h"
+#import "DPSortViewController.h"
+#import "DPSort.h"
 
 @interface DPHomeViewController ()
 /** 分类 */
@@ -25,6 +27,8 @@
 
 /** 选中的城市 */
 @property (nonatomic, copy) NSString *selectedCityName;
+/** 选中的排序 */
+@property (nonatomic, strong) DPSort *selectedSort;
 @end
 
 @implementation DPHomeViewController
@@ -53,8 +57,10 @@ static NSString * const reuseIdentifier = @"Cell";
     [self setupLeftNav];
     [self setupRightNav];
     
-    // 监听通知
+    // 监听城市改变通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:DPCityDidChangeNotification object:nil];
+    // 监听排序改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sortDidChange:) name:DPSortDidChangeNotification object:nil];
     
 }
 
@@ -64,7 +70,20 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 /**
- *  通知方法
+ *  排序改变通知方法
+ */
+- (void)sortDidChange:(NSNotification *)notification
+{
+    self.selectedSort = notification.userInfo[DPSelectSort];
+    // 更改顶部区域item的文字
+    DPHomeTopItem *topItem = (DPHomeTopItem *)self.sortItem.customView;
+    [topItem setSubTitle:[NSString stringWithFormat:@"%@", self.selectedSort.label]];
+    
+    // 刷新表格数据
+}
+
+/**
+ *  城市改变通知方法
  */
 - (void)cityDidChange:(NSNotification *)notification
 {
@@ -100,6 +119,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // 排序
     DPHomeTopItem *sortTopItem = [DPHomeTopItem item];
     [sortTopItem addTarget:self action:@selector(sortClick)];
+    [sortTopItem setTitle:@"排序"];
     UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
     self.sortItem = sortItem;
     
@@ -143,7 +163,9 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)sortClick
 {
-    NSLog(@"sort");
+    // 显示区域菜单
+    UIPopoverController *popo = [[UIPopoverController alloc] initWithContentViewController:[[DPSortViewController alloc] init]];
+    [popo presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 /*

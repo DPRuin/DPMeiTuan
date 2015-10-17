@@ -50,6 +50,8 @@
 		35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C411BD105C40006E2B1 /* DPMetalTool.m */; };
 		35DB3C451BD11DD70006E2B1 /* DPRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C441BD11DD70006E2B1 /* DPRegion.m */; };
 		35DB3C471BD13EB20006E2B1 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C461BD13EB20006E2B1 /* Foundation+Log.m */; };
+		35DB3C4A1BD1D8620006E2B1 /* DPSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C491BD1D8620006E2B1 /* DPSortViewController.m */; };
+		35DB3C501BD1D90F0006E2B1 /* DPSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C4F1BD1D90F0006E2B1 /* DPSort.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,10 @@
 		35DB3C431BD11DD70006E2B1 /* DPRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRegion.h; sourceTree = "<group>"; };
 		35DB3C441BD11DD70006E2B1 /* DPRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRegion.m; sourceTree = "<group>"; };
 		35DB3C461BD13EB20006E2B1 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		35DB3C481BD1D8620006E2B1 /* DPSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSortViewController.h; sourceTree = "<group>"; };
+		35DB3C491BD1D8620006E2B1 /* DPSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSortViewController.m; sourceTree = "<group>"; };
+		35DB3C4E1BD1D90F0006E2B1 /* DPSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSort.h; sourceTree = "<group>"; };
+		35DB3C4F1BD1D90F0006E2B1 /* DPSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSort.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +253,8 @@
 				35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */,
 				35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */,
 				35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */,
+				35DB3C481BD1D8620006E2B1 /* DPSortViewController.h */,
+				35DB3C491BD1D8620006E2B1 /* DPSortViewController.m */,
 				35DB3C0D1BCF58380006E2B1 /* DPCityViewController.h */,
 				35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */,
 				35DB3C0F1BCF58380006E2B1 /* DPCityViewController.xib */,
@@ -267,6 +275,8 @@
 				35DB3C441BD11DD70006E2B1 /* DPRegion.m */,
 				35DB3C351BCF72530006E2B1 /* DPCityGroup.h */,
 				35DB3C361BCF72530006E2B1 /* DPCityGroup.m */,
+				35DB3C4E1BD1D90F0006E2B1 /* DPSort.h */,
+				35DB3C4F1BD1D90F0006E2B1 /* DPSort.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,6 +541,7 @@
 				3521D62C1BCE88AE00C4BF0D /* NSObject+MJMember.m in Sources */,
 				3521D6001BCE7C4800C4BF0D /* DPCategaryViewController.m in Sources */,
 				35DB3C201BCF5BEB0006E2B1 /* AppDelegate.m in Sources */,
+				35DB3C501BD1D90F0006E2B1 /* DPSort.m in Sources */,
 				3521D6281BCE88AE00C4BF0D /* MJType.m in Sources */,
 				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
 				35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */,
@@ -540,6 +551,7 @@
 				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,
 				35DB3C141BCF5BA20006E2B1 /* DPHomeViewController.m in Sources */,
 				35DB3C181BCF5BC80006E2B1 /* DPHomeTopItem.m in Sources */,
+				35DB3C4A1BD1D8620006E2B1 /* DPSortViewController.m in Sources */,
 				3521D62F1BCE88D200C4BF0D /* DPCategary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

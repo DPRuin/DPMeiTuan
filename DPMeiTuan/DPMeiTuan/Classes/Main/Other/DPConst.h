@@ -11,5 +11,9 @@
 
 #define DPGreenColor DPColor(32, 191, 179)
 
+// 通知 城市改变
 extern NSString *const DPCityDidChangeNotification;
 extern NSString *const DPSelectCityName;
+
+extern NSString *const DPSortDidChangeNotification;
+extern NSString *const DPSelectSort;

@@ -10,6 +10,7 @@
 #import "DPCategary.h"
 #import "DPCity.h"
 #import "MJExtension.h"
+#import "DPSort.h"
 
 @implementation DPMetalTool
 
@@ -29,6 +30,15 @@ static  NSArray *_categaries;
         _categaries = [DPCategary objectArrayWithFilename:@"categories.plist"];
     }
     return _categaries;
+}
+
+static  NSArray *_sorts;
++ (NSArray *)sorts
+{
+    if (!_sorts) {
+        _sorts = [DPSort objectArrayWithFilename:@"sorts.plist"];
+    }
+    return _sorts;
 }
 
 @end
