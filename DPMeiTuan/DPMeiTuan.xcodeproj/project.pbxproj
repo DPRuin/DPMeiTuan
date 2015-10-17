@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3515A3081BD2822B00859FA6 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A3041BD2822B00859FA6 /* DPAPI.m */; };
-		3515A3091BD2822B00859FA6 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A3071BD2822B00859FA6 /* DPRequest.m */; };
+		3515A3101BD28C4300859FA6 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A30C1BD28C4300859FA6 /* DPAPI.m */; };
+		3515A3111BD28C4300859FA6 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A30F1BD28C4300859FA6 /* DPRequest.m */; };
 		3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */; };
 		3521D5D11BCDEA0B00C4BF0D /* DPMeiTuanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
@@ -67,11 +67,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3515A3031BD2822B00859FA6 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
-		3515A3041BD2822B00859FA6 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
-		3515A3051BD2822B00859FA6 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
-		3515A3061BD2822B00859FA6 /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
-		3515A3071BD2822B00859FA6 /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
+		3515A30B1BD28C4300859FA6 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		3515A30C1BD28C4300859FA6 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		3515A30D1BD28C4300859FA6 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		3515A30E1BD28C4300859FA6 /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		3515A30F1BD28C4300859FA6 /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		3521D5B11BCDEA0B00C4BF0D /* DPMeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPMeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5B51BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -176,14 +176,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3515A3021BD2822B00859FA6 /* dianpingapi */ = {
+		3515A30A1BD28C4300859FA6 /* dianpingapi */ = {
 			isa = PBXGroup;
 			children = (
-				3515A3031BD2822B00859FA6 /* DPAPI.h */,
-				3515A3041BD2822B00859FA6 /* DPAPI.m */,
-				3515A3051BD2822B00859FA6 /* DPConstants.h */,
-				3515A3061BD2822B00859FA6 /* DPRequest.h */,
-				3515A3071BD2822B00859FA6 /* DPRequest.m */,
+				3515A30B1BD28C4300859FA6 /* DPAPI.h */,
+				3515A30C1BD28C4300859FA6 /* DPAPI.m */,
+				3515A30D1BD28C4300859FA6 /* DPConstants.h */,
+				3515A30E1BD28C4300859FA6 /* DPRequest.h */,
+				3515A30F1BD28C4300859FA6 /* DPRequest.m */,
 			);
 			path = dianpingapi;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 		3521D5F71BCE40C200C4BF0D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				3515A3021BD2822B00859FA6 /* dianpingapi */,
+				3515A30A1BD28C4300859FA6 /* dianpingapi */,
 				35DB3C3B1BCFAC630006E2B1 /* UIView-AutoLayout */,
 				3521D60A1BCE88AD00C4BF0D /* MJExtension */,
 			);
@@ -550,7 +550,7 @@
 				35DB3C451BD11DD70006E2B1 /* DPRegion.m in Sources */,
 				3521D6241BCE88AE00C4BF0D /* MJFoundation.m in Sources */,
 				35DB3C221BCF5BEB0006E2B1 /* main.m in Sources */,
-				3515A3081BD2822B00859FA6 /* DPAPI.m in Sources */,
+				3515A3101BD28C4300859FA6 /* DPAPI.m in Sources */,
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
 				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
@@ -567,7 +567,7 @@
 				3521D6231BCE88AE00C4BF0D /* MJConst.m in Sources */,
 				35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */,
 				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
-				3515A3091BD2822B00859FA6 /* DPRequest.m in Sources */,
+				3515A3111BD28C4300859FA6 /* DPRequest.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
 				35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */,
 				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,

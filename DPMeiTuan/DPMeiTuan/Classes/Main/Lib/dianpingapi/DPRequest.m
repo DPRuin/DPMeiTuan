@@ -9,10 +9,8 @@
 #import "DPRequest.h"
 #import "DPConstants.h"
 #import "DPAPI.h"
-#import "SBJson.h"
-#import <CommonCrypto/CommonDigest.h>
 
-#import "DPAppDelegate.h"
+#import <CommonCrypto/CommonDigest.h>
 
 #define kDPRequestTimeOutInterval   180.0
 #define kDPRequestStringBoundary    @"9536429F8AAB441bA4055A74B72B57DE"
@@ -57,51 +55,6 @@
 
 - (NSMutableData *)postBodyHasRawData:(BOOL*)hasRawData
 {
-//    NSString *bodyPrefixString = [NSString stringWithFormat:@"--%@\r\n", kDPRequestStringBoundary];
-//    NSString *bodySuffixString = [NSString stringWithFormat:@"\r\n--%@--\r\n", kDPRequestStringBoundary];
-//    
-//    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionary];
-//    
-//    NSMutableData *body = [NSMutableData data];
-//    [self appendUTF8Body:body dataString:bodyPrefixString];
-//    
-//    for (id key in [params keyEnumerator])
-//    {
-//        if (([[params valueForKey:key] isKindOfClass:[UIImage class]]) || ([[params valueForKey:key] isKindOfClass:[NSData class]]))
-//        {
-//            [dataDictionary setObject:[params valueForKey:key] forKey:key];
-//            continue;
-//        }
-//        
-//        [self appendUTF8Body:body dataString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n%@\r\n", key, [params valueForKey:key]]];
-//        [self appendUTF8Body:body dataString:bodyPrefixString];
-//    }
-//    
-//    if ([dataDictionary count] > 0)
-//    {
-//        *hasRawData = YES;
-//        for (id key in dataDictionary)
-//        {
-//            NSObject *dataParam = [dataDictionary valueForKey:key];
-//            
-//            if ([dataParam isKindOfClass:[UIImage class]])
-//            {
-//                NSData* imageData = UIImagePNGRepresentation((UIImage *)dataParam);
-//                [self appendUTF8Body:body dataString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"file\"\r\n", key]];
-//                [self appendUTF8Body:body dataString:[NSString stringWithString:@"Content-Type: image/png\r\nContent-Transfer-Encoding: binary\r\n\r\n"]];
-//                [body appendData:imageData];
-//            }
-//            else if ([dataParam isKindOfClass:[NSData class]])
-//            {
-//                [self appendUTF8Body:body dataString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"file\"\r\n", key]];
-//                [self appendUTF8Body:body dataString:[NSString stringWithString:@"Content-Type: content/unknown\r\nContent-Transfer-Encoding: binary\r\n\r\n"]];
-//                [body appendData:(NSData*)dataParam];
-//            }
-//            [self appendUTF8Body:body dataString:bodySuffixString];
-//        }
-//    }
-//    
-//    return body;
 	return nil;
 }
 
@@ -111,16 +64,11 @@
     {
         [_delegate request:self didReceiveRawData:data];
     }
-	
-	SBJsonParser *parser = [[SBJsonParser alloc] init];
-    id result = [parser objectWithData:data];
-	NSLog(@"return: \n%@", result);
-    if (!result) {
-		NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-								  parser.error, @"error", nil];
-		NSError *error = [NSError errorWithDomain:kDPAPIErrorDomain
-											 code:-1
-										 userInfo:userInfo];
+    
+#warning 去除对SBJson的依赖
+    NSError *error = nil;
+    id result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    if (result == nil) {
 		[self failedWithError:error];
 	} else {
 		NSString *status = 0;
@@ -137,6 +85,12 @@
 		} else {
 			if ([status isEqualToString:@"ERROR"]) {
 				// TODO: 处理错误代码
+#warning 增加错误处理
+                NSDictionary *errorDict = result[@"error"];
+                int errorCode = [errorDict[@"errorCode"] intValue];
+                NSString *errorMessage = errorDict[@"errorMessage"];
+                NSError *error = [NSError errorWithDomain:errorMessage code:errorCode userInfo:errorDict];
+                [self failedWithError:error];
 			}
 		}
 	}
@@ -195,14 +149,14 @@
 		[paramsDic setValuesForKeysWithDictionary:params];
 	}
 	
-	NSMutableString *signString = [NSMutableString stringWithString:[[DPAppDelegate instance] appKey]];
-	NSMutableString *paramsString = [NSMutableString stringWithFormat:@"appkey=%@", [[DPAppDelegate instance] appKey]];
+	NSMutableString *signString = [NSMutableString stringWithString:kDPAppKey];
+	NSMutableString *paramsString = [NSMutableString stringWithFormat:@"appkey=%@", kDPAppKey];
 	NSArray *sortedKeys = [[paramsDic allKeys] sortedArrayUsingSelector: @selector(compare:)];
 	for (NSString *key in sortedKeys) {
 		[signString appendFormat:@"%@%@", key, [paramsDic objectForKey:key]];
 		[paramsString appendFormat:@"&%@=%@", key, [paramsDic objectForKey:key]];
 	}
-	[signString appendString:[[DPAppDelegate instance] appSecret]];
+	[signString appendString:kDPAppSecret];
 	unsigned char digest[CC_SHA1_DIGEST_LENGTH];
 	NSData *stringBytes = [signString dataUsingEncoding: NSUTF8StringEncoding];
 	if (CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {

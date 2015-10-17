@@ -18,8 +18,9 @@
 #import "DPSort.h"
 #import "DPRegion.h"
 #import "DPCategary.h"
+#import "DPAPI.h"
 
-@interface DPHomeViewController ()
+@interface DPHomeViewController () <DPRequestDelegate>
 /** 分类 */
 @property (nonatomic, weak) UIBarButtonItem *categaryItem;
 /** 地区 */
@@ -29,6 +30,10 @@
 
 /** 选中的城市 */
 @property (nonatomic, copy) NSString *selectedCityName;
+/** 选中的区域 */
+@property (nonatomic, copy) NSString *selectedReginName;
+/** 选中的分类 */
+@property (nonatomic, copy) NSString *selectedCategaryName;
 /** 选中的排序 */
 @property (nonatomic, strong) DPSort *selectedSort;
 
@@ -89,6 +94,16 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     DPCategary *categary = notification.userInfo[DPSelectCategary];
     NSString *subCategaryName = notification.userInfo[DPSelectSubCategaryName];
+    
+    if (subCategaryName == nil || [subCategaryName isEqualToString:@"全部"]) { // 没有次表
+        self.selectedCategaryName = categary.name;
+    } else {
+        self.selectedCategaryName = subCategaryName;
+    }
+    if ([self.selectedCategaryName isEqualToString:@"全部分类"]) {
+        self.selectedCategaryName = nil;
+    }
+    
     // 更改顶部区域item的文字
     DPHomeTopItem *topItem = (DPHomeTopItem *)self.categaryItem.customView;
     [topItem setTitle:categary.name];
@@ -99,7 +114,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.categaryPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-#warning todo
+    [self loadNewDeals];
 }
 
 /**
@@ -109,6 +124,16 @@ static NSString * const reuseIdentifier = @"Cell";
 {
     DPRegion *region = notification.userInfo[DPSelectRegion];
     NSString *subregionName = notification.userInfo[DPSelectSubregionName];
+    
+    if (subregionName == nil || [subregionName isEqualToString:@"全部"]) { // 没有次表
+        self.selectedReginName = region.name;
+    } else {
+        self.selectedReginName = subregionName;
+    }
+    if ([self.selectedReginName isEqualToString:@"全部"]) {
+        self.selectedReginName = nil;
+    }
+    
     // 更改顶部区域item的文字
     DPHomeTopItem *topItem = (DPHomeTopItem *)self.districtItem.customView;
     [topItem setTitle:[NSString stringWithFormat:@"%@ - %@", self.selectedCityName, region.name]];
@@ -118,7 +143,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.districtPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-#warning todo
+    [self loadNewDeals];
 }
 
 /**
@@ -135,7 +160,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.sortPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-#warning todo
+    [self loadNewDeals];
 }
 
 /**
@@ -150,8 +175,46 @@ static NSString * const reuseIdentifier = @"Cell";
     [topItem setSubTitle:nil];
     
     // 刷新表格数据
-#warning todo
+    [self loadNewDeals];
     
+}
+
+#pragma mark - 与服务器交互
+- (void)loadNewDeals
+{
+    DPAPI *api = [[DPAPI alloc] init];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    // 城市
+    params[@"city"] = self.selectedCityName;
+    
+    // 排序
+    if (self.selectedSort.value) {
+        params[@"sort"] = @(self.selectedSort.value);
+    }
+    // 区域
+    if (self.selectedReginName) {
+        params[@"region"] = self.selectedReginName;
+    }
+    // 分类
+    if (self.selectedCategaryName) {
+        params[@"category"] = self.selectedCategaryName;
+    }
+    
+    // 每页限制条数
+    params[@"limit"] = @(5);
+    
+    [api requestWithURL:@"v1/deal/find_deals" params:params  delegate:self];
+    NSLog(@"params--%@", params);
+    
+}
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
+{
+    DPLog(@"请求成功--%@", result);
+}
+
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    DPLog(@"请求失败--%@", error);
 }
 
 #pragma mark - 设置导航栏内容

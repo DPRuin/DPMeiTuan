@@ -13,6 +13,10 @@
 
 @interface DPRequest : NSObject
 
+#warning 增加2个请求的block
+@property (nonatomic, copy) void (^success)(id json);
+@property (nonatomic, copy) void (^failure)(NSError *error);
+
 @property (nonatomic, unsafe_unretained) DPAPI *dpapi;
 @property (nonatomic, strong) NSString *url;
 @property (nonatomic, strong) NSDictionary *params;
