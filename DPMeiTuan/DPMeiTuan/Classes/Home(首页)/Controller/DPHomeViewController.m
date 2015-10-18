@@ -230,6 +230,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     DPLog(@"请求成功--%@", result);
     // 字典数组 转 模型数组
     NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
+    [self.deals removeAllObjects];
     [self.deals addObjectsFromArray:newDeals];
     
     

@@ -37,9 +37,9 @@
     self.descLabel.text = self.deal.desc;
     
     // 现价
-    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥ %.1f", self.deal.current_price];
+    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.current_price];
     // 原价
-    self.listPriceLabel.text = [NSString stringWithFormat:@"￥ %.1f", self.deal.list_price];
+    self.listPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.list_price];
     // 购买数
     self.purchaseCountLabel.text = [NSString stringWithFormat:@"已售%d", self.deal.purchase_count];
     

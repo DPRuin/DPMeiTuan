@@ -17,9 +17,9 @@
 @property (nonatomic, copy) NSString *desc;
 
 /** 团购包含商品原价值 */
-@property (nonatomic, assign) float list_price;
+@property (nonatomic, strong) NSNumber *list_price;
 /** 团购价格 */
-@property (nonatomic, assign) float current_price;
+@property (nonatomic, strong) NSNumber *current_price;
 
 /** 团购当前已购买数 */
 @property (nonatomic, assign) int purchase_count;

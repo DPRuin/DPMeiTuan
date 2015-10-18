@@ -28,6 +28,7 @@
 		3515A3491BD35C6700859FA6 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A3371BD35C6700859FA6 /* UIImageView+HighlightedWebCache.m */; };
 		3515A34A1BD35C6700859FA6 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A3391BD35C6700859FA6 /* UIImageView+WebCache.m */; };
 		3515A34B1BD35C6700859FA6 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A33B1BD35C6700859FA6 /* UIView+WebCacheOperation.m */; };
+		3515A34E1BD3749B00859FA6 /* DPCenterLineLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A34D1BD3749B00859FA6 /* DPCenterLineLabel.m */; };
 		3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */; };
 		3521D5D11BCDEA0B00C4BF0D /* DPMeiTuanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
@@ -129,6 +130,8 @@
 		3515A3391BD35C6700859FA6 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		3515A33A1BD35C6700859FA6 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		3515A33B1BD35C6700859FA6 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		3515A34C1BD3749B00859FA6 /* DPCenterLineLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCenterLineLabel.h; sourceTree = "<group>"; };
+		3515A34D1BD3749B00859FA6 /* DPCenterLineLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCenterLineLabel.m; sourceTree = "<group>"; };
 		3521D5B11BCDEA0B00C4BF0D /* DPMeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPMeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5B51BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -415,6 +418,8 @@
 				3515A3151BD343CD00859FA6 /* DPDealCell.h */,
 				3515A3161BD343CD00859FA6 /* DPDealCell.m */,
 				3515A3171BD343CD00859FA6 /* DPDealCell.xib */,
+				3515A34C1BD3749B00859FA6 /* DPCenterLineLabel.h */,
+				3515A34D1BD3749B00859FA6 /* DPCenterLineLabel.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -693,6 +698,7 @@
 				3515A3421BD35C6700859FA6 /* SDWebImageDownloaderOperation.m in Sources */,
 				3521D6261BCE88AE00C4BF0D /* MJMember.m in Sources */,
 				35DB3C141BCF5BA20006E2B1 /* DPHomeViewController.m in Sources */,
+				3515A34E1BD3749B00859FA6 /* DPCenterLineLabel.m in Sources */,
 				3515A34A1BD35C6700859FA6 /* UIImageView+WebCache.m in Sources */,
 				35DB3C181BCF5BC80006E2B1 /* DPHomeTopItem.m in Sources */,
 				35DB3C4A1BD1D8620006E2B1 /* DPSortViewController.m in Sources */,
