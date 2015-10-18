@@ -43,7 +43,12 @@
     // 购买数
     self.purchaseCountLabel.text = [NSString stringWithFormat:@"已售%d", self.deal.purchase_count];
     
-    
+    // 是否显示新单图片
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    NSString *nowDate = [formatter stringFromDate:[NSDate date]];
+    // 发布日期 《 now 隐藏
+    self.dealNewView.hidden = ([self.deal.publish_date compare:nowDate] == NSOrderedAscending);
     
 }
 

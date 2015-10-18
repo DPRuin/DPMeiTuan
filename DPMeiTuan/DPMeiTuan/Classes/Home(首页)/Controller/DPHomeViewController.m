@@ -76,6 +76,9 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     // 设置背景色
     self.collectionView.backgroundColor = DPGlobalBg;
     
+    // 设置垂直方向上可以拉动
+    self.collectionView.alwaysBounceVertical = YES;
+    
     // 设置导航栏内容
     [self setupLeftNav];
     [self setupRightNav];
@@ -93,6 +96,24 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+/**
+ *  屏幕旋转就会调用
+ */
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    // 横屏3列 竖屏2列
+    int cols = (size.width == 1024) ? 3: 2;
+    
+    // 根据列数计算内边距
+    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
+    CGFloat insert = (size.width - cols * flowLayout.itemSize.width) / (cols +1);
+    flowLayout.sectionInset = UIEdgeInsetsMake(insert, insert, insert, insert);
+    
+    // 设置行间距
+    flowLayout.minimumLineSpacing = insert * 0.5;
+    
 }
 
 #pragma mark - 懒加载
@@ -217,7 +238,6 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     if (self.selectedCategaryName) {
         params[@"category"] = self.selectedCategaryName;
     }
-    
     // 每页限制条数
     params[@"limit"] = @(5);
     
@@ -227,12 +247,10 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 }
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-    DPLog(@"请求成功--%@", result);
     // 字典数组 转 模型数组
     NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
     [self.deals removeAllObjects];
     [self.deals addObjectsFromArray:newDeals];
-    
     
     // 刷新表格数据
     [self.collectionView reloadData];
@@ -331,9 +349,13 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 }
 */
 
-#pragma mark <UICollectionViewDataSource>
+#pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    
+    // 计算一遍内边距
+    [self viewWillTransitionToSize:collectionView.size withTransitionCoordinator:nil];
+    
     return 1;
 }
 
@@ -353,7 +375,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     return cell;
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark - UICollectionViewDelegate
 
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
