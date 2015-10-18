@@ -22,6 +22,7 @@
 #import "DPDealCell.h"
 #import "MJExtension.h"
 #import "DPDeal.h"
+#import "MJRefresh.h"
 
 @interface DPHomeViewController () <DPRequestDelegate>
 /** 分类 */
@@ -49,6 +50,11 @@
 
 /** 所有的团购数据 */
 @property (nonatomic, strong) NSMutableArray *deals;
+
+/** 记录当前页码 */
+@property (nonatomic, assign) int currentPage;
+/** 最后一个网络请求 */
+@property (nonatomic, strong) DPRequest *lastRequest;
 
 @end
 
@@ -91,6 +97,9 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(districtDidChange:) name:DPDistrictDidChangeNotification object:nil];
     // 监听分类改变通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categaryDidChange:) name:DPCategaryDidChangeNotification object:nil];
+    
+    // 添加上拉刷新
+    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
 }
 
 - (void)dealloc
@@ -219,7 +228,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 }
 
 #pragma mark - 与服务器交互
-- (void)loadNewDeals
+- (void)loadDeals
 {
     DPAPI *api = [[DPAPI alloc] init];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -241,12 +250,29 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     // 每页限制条数
     params[@"limit"] = @(5);
     
-    [api requestWithURL:@"v1/deal/find_deals" params:params  delegate:self];
-    NSLog(@"params--%@", params);
+    // 页码
+    params[@"page"] = @(self.currentPage);
     
+    self.lastRequest = [api requestWithURL:@"v1/deal/find_deals" params:params  delegate:self];
+}
+- (void)loadMoreDeals
+{
+    self.currentPage++;
+    [self loadDeals];
+
+}
+
+- (void)loadNewDeals
+{
+    self.currentPage = 1;
+    
+    [self loadDeals];
 }
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
+    // 不是最后一次网络请求直接返回
+    if (self.lastRequest != request) return;
+    
     // 字典数组 转 模型数组
     NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
     [self.deals removeAllObjects];
@@ -254,6 +280,9 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     
     // 刷新表格数据
     [self.collectionView reloadData];
+    
+    // 结束上拉刷新
+    [self.collectionView footerEndRefreshing];
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
