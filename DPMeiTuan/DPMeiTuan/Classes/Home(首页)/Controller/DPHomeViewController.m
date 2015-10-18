@@ -19,6 +19,9 @@
 #import "DPRegion.h"
 #import "DPCategary.h"
 #import "DPAPI.h"
+#import "DPDealCell.h"
+#import "MJExtension.h"
+#import "DPDeal.h"
 
 @interface DPHomeViewController () <DPRequestDelegate>
 /** 分类 */
@@ -43,15 +46,20 @@
 @property (nonatomic, strong) UIPopoverController *districtPopo;
 /** 排序popover */
 @property (nonatomic, strong) UIPopoverController *sortPopo;
+
+/** 所有的团购数据 */
+@property (nonatomic, strong) NSMutableArray *deals;
+
 @end
 
 @implementation DPHomeViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"DPDealCell";
 
 - (instancetype)init
 {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake(305, 305);
     return [self initWithCollectionViewLayout:flowLayout];
 }
 
@@ -62,7 +70,8 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    // [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"DPDealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
     
     // 设置背景色
     self.collectionView.backgroundColor = DPGlobalBg;
@@ -84,6 +93,15 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 懒加载
+- (NSMutableArray *)deals
+{
+    if (!_deals) {
+        self.deals = [[NSMutableArray alloc] init];
+    }
+    return _deals;
 }
 
 #pragma mark - 监听通知方法
@@ -210,6 +228,13 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
     DPLog(@"请求成功--%@", result);
+    // 字典数组 转 模型数组
+    NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
+    [self.deals addObjectsFromArray:newDeals];
+    
+    
+    // 刷新表格数据
+    [self.collectionView reloadData];
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
@@ -308,20 +333,21 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
+
+    return self.deals.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    DPDealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    // 传递模型数据
+    cell.deal = self.deals[indexPath.item];
     
     return cell;
 }
