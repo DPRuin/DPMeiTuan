@@ -23,6 +23,8 @@
 #import "MJExtension.h"
 #import "DPDeal.h"
 #import "MJRefresh.h"
+#import "MBProgressHUD+MJ.h"
+#import "UIView+AutoLayout.h"
 
 @interface DPHomeViewController () <DPRequestDelegate>
 /** 分类 */
@@ -55,6 +57,13 @@
 @property (nonatomic, assign) int currentPage;
 /** 最后一个网络请求 */
 @property (nonatomic, strong) DPRequest *lastRequest;
+
+/** 没有团购数据图片提示 */
+@property (nonatomic, weak) UIImageView *noDateView;
+
+/** 总数 */
+@property (nonatomic, assign) int totalCount;
+
 
 @end
 
@@ -100,6 +109,8 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     
     // 添加上拉刷新
     [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
+    // 添加下拉刷新
+    [self.collectionView addHeaderWithTarget:self action:@selector(loadNewDeals)];
 }
 
 - (void)dealloc
@@ -126,6 +137,16 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 }
 
 #pragma mark - 懒加载
+- (UIImageView *)noDateView
+{
+    if (!_noDateView) {
+        UIImageView *noDateView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_deals_empty"]];
+        [self.collectionView addSubview:noDateView];
+        [noDateView autoCenterInSuperview];
+        self.noDateView = noDateView;
+    }
+    return _noDateView;
+}
 - (NSMutableArray *)deals
 {
     if (!_deals) {
@@ -162,7 +183,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [self.categaryPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
 /**
@@ -191,7 +212,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [self.districtPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
 /**
@@ -208,7 +229,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [self.sortPopo dismissPopoverAnimated:YES];
     
     // 刷新表格数据
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
 }
 
 /**
@@ -223,7 +244,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [topItem setSubTitle:nil];
     
     // 刷新表格数据
-    [self loadNewDeals];
+    [self.collectionView headerBeginRefreshing];
     
 }
 
@@ -272,10 +293,15 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 {
     // 不是最后一次网络请求直接返回
     if (self.lastRequest != request) return;
+    self.totalCount = [result[@"total_count"] intValue];
     
     // 字典数组 转 模型数组
     NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
-    [self.deals removeAllObjects];
+    
+    if (self.currentPage == 1) { // 清楚之前的就数据
+        [self.deals removeAllObjects];
+    }
+
     [self.deals addObjectsFromArray:newDeals];
     
     // 刷新表格数据
@@ -283,11 +309,26 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     
     // 结束上拉刷新
     [self.collectionView footerEndRefreshing];
+    // 结束下拉刷新
+    [self.collectionView headerEndRefreshing];
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
 {
-    DPLog(@"请求失败--%@", error);
+    // 只处理最后的请求失败
+    if (self.lastRequest != request) return;
+    
+    [MBProgressHUD showError:@"网络繁忙，请稍后再试" toView:self.collectionView];
+    
+    // 结束上拉刷新
+    [self.collectionView footerEndRefreshing];
+    // 结束下拉刷新
+    [self.collectionView headerEndRefreshing];
+    
+    // 如果上拉加载失败了
+    if (self.currentPage > 1) {
+        self.currentPage--;
+    }
 }
 
 #pragma mark - 设置导航栏内容
@@ -381,9 +422,14 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    // 控制尾部刷新控件的显示和隐藏
+    self.collectionView.footerHidden = (self.deals.count == self.totalCount);
     
     // 计算一遍内边距
     [self viewWillTransitionToSize:collectionView.size withTransitionCoordinator:nil];
+    
+    // 控制没有数据的提醒
+    self.noDateView.hidden = (self.deals.count != 0);
     
     return 1;
 }

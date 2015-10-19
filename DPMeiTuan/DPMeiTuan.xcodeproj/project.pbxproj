@@ -37,6 +37,9 @@
 		3515A3651BD3A12900859FA6 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A35B1BD3A12900859FA6 /* UIScrollView+MJExtension.m */; };
 		3515A3661BD3A12900859FA6 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A35D1BD3A12900859FA6 /* UIScrollView+MJRefresh.m */; };
 		3515A3671BD3A12900859FA6 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A35F1BD3A12900859FA6 /* UIView+MJExtension.m */; };
+		3515A36E1BD480A200859FA6 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A36A1BD480A200859FA6 /* MBProgressHUD+MJ.m */; };
+		3515A36F1BD480A200859FA6 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3515A36B1BD480A200859FA6 /* MBProgressHUD.bundle */; };
+		3515A3701BD480A200859FA6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A36D1BD480A200859FA6 /* MBProgressHUD.m */; };
 		3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */; };
 		3521D5D11BCDEA0B00C4BF0D /* DPMeiTuanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
@@ -156,6 +159,11 @@
 		3515A35D1BD3A12900859FA6 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		3515A35E1BD3A12900859FA6 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		3515A35F1BD3A12900859FA6 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		3515A3691BD480A200859FA6 /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		3515A36A1BD480A200859FA6 /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		3515A36B1BD480A200859FA6 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		3515A36C1BD480A200859FA6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		3515A36D1BD480A200859FA6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		3521D5B11BCDEA0B00C4BF0D /* DPMeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPMeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5B51BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -335,6 +343,18 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		3515A3681BD480A200859FA6 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				3515A3691BD480A200859FA6 /* MBProgressHUD+MJ.h */,
+				3515A36A1BD480A200859FA6 /* MBProgressHUD+MJ.m */,
+				3515A36B1BD480A200859FA6 /* MBProgressHUD.bundle */,
+				3515A36C1BD480A200859FA6 /* MBProgressHUD.h */,
+				3515A36D1BD480A200859FA6 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		3521D5A81BCDEA0B00C4BF0D = {
 			isa = PBXGroup;
 			children = (
@@ -506,6 +526,7 @@
 		3521D5F71BCE40C200C4BF0D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				3515A3681BD480A200859FA6 /* MBProgressHUD */,
 				3515A34F1BD3A12900859FA6 /* MJRefresh */,
 				3515A31A1BD35C6700859FA6 /* SDWebImage */,
 				3515A30A1BD28C4300859FA6 /* dianpingapi */,
@@ -673,6 +694,7 @@
 				3521D6091BCE888000C4BF0D /* sorts.plist in Resources */,
 				35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */,
 				35DB3C191BCF5BC80006E2B1 /* DPHomeTopItem.xib in Resources */,
+				3515A36F1BD480A200859FA6 /* MBProgressHUD.bundle in Resources */,
 				35DB3C111BCF58380006E2B1 /* DPCityViewController.xib in Resources */,
 				3521D6071BCE888000C4BF0D /* cities.plist in Resources */,
 				3515A3601BD3A12900859FA6 /* MJRefresh.bundle in Resources */,
@@ -718,6 +740,7 @@
 				3515A3631BD3A12900859FA6 /* MJRefreshFooterView.m in Sources */,
 				3515A33E1BD35C6700859FA6 /* SDImageCache.m in Sources */,
 				3515A3101BD28C4300859FA6 /* DPAPI.m in Sources */,
+				3515A3701BD480A200859FA6 /* MBProgressHUD.m in Sources */,
 				3515A3621BD3A12900859FA6 /* MJRefreshConst.m in Sources */,
 				3515A3401BD35C6700859FA6 /* SDWebImageDecoder.m in Sources */,
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
@@ -748,6 +771,7 @@
 				3515A3181BD343CD00859FA6 /* DPDealCell.m in Sources */,
 				3515A3111BD28C4300859FA6 /* DPRequest.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
+				3515A36E1BD480A200859FA6 /* MBProgressHUD+MJ.m in Sources */,
 				3515A3651BD3A12900859FA6 /* UIScrollView+MJExtension.m in Sources */,
 				3515A33C1BD35C6700859FA6 /* MKAnnotationView+WebCache.m in Sources */,
 				35DB3C2E1BCF6E430006E2B1 /* DPCity.m in Sources */,
