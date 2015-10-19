@@ -25,6 +25,8 @@
 #import "MJRefresh.h"
 #import "MBProgressHUD+MJ.h"
 #import "UIView+AutoLayout.h"
+#import "DPNavigationController.h"
+#import "DPSearchViewController.h"
 
 @interface DPHomeViewController () <DPRequestDelegate>
 /** 分类 */
@@ -367,12 +369,18 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_map" highlightImage:@"icon_map_highlighted"];
     mapItem.customView.width = 60;
     
-    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
+    UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:self action:@selector(searchClick) Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
     searchItem.customView.width = 60;
     self.navigationItem.rightBarButtonItems = @[mapItem, searchItem];
 }
 
 #pragma mark - 导航栏按钮点击
+- (void)searchClick
+{
+    DPNavigationController *searchNav = [[DPNavigationController alloc] initWithRootViewController:[[DPSearchViewController alloc] init]];
+    [self presentViewController:searchNav animated:YES completion:nil];
+}
+
 - (void)categaryClick
 {
     // 显示分类菜单

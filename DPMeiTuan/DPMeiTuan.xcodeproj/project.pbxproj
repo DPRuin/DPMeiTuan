@@ -40,6 +40,7 @@
 		3515A36E1BD480A200859FA6 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A36A1BD480A200859FA6 /* MBProgressHUD+MJ.m */; };
 		3515A36F1BD480A200859FA6 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3515A36B1BD480A200859FA6 /* MBProgressHUD.bundle */; };
 		3515A3701BD480A200859FA6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A36D1BD480A200859FA6 /* MBProgressHUD.m */; };
+		3515A3781BD4913500859FA6 /* DPSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3515A3771BD4913500859FA6 /* DPSearchViewController.m */; };
 		3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */; };
 		3521D5D11BCDEA0B00C4BF0D /* DPMeiTuanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5D01BCDEA0B00C4BF0D /* DPMeiTuanTests.m */; };
 		3521D5FB1BCE487800C4BF0D /* DPHomeDropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D5FA1BCE487800C4BF0D /* DPHomeDropdown.m */; };
@@ -164,6 +165,8 @@
 		3515A36B1BD480A200859FA6 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		3515A36C1BD480A200859FA6 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		3515A36D1BD480A200859FA6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		3515A3761BD4913500859FA6 /* DPSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPSearchViewController.h; sourceTree = "<group>"; };
+		3515A3771BD4913500859FA6 /* DPSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPSearchViewController.m; sourceTree = "<group>"; };
 		3521D5B11BCDEA0B00C4BF0D /* DPMeiTuan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DPMeiTuan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3521D5B51BCDEA0B00C4BF0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3521D5C11BCDEA0B00C4BF0D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -355,6 +358,47 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		3515A3711BD490D400859FA6 /* Search(搜索) */ = {
+			isa = PBXGroup;
+			children = (
+				3515A3721BD490D400859FA6 /* Controller */,
+				3515A3731BD490D400859FA6 /* Model */,
+				3515A3741BD490D400859FA6 /* Tool */,
+				3515A3751BD490D400859FA6 /* View */,
+			);
+			path = "Search(搜索)";
+			sourceTree = "<group>";
+		};
+		3515A3721BD490D400859FA6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3515A3761BD4913500859FA6 /* DPSearchViewController.h */,
+				3515A3771BD4913500859FA6 /* DPSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3515A3731BD490D400859FA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3515A3741BD490D400859FA6 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		3515A3751BD490D400859FA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3521D5A81BCDEA0B00C4BF0D = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +456,7 @@
 		3521D5EF1BCE40C200C4BF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3515A3711BD490D400859FA6 /* Search(搜索) */,
 				3521D5F01BCE40C200C4BF0D /* Home(首页) */,
 				3521D5F41BCE40C200C4BF0D /* Main */,
 			);
@@ -746,6 +791,7 @@
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
 				3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */,
 				3515A3411BD35C6700859FA6 /* SDWebImageDownloader.m in Sources */,
+				3515A3781BD4913500859FA6 /* DPSearchViewController.m in Sources */,
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
