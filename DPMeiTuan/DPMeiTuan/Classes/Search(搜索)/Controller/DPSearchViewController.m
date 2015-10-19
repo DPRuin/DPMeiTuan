@@ -8,38 +8,26 @@
 
 #import "DPSearchViewController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "MJRefresh.h"
+#import "UIView+Extension.h"
+#import "UIView+AutoLayout.h"
 
 @interface DPSearchViewController () <UISearchBarDelegate>
-
+@property (nonatomic, weak) UISearchBar *searchBar;
 @end
 
 @implementation DPSearchViewController
 
-static NSString * const reuseIdentifier = @"Cell";
--(instancetype)init
-{
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    return [self initWithCollectionViewLayout:flowLayout];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
     // 设置背景色
     self.collectionView.backgroundColor = DPGlobalBg;
     
     // 左边返回
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) Image:@"icon_back" highlightImage:@"icon_back_highlighted"];
     // 中间搜索框
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.placeholder = @"请输入关键词";
-    searchBar.delegate = self;
-    self.navigationItem.titleView = searchBar;
+    [self setupSearchBar];
 }
 
 - (void)back
@@ -47,64 +35,74 @@ static NSString * const reuseIdentifier = @"Cell";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - UISearchBarDelegate
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+- (void)setupSearchBar
 {
-    if (searchText.length == 0) {
-        [searchBar resignFirstResponder];
-    }
-}
-
-#pragma mark <UICollectionViewDataSource>
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete method implementation -- Return the number of sections
-    return 0;
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete method implementation -- Return the number of items in the section
-    return 0;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.placeholder = @"请输入关键词";
+    searchBar.delegate = self;
+    searchBar.backgroundImage = [UIImage imageNamed:@"bg_login_textfield"];
+    searchBar.tintColor = DPGreenColor;
     
-    // Configure the cell
+    UIView *titleView = [[UIView alloc] init];
+    titleView.width = 480;
+    titleView.height = 30;
+    [titleView addSubview:searchBar];
     
-    return cell;
+    self.navigationItem.titleView = titleView;
+    [searchBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
+    self.searchBar = searchBar;
+}
+#pragma mark - 实现父类的方法
+- (void)setupParams:(NSMutableDictionary *)params
+{
+    // 城市
+    params[@"city"] = @"北京";
+    // 关键字
+    params[@"keyword"] = self.searchBar.text;
+    
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark - UISearchBarDelegate
+/**
+ *  键盘弹出：搜索框文字开始编辑
+ */
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    // 搜索框背景图片
+    searchBar.backgroundImage = [UIImage imageNamed:@"bg_login_textfield_hl"];
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
+    // 显示搜索框取消按钮
+    [searchBar setShowsCancelButton:YES animated:YES];
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
+/**
+ *  键盘退下：搜索框文字结束编辑
+ */
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+    // 搜索框背景图片
+    searchBar.backgroundImage = [UIImage imageNamed:@"bg_login_textfield"];
+    
+    // 隐藏搜索框取消按钮
+    [searchBar setShowsCancelButton:NO animated:YES];
+
+    searchBar.text = nil;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    // 进入下拉刷新状态 发送请求给服务器
+    [self.collectionView headerBeginRefreshing];
+    
+    // 退出键盘
+    [searchBar resignFirstResponder];
 }
-*/
 
+/**
+ *  搜索框右边取消按钮点击了就会调用
+ */
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+}
 @end

@@ -64,6 +64,7 @@
 		3521D62F1BCE88D200C4BF0D /* DPCategary.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D62E1BCE88D200C4BF0D /* DPCategary.m */; };
 		3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */; };
 		3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */; };
+		353F2B151BD4F3F0006B3417 /* DPDealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -211,6 +212,8 @@
 		3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdownMainCell.m; sourceTree = "<group>"; };
 		3521D6331BCE9B3200C4BF0D /* DPHomeDropdownSubCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPHomeDropdownSubCell.h; sourceTree = "<group>"; };
 		3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdownSubCell.m; sourceTree = "<group>"; };
+		353F2B131BD4F3F0006B3417 /* DPDealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDealsViewController.h; sourceTree = "<group>"; };
+		353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealsViewController.m; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -564,6 +567,8 @@
 			children = (
 				35DB3C291BCF5CF70006E2B1 /* DPNavigationController.h */,
 				35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */,
+				353F2B131BD4F3F0006B3417 /* DPDealsViewController.h */,
+				353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				3515A3181BD343CD00859FA6 /* DPDealCell.m in Sources */,
 				3515A3111BD28C4300859FA6 /* DPRequest.m in Sources */,
 				3521D6271BCE88AE00C4BF0D /* MJMethod.m in Sources */,
+				353F2B151BD4F3F0006B3417 /* DPDealsViewController.m in Sources */,
 				3515A36E1BD480A200859FA6 /* MBProgressHUD+MJ.m in Sources */,
 				3515A3651BD3A12900859FA6 /* UIScrollView+MJExtension.m in Sources */,
 				3515A33C1BD35C6700859FA6 /* MKAnnotationView+WebCache.m in Sources */,

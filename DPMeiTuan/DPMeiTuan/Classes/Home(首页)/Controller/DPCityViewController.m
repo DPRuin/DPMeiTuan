@@ -34,7 +34,6 @@
     [super viewDidLoad];
     // 导航栏内容基本设置
     self.title = @"切换城市";
-    [UIImage imageNamed:@"btn_navigation_close_hl"];
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(close) Image:@"btn_navigation_close" highlightImage:@"btn_navigation_close_hl"];
     
     // self.tableView.sectionIndexBackgroundColor = [UIColor blackColor];

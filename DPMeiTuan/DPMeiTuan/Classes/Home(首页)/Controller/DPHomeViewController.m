@@ -18,17 +18,11 @@
 #import "DPSort.h"
 #import "DPRegion.h"
 #import "DPCategary.h"
-#import "DPAPI.h"
-#import "DPDealCell.h"
-#import "MJExtension.h"
-#import "DPDeal.h"
-#import "MJRefresh.h"
-#import "MBProgressHUD+MJ.h"
-#import "UIView+AutoLayout.h"
 #import "DPNavigationController.h"
 #import "DPSearchViewController.h"
+#import "MJRefresh.h"
 
-@interface DPHomeViewController () <DPRequestDelegate>
+@interface DPHomeViewController ()
 /** 分类 */
 @property (nonatomic, weak) UIBarButtonItem *categaryItem;
 /** 地区 */
@@ -52,26 +46,9 @@
 /** 排序popover */
 @property (nonatomic, strong) UIPopoverController *sortPopo;
 
-/** 所有的团购数据 */
-@property (nonatomic, strong) NSMutableArray *deals;
-
-/** 记录当前页码 */
-@property (nonatomic, assign) int currentPage;
-/** 最后一个网络请求 */
-@property (nonatomic, strong) DPRequest *lastRequest;
-
-/** 没有团购数据图片提示 */
-@property (nonatomic, weak) UIImageView *noDateView;
-
-/** 总数 */
-@property (nonatomic, assign) int totalCount;
-
-
 @end
 
 @implementation DPHomeViewController
-
-static NSString * const reuseIdentifier = @"DPDealCell";
 
 - (instancetype)init
 {
@@ -82,19 +59,6 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    // [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"DPDealCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // 设置背景色
-    self.collectionView.backgroundColor = DPGlobalBg;
-    
-    // 设置垂直方向上可以拉动
-    self.collectionView.alwaysBounceVertical = YES;
     
     // 设置导航栏内容
     [self setupLeftNav];
@@ -108,53 +72,30 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(districtDidChange:) name:DPDistrictDidChangeNotification object:nil];
     // 监听分类改变通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categaryDidChange:) name:DPCategaryDidChangeNotification object:nil];
-    
-    // 添加上拉刷新
-    [self.collectionView addFooterWithTarget:self action:@selector(loadMoreDeals)];
-    // 添加下拉刷新
-    [self.collectionView addHeaderWithTarget:self action:@selector(loadNewDeals)];
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
-
-/**
- *  屏幕旋转就会调用
- */
-- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+#pragma mark - 实现父类的方法
+- (void)setupParams:(NSMutableDictionary *)params
 {
-    // 横屏3列 竖屏2列
-    int cols = (size.width == 1024) ? 3: 2;
+    // 城市
+    params[@"city"] = self.selectedCityName;
     
-    // 根据列数计算内边距
-    UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    CGFloat insert = (size.width - cols * flowLayout.itemSize.width) / (cols +1);
-    flowLayout.sectionInset = UIEdgeInsetsMake(insert, insert, insert, insert);
-    
-    // 设置行间距
-    flowLayout.minimumLineSpacing = insert * 0.5;
-    
-}
-
-#pragma mark - 懒加载
-- (UIImageView *)noDateView
-{
-    if (!_noDateView) {
-        UIImageView *noDateView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_deals_empty"]];
-        [self.collectionView addSubview:noDateView];
-        [noDateView autoCenterInSuperview];
-        self.noDateView = noDateView;
+    // 排序
+    if (self.selectedSort.value) {
+        params[@"sort"] = @(self.selectedSort.value);
     }
-    return _noDateView;
-}
-- (NSMutableArray *)deals
-{
-    if (!_deals) {
-        self.deals = [[NSMutableArray alloc] init];
+    // 区域
+    if (self.selectedReginName) {
+        params[@"region"] = self.selectedReginName;
     }
-    return _deals;
+    // 分类
+    if (self.selectedCategaryName) {
+        params[@"category"] = self.selectedCategaryName;
+    }
 }
 
 #pragma mark - 监听通知方法
@@ -250,89 +191,6 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     
 }
 
-#pragma mark - 与服务器交互
-- (void)loadDeals
-{
-    DPAPI *api = [[DPAPI alloc] init];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    // 城市
-    params[@"city"] = self.selectedCityName;
-    
-    // 排序
-    if (self.selectedSort.value) {
-        params[@"sort"] = @(self.selectedSort.value);
-    }
-    // 区域
-    if (self.selectedReginName) {
-        params[@"region"] = self.selectedReginName;
-    }
-    // 分类
-    if (self.selectedCategaryName) {
-        params[@"category"] = self.selectedCategaryName;
-    }
-    // 每页限制条数
-    params[@"limit"] = @(5);
-    
-    // 页码
-    params[@"page"] = @(self.currentPage);
-    
-    self.lastRequest = [api requestWithURL:@"v1/deal/find_deals" params:params  delegate:self];
-}
-- (void)loadMoreDeals
-{
-    self.currentPage++;
-    [self loadDeals];
-
-}
-
-- (void)loadNewDeals
-{
-    self.currentPage = 1;
-    
-    [self loadDeals];
-}
-- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
-{
-    // 不是最后一次网络请求直接返回
-    if (self.lastRequest != request) return;
-    self.totalCount = [result[@"total_count"] intValue];
-    
-    // 字典数组 转 模型数组
-    NSArray *newDeals = [DPDeal objectArrayWithKeyValuesArray:result[@"deals"]];
-    
-    if (self.currentPage == 1) { // 清楚之前的就数据
-        [self.deals removeAllObjects];
-    }
-
-    [self.deals addObjectsFromArray:newDeals];
-    
-    // 刷新表格数据
-    [self.collectionView reloadData];
-    
-    // 结束上拉刷新
-    [self.collectionView footerEndRefreshing];
-    // 结束下拉刷新
-    [self.collectionView headerEndRefreshing];
-}
-
-- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
-{
-    // 只处理最后的请求失败
-    if (self.lastRequest != request) return;
-    
-    [MBProgressHUD showError:@"网络繁忙，请稍后再试" toView:self.collectionView];
-    
-    // 结束上拉刷新
-    [self.collectionView footerEndRefreshing];
-    // 结束下拉刷新
-    [self.collectionView headerEndRefreshing];
-    
-    // 如果上拉加载失败了
-    if (self.currentPage > 1) {
-        self.currentPage--;
-    }
-}
-
 #pragma mark - 设置导航栏内容
 - (void)setupLeftNav
 {
@@ -416,77 +274,5 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     [popo presentPopoverFromBarButtonItem:self.sortItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     self.sortPopo = popo;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    // 控制尾部刷新控件的显示和隐藏
-    self.collectionView.footerHidden = (self.deals.count == self.totalCount);
-    
-    // 计算一遍内边距
-    [self viewWillTransitionToSize:collectionView.size withTransitionCoordinator:nil];
-    
-    // 控制没有数据的提醒
-    self.noDateView.hidden = (self.deals.count != 0);
-    
-    return 1;
-}
-
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
-    return self.deals.count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    DPDealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
-    // 传递模型数据
-    cell.deal = self.deals[indexPath.item];
-    
-    return cell;
-}
-
-#pragma mark - UICollectionViewDelegate
-
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

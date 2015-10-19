@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DPDealsViewController.h"
 
-@interface DPHomeViewController : UICollectionViewController
+@interface DPHomeViewController : DPDealsViewController
 
 @end

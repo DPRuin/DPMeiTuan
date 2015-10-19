@@ -1,5 +1,5 @@
 //
-//  DPSearchViewController.h
+//  DPDealsViewController.h
 //  DPMeiTuan
 //
 //  Created by 土老帽 on 15/10/19.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DPDealsViewController.h"
 
-@interface DPSearchViewController : DPDealsViewController
-
+@interface DPDealsViewController : UICollectionViewController
+- (void)setupParams:(NSMutableDictionary *)params;
 @end
