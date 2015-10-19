@@ -21,8 +21,12 @@
 #import "DPNavigationController.h"
 #import "DPSearchViewController.h"
 #import "MJRefresh.h"
+#import "AwesomeMenu.h"
+#import "UIView+AutoLayout.h"
+#import "DPCollectViewController.h"
+#import "DPRecentViewController.h"
 
-@interface DPHomeViewController ()
+@interface DPHomeViewController () <AwesomeMenuDelegate>
 /** 分类 */
 @property (nonatomic, weak) UIBarButtonItem *categaryItem;
 /** 地区 */
@@ -64,20 +68,93 @@
     [self setupLeftNav];
     [self setupRightNav];
     
-    // 监听城市改变通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:DPCityDidChangeNotification object:nil];
-    // 监听排序改变通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sortDidChange:) name:DPSortDidChangeNotification object:nil];
-    // 监听区域改变通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(districtDidChange:) name:DPDistrictDidChangeNotification object:nil];
-    // 监听分类改变通知
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categaryDidChange:) name:DPCategaryDidChangeNotification object:nil];
+    // 监听通知
+    [self setupNotification];
+    
+    // 初始化Aswesome
+    [self setupAwesomeMenu];
+    
 }
 
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+#pragma mark - 创建Aswesome
+- (void)setupAwesomeMenu
+{
+    
+    AwesomeMenuItem *starMenuItem0 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+                                                           highlightedImage:nil
+                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_normal"]
+                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_highlighted"]];
+    
+    AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+                                                           highlightedImage:nil
+                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_normal"]
+                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_highlighted"]];
+    
+    AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+                                                           highlightedImage:nil
+                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_normal"]
+                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_highlighted"]];
+    
+    AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+                                                           highlightedImage:nil
+                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_more_normal"]
+                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_more_highlighted"]];
+
+    NSArray *menus = @[starMenuItem0, starMenuItem1, starMenuItem2, starMenuItem3];
+    
+    AwesomeMenuItem *startItem = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"icon_pathMenu_background_normal"]
+                                                       highlightedImage:[UIImage imageNamed:@"icon_pathMenu_background_highlighted"]
+                                                           ContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]
+                                                highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_highlighted"]];
+    
+    AwesomeMenu *menu = [[AwesomeMenu alloc] initWithFrame:CGRectZero startItem:startItem menuItems:menus];
+    menu.delegate = self;
+    menu.menuWholeAngle = M_PI_2;
+    menu.animationDuration = 0.5;
+    menu.startPoint = CGPointMake(50.0, 150.0);
+    menu.alpha = 0.3;
+    [self.view addSubview:menu];
+    
+    // 添加约束
+    [menu autoPinEdgeToSuperviewEdge:ALEdgeLeft withInset:0];
+    [menu autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:0];
+    [menu autoSetDimensionsToSize:CGSizeMake(200, 200)];
+    
+    
+}
+#pragma mark - AwesomeMenuDelegate
+- (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
+{
+    switch (idx) {
+        case 0: { // 收藏
+            DPNavigationController *collectNav = [[DPNavigationController alloc] initWithRootViewController:[[DPCollectViewController alloc] init]];
+            [self presentViewController:collectNav animated:YES completion:nil];
+            break;
+        }
+        case 1: { // 最近
+            DPNavigationController *recentNav = [[DPNavigationController alloc] initWithRootViewController:[[DPRecentViewController alloc] init]];
+            [self presentViewController:recentNav animated:YES completion:nil];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+- (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
+    // 半透明显示
+    menu.alpha = 0.3;
+}
+- (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
+    // 完全显示
+    menu.alpha = 1.0;
+}
+
 #pragma mark - 实现父类的方法
 - (void)setupParams:(NSMutableDictionary *)params
 {
@@ -99,6 +176,21 @@
 }
 
 #pragma mark - 监听通知方法
+/**
+ *  监听通知
+ */
+- (void)setupNotification
+{
+    // 监听城市改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityDidChange:) name:DPCityDidChangeNotification object:nil];
+    // 监听排序改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sortDidChange:) name:DPSortDidChangeNotification object:nil];
+    // 监听区域改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(districtDidChange:) name:DPDistrictDidChangeNotification object:nil];
+    // 监听分类改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categaryDidChange:) name:DPCategaryDidChangeNotification object:nil];
+}
+
 /**
  *  分类改变通知方法
  */

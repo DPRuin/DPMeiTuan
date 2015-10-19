@@ -65,6 +65,10 @@
 		3521D6321BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6311BCE9B1600C4BF0D /* DPHomeDropdownMainCell.m */; };
 		3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */; };
 		353F2B151BD4F3F0006B3417 /* DPDealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */; };
+		353F2B1B1BD52CD7006B3417 /* AwesomeMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B181BD52CD7006B3417 /* AwesomeMenu.m */; };
+		353F2B1C1BD52CD7006B3417 /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B1A1BD52CD7006B3417 /* AwesomeMenuItem.m */; };
+		353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B261BD53D7C006B3417 /* DPCollectViewController.m */; };
+		353F2B2A1BD53D9A006B3417 /* DPRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B291BD53D9A006B3417 /* DPRecentViewController.m */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -214,6 +218,14 @@
 		3521D6341BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPHomeDropdownSubCell.m; sourceTree = "<group>"; };
 		353F2B131BD4F3F0006B3417 /* DPDealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDealsViewController.h; sourceTree = "<group>"; };
 		353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealsViewController.m; sourceTree = "<group>"; };
+		353F2B171BD52CD7006B3417 /* AwesomeMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenu.h; sourceTree = "<group>"; };
+		353F2B181BD52CD7006B3417 /* AwesomeMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenu.m; sourceTree = "<group>"; };
+		353F2B191BD52CD7006B3417 /* AwesomeMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwesomeMenuItem.h; sourceTree = "<group>"; };
+		353F2B1A1BD52CD7006B3417 /* AwesomeMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwesomeMenuItem.m; sourceTree = "<group>"; };
+		353F2B251BD53D7C006B3417 /* DPCollectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPCollectViewController.h; sourceTree = "<group>"; };
+		353F2B261BD53D7C006B3417 /* DPCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCollectViewController.m; sourceTree = "<group>"; };
+		353F2B281BD53D9A006B3417 /* DPRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRecentViewController.h; sourceTree = "<group>"; };
+		353F2B291BD53D9A006B3417 /* DPRecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRecentViewController.m; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -459,6 +471,8 @@
 		3521D5EF1BCE40C200C4BF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				353F2B211BD53D5D006B3417 /* Collect(收藏) */,
+				353F2B1D1BD53D4D006B3417 /* Recent(最近) */,
 				3515A3711BD490D400859FA6 /* Search(搜索) */,
 				3521D5F01BCE40C200C4BF0D /* Home(首页) */,
 				3521D5F41BCE40C200C4BF0D /* Main */,
@@ -576,6 +590,7 @@
 		3521D5F71BCE40C200C4BF0D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				353F2B161BD52CD7006B3417 /* AwesomeMenu */,
 				3515A3681BD480A200859FA6 /* MBProgressHUD */,
 				3515A34F1BD3A12900859FA6 /* MJRefresh */,
 				3515A31A1BD35C6700859FA6 /* SDWebImage */,
@@ -638,6 +653,83 @@
 				3521D6211BCE88AE00C4BF0D /* NSObject+MJMember.m */,
 			);
 			path = MJExtension;
+			sourceTree = "<group>";
+		};
+		353F2B161BD52CD7006B3417 /* AwesomeMenu */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B171BD52CD7006B3417 /* AwesomeMenu.h */,
+				353F2B181BD52CD7006B3417 /* AwesomeMenu.m */,
+				353F2B191BD52CD7006B3417 /* AwesomeMenuItem.h */,
+				353F2B1A1BD52CD7006B3417 /* AwesomeMenuItem.m */,
+			);
+			path = AwesomeMenu;
+			sourceTree = "<group>";
+		};
+		353F2B1D1BD53D4D006B3417 /* Recent(最近) */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B1E1BD53D4D006B3417 /* Controller */,
+				353F2B1F1BD53D4D006B3417 /* Model */,
+				353F2B201BD53D4D006B3417 /* View */,
+			);
+			path = "Recent(最近)";
+			sourceTree = "<group>";
+		};
+		353F2B1E1BD53D4D006B3417 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B281BD53D9A006B3417 /* DPRecentViewController.h */,
+				353F2B291BD53D9A006B3417 /* DPRecentViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		353F2B1F1BD53D4D006B3417 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		353F2B201BD53D4D006B3417 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		353F2B211BD53D5D006B3417 /* Collect(收藏) */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B221BD53D5D006B3417 /* Controller */,
+				353F2B231BD53D5D006B3417 /* Model */,
+				353F2B241BD53D5D006B3417 /* View */,
+			);
+			path = "Collect(收藏)";
+			sourceTree = "<group>";
+		};
+		353F2B221BD53D5D006B3417 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B251BD53D7C006B3417 /* DPCollectViewController.h */,
+				353F2B261BD53D7C006B3417 /* DPCollectViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		353F2B231BD53D5D006B3417 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		353F2B241BD53D5D006B3417 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		35DB3C3B1BCFAC630006E2B1 /* UIView-AutoLayout */ = {
@@ -775,6 +867,7 @@
 				35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */,
 				3515A3491BD35C6700859FA6 /* UIImageView+HighlightedWebCache.m in Sources */,
 				3515A3641BD3A12900859FA6 /* MJRefreshHeaderView.m in Sources */,
+				353F2B1C1BD52CD7006B3417 /* AwesomeMenuItem.m in Sources */,
 				3515A3611BD3A12900859FA6 /* MJRefreshBaseView.m in Sources */,
 				3521D6251BCE88AE00C4BF0D /* MJIvar.m in Sources */,
 				3515A33D1BD35C6700859FA6 /* NSData+ImageContentType.m in Sources */,
@@ -798,12 +891,14 @@
 				3515A3411BD35C6700859FA6 /* SDWebImageDownloader.m in Sources */,
 				3515A3781BD4913500859FA6 /* DPSearchViewController.m in Sources */,
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
+				353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				3515A3471BD35C6700859FA6 /* UIImage+MultiFormat.m in Sources */,
 				3515A3671BD3A12900859FA6 /* UIView+MJExtension.m in Sources */,
 				35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */,
 				3515A3481BD35C6700859FA6 /* UIImage+WebP.m in Sources */,
+				353F2B2A1BD53D9A006B3417 /* DPRecentViewController.m in Sources */,
 				3521D6351BCE9B3200C4BF0D /* DPHomeDropdownSubCell.m in Sources */,
 				3515A3661BD3A12900859FA6 /* UIScrollView+MJRefresh.m in Sources */,
 				35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */,
@@ -818,6 +913,7 @@
 				3515A3141BD33F1200859FA6 /* DPDeal.m in Sources */,
 				35DB3C3A1BCFA8530006E2B1 /* DPCitySearchResultViewController.m in Sources */,
 				3521D62A1BCE88AE00C4BF0D /* NSObject+MJCoding.m in Sources */,
+				353F2B1B1BD52CD7006B3417 /* AwesomeMenu.m in Sources */,
 				3515A3461BD35C6700859FA6 /* UIImage+GIF.m in Sources */,
 				3515A3181BD343CD00859FA6 /* DPDealCell.m in Sources */,
 				3515A3111BD28C4300859FA6 /* DPRequest.m in Sources */,
