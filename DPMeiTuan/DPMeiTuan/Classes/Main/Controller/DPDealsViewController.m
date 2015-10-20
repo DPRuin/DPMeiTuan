@@ -15,6 +15,7 @@
 #import "MJRefresh.h"
 #import "MBProgressHUD+MJ.h"
 #import "UIView+AutoLayout.h"
+#import "DPDetailViewController.h"
 
 @interface DPDealsViewController () <DPRequestDelegate>
 
@@ -196,6 +197,12 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 }
 
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    DPDetailViewController *detailVC = [[DPDetailViewController alloc] init];
+    detailVC.deal = self.deals[indexPath.item];
+    [self presentViewController:detailVC animated:YES completion:nil];
+}
 
 
 @end

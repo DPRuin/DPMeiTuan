@@ -69,6 +69,8 @@
 		353F2B1C1BD52CD7006B3417 /* AwesomeMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B1A1BD52CD7006B3417 /* AwesomeMenuItem.m */; };
 		353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B261BD53D7C006B3417 /* DPCollectViewController.m */; };
 		353F2B2A1BD53D9A006B3417 /* DPRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B291BD53D9A006B3417 /* DPRecentViewController.m */; };
+		353F2B321BD5E78D006B3417 /* DPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B301BD5E78D006B3417 /* DPDetailViewController.m */; };
+		353F2B331BD5E78D006B3417 /* DPDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353F2B311BD5E78D006B3417 /* DPDetailViewController.xib */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -226,6 +228,9 @@
 		353F2B261BD53D7C006B3417 /* DPCollectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPCollectViewController.m; sourceTree = "<group>"; };
 		353F2B281BD53D9A006B3417 /* DPRecentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRecentViewController.h; sourceTree = "<group>"; };
 		353F2B291BD53D9A006B3417 /* DPRecentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRecentViewController.m; sourceTree = "<group>"; };
+		353F2B2F1BD5E78D006B3417 /* DPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDetailViewController.h; sourceTree = "<group>"; };
+		353F2B301BD5E78D006B3417 /* DPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDetailViewController.m; sourceTree = "<group>"; };
+		353F2B311BD5E78D006B3417 /* DPDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDetailViewController.xib; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -746,6 +751,9 @@
 		353F2B2C1BD5D9FB006B3417 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				353F2B2F1BD5E78D006B3417 /* DPDetailViewController.h */,
+				353F2B301BD5E78D006B3417 /* DPDetailViewController.m */,
+				353F2B311BD5E78D006B3417 /* DPDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -863,6 +871,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353F2B331BD5E78D006B3417 /* DPDetailViewController.xib in Resources */,
 				3521D6061BCE888000C4BF0D /* categories.plist in Resources */,
 				3521D5C21BCDEA0B00C4BF0D /* Images.xcassets in Resources */,
 				3521D6091BCE888000C4BF0D /* sorts.plist in Resources */,
@@ -925,6 +934,7 @@
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
 				353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
+				353F2B321BD5E78D006B3417 /* DPDetailViewController.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				3515A3471BD35C6700859FA6 /* UIImage+MultiFormat.m in Sources */,
 				3515A3671BD3A12900859FA6 /* UIView+MJExtension.m in Sources */,

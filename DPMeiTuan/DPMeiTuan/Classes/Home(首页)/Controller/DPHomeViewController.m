@@ -88,18 +88,19 @@
     
     AwesomeMenuItem *starMenuItem0 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
                                                            highlightedImage:nil
+                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_normal"]
+                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_mine_highlighted"]];
+    
+    AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+                                                           highlightedImage:nil
                                                                ContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_normal"]
                                                     highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_collect_highlighted"]];
     
-    AwesomeMenuItem *starMenuItem1 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
+    AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
                                                            highlightedImage:nil
                                                                ContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_normal"]
                                                     highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_scan_highlighted"]];
     
-    AwesomeMenuItem *starMenuItem2 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
-                                                           highlightedImage:nil
-                                                               ContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_normal"]
-                                                    highlightedContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_highlighted"]];
     
     AwesomeMenuItem *starMenuItem3 = [[AwesomeMenuItem alloc] initWithImage:[UIImage imageNamed:@"bg_pathMenu_black_normal"]
                                                            highlightedImage:nil
@@ -119,6 +120,8 @@
     menu.animationDuration = 0.5;
     menu.startPoint = CGPointMake(50.0, 150.0);
     menu.alpha = 0.3;
+    // 不要旋转中间按钮
+    menu.rotateAddButton = NO;
     [self.view addSubview:menu];
     
     // 添加约束
@@ -148,10 +151,15 @@
     }
 }
 - (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
+    // 更改图片
+    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]];
     // 半透明显示
     menu.alpha = 0.3;
 }
 - (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
+
+    // 更改图片
+    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_cross_normal"]];
     // 完全显示
     menu.alpha = 1.0;
 }
