@@ -27,7 +27,7 @@
                     <rect key="frame" x="408" y="0.0" width="192" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </webView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-Gz-tQT">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="AA3-Gz-tQT">
                     <rect key="frame" x="494" y="290" width="20" height="20"/>
                 </activityIndicatorView>
             </subviews>
