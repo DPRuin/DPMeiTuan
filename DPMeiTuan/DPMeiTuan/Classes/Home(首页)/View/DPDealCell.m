@@ -38,6 +38,13 @@
     
     // 现价
     self.currentPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.current_price];
+    NSUInteger dotLoc = [self.currentPriceLabel.text rangeOfString:@"."].location;
+    if (dotLoc != NSNotFound) {
+        // 超过2位小数
+        if (self.currentPriceLabel.text.length - dotLoc > 3) {
+            self.currentPriceLabel.text = [self.currentPriceLabel.text substringToIndex:dotLoc + 3];
+        }
+    }
     // 原价
     self.listPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.list_price];
     // 购买数

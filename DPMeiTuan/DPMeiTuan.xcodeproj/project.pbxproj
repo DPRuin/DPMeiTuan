@@ -471,6 +471,7 @@
 		3521D5EF1BCE40C200C4BF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				353F2B2B1BD5D9FB006B3417 /* Detail(详情) */,
 				353F2B211BD53D5D006B3417 /* Collect(收藏) */,
 				353F2B1D1BD53D4D006B3417 /* Recent(最近) */,
 				3515A3711BD490D400859FA6 /* Search(搜索) */,
@@ -726,6 +727,37 @@
 			sourceTree = "<group>";
 		};
 		353F2B241BD53D5D006B3417 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		353F2B2B1BD5D9FB006B3417 /* Detail(详情) */ = {
+			isa = PBXGroup;
+			children = (
+				353F2B2C1BD5D9FB006B3417 /* Controller */,
+				353F2B2D1BD5D9FB006B3417 /* Model */,
+				353F2B2E1BD5D9FB006B3417 /* View */,
+			);
+			path = "Detail(详情)";
+			sourceTree = "<group>";
+		};
+		353F2B2C1BD5D9FB006B3417 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		353F2B2D1BD5D9FB006B3417 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		353F2B2E1BD5D9FB006B3417 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);

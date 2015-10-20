@@ -11,4 +11,7 @@
 
 @interface DPSearchViewController : DPDealsViewController
 
+/** 当前城市 */
+@property (nonatomic, copy) NSString *cityName;
+
 @end

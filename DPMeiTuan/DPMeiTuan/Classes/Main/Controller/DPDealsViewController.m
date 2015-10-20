@@ -107,7 +107,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     // 调用子类实现的方法
     [self setupParams:params];
     // 每页限制条数
-    params[@"limit"] = @(20);
+    params[@"limit"] = @(30);
     
     // 页码
     params[@"page"] = @(self.currentPage);

@@ -25,6 +25,7 @@
 #import "UIView+AutoLayout.h"
 #import "DPCollectViewController.h"
 #import "DPRecentViewController.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface DPHomeViewController () <AwesomeMenuDelegate>
 /** 分类 */
@@ -327,8 +328,16 @@
 #pragma mark - 导航栏按钮点击
 - (void)searchClick
 {
-    DPNavigationController *searchNav = [[DPNavigationController alloc] initWithRootViewController:[[DPSearchViewController alloc] init]];
-    [self presentViewController:searchNav animated:YES completion:nil];
+    if (self.selectedCityName) { // 选中了城市
+        DPSearchViewController *searchViewController = [[DPSearchViewController alloc] init];
+        searchViewController.cityName = self.selectedCityName;
+        
+        DPNavigationController *searchNav = [[DPNavigationController alloc] initWithRootViewController:searchViewController];
+        [self presentViewController:searchNav animated:YES completion:nil];
+    } else { // 未选中城市
+        [MBProgressHUD showError:@"请选择城市后再搜索" toView:self.view];
+    }
+
 }
 
 - (void)categaryClick

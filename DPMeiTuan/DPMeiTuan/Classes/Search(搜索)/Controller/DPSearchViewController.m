@@ -13,7 +13,7 @@
 #import "UIView+AutoLayout.h"
 
 @interface DPSearchViewController () <UISearchBarDelegate>
-@property (nonatomic, weak) UISearchBar *searchBar;
+@property (nonatomic, copy) NSString *keyWord;
 @end
 
 @implementation DPSearchViewController
@@ -50,16 +50,14 @@
     
     self.navigationItem.titleView = titleView;
     [searchBar autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
-    self.searchBar = searchBar;
 }
 #pragma mark - 实现父类的方法
 - (void)setupParams:(NSMutableDictionary *)params
 {
     // 城市
-    params[@"city"] = @"北京";
+    params[@"city"] = self.cityName;
     // 关键字
-    params[@"keyword"] = self.searchBar.text;
-    
+    params[@"keyword"] = self.keyWord;
 }
 
 #pragma mark - UISearchBarDelegate
@@ -85,12 +83,11 @@
     
     // 隐藏搜索框取消按钮
     [searchBar setShowsCancelButton:NO animated:YES];
-
-    searchBar.text = nil;
 }
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    self.keyWord = searchBar.text;
     // 进入下拉刷新状态 发送请求给服务器
     [self.collectionView headerBeginRefreshing];
     
