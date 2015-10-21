@@ -8,8 +8,13 @@
 
 #import "DPDetailViewController.h"
 #import "DPDeal.h"
+#import "UIImageView+WebCache.h"
+#import "DPAPI.h"
+#import "MJExtension.h"
+#import "DPRestrictions.h"
+#import "MBProgressHUD+MJ.h"
 
-@interface DPDetailViewController () <UIWebViewDelegate>
+@interface DPDetailViewController () <UIWebViewDelegate, DPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityInddicatorView;
@@ -18,7 +23,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPriceLabel;
-@property (weak, nonatomic) IBOutlet UILabel *plistPriceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *listPriceLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *collectButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *refundableAnyTimeButton;
+@property (weak, nonatomic) IBOutlet UIButton *refundableExpireButton;
+@property (weak, nonatomic) IBOutlet UIButton *purchaseCountButton;
+@property (weak, nonatomic) IBOutlet UIButton *leftTimeButton;
+
 
 
 - (IBAction)buy:(UIButton *)sender;
@@ -35,11 +48,10 @@
     // 基本设置
     self.view.backgroundColor = DPGlobalBg;
     
-    // 加载网页
-    [self setupWeb];
-    // 设置基本信息
-    self.titleLabel.text = self.deal.title;
-    self.descLabel.text = self.deal.desc;
+    // 设置左边的内容
+    [self setupLeftContent];
+    // 设置右边的内容
+    [self setupRightContent];
 }
 
 // 返回控制器支持的反向 只支持横屏
@@ -48,16 +60,91 @@
     return UIInterfaceOrientationMaskLandscape;
 }
 
+#pragma mark - 设置左边和右边的内容
 /**
- *  加载网页
+ *  设置左边的内容
  */
-- (void)setupWeb
+- (void)setupLeftContent
 {
+    //更新左边的内容
+    [self updateLeftContent];
+    
+    // 发送请求获得更详细的团购数据
+    DPAPI *api = [[DPAPI alloc] init];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"deal_id"] = self.deal.deal_id;
+    [api requestWithURL:@"v1/deal/get_single_deal" params:params delegate:self];
+    
+}
+
+/**
+ *  更新左边的内容
+ */
+- (void)updateLeftContent
+{
+    // 设置基本信息
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.deal.image_url] placeholderImage:[UIImage imageNamed:@"placeholder_deal"]];
+    self.titleLabel.text = self.deal.title;
+    self.descLabel.text = self.deal.desc;
+    // 现价
+    self.currentPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.current_price];
+    NSUInteger dotLoc = [self.currentPriceLabel.text rangeOfString:@"."].location;
+    if (dotLoc != NSNotFound) {
+        // 超过2位小数
+        if (self.currentPriceLabel.text.length - dotLoc > 3) {
+            self.currentPriceLabel.text = [self.currentPriceLabel.text substringToIndex:dotLoc + 3];
+        }
+    }
+    // 原价
+    self.listPriceLabel.text = [NSString stringWithFormat:@"￥ %@", self.deal.list_price];
+    // 购买数
+    [self.purchaseCountButton setTitle:[NSString stringWithFormat:@"已售%d", self.deal.purchase_count] forState:UIControlStateNormal];
+    
+    // 设置剩余时间
+    NSDate *now = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSDate *dead = [formatter dateFromString:self.deal.purchase_deadline];
+    // 追加1天
+    [dead dateByAddingTimeInterval:24 * 3600];
+    NSCalendarUnit unit = NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute;
+    
+    NSDateComponents *cmps = [[NSCalendar currentCalendar] components:unit fromDate:now toDate:dead options:0];
+    
+    if (cmps.day > 365) {
+        [self.leftTimeButton setTitle:@"一年内不过期" forState:UIControlStateNormal];
+    } else {
+        [self.leftTimeButton setTitle:[NSString stringWithFormat:@"%ld天%ld小时%ld分钟", cmps.day, cmps.hour, cmps.minute] forState:UIControlStateNormal];
+    }
+}
+
+/**
+ *  设置右边的内容
+ */
+- (void)setupRightContent
+{
+    // 加载网页
     self.webView.delegate = self;
     self.webView.hidden = YES;
     NSString *ID = [self.deal.deal_id substringFromIndex:([self.deal.deal_id rangeOfString:@"-"].location + 1)];
     NSString *urlStr = [NSString stringWithFormat:@"http://m.dianping.com/tuan/deal/moreinfo/%@", ID];
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
+}
+
+#pragma mark - DPRequestDelegate
+- (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
+{
+    self.deal = [DPDeal objectWithKeyValues:[result[@"deals"] lastObject]];
+    // 设置退款信息
+    self.refundableAnyTimeButton.selected = self.deal.restrictions.is_refundable;
+    self.refundableExpireButton.selected = self.deal.restrictions.is_refundable;
+}
+
+- (void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    [MBProgressHUD showError:@"网络繁忙，请稍后再试" toView:self.view];
 }
 
 #pragma mark - UIWebViewDelegate

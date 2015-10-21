@@ -71,6 +71,7 @@
 		353F2B2A1BD53D9A006B3417 /* DPRecentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B291BD53D9A006B3417 /* DPRecentViewController.m */; };
 		353F2B321BD5E78D006B3417 /* DPDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B301BD5E78D006B3417 /* DPDetailViewController.m */; };
 		353F2B331BD5E78D006B3417 /* DPDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353F2B311BD5E78D006B3417 /* DPDetailViewController.xib */; };
+		353F2B361BD7472D006B3417 /* DPRestrictions.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2B351BD7472D006B3417 /* DPRestrictions.m */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -231,6 +232,8 @@
 		353F2B2F1BD5E78D006B3417 /* DPDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDetailViewController.h; sourceTree = "<group>"; };
 		353F2B301BD5E78D006B3417 /* DPDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDetailViewController.m; sourceTree = "<group>"; };
 		353F2B311BD5E78D006B3417 /* DPDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDetailViewController.xib; sourceTree = "<group>"; };
+		353F2B341BD7472D006B3417 /* DPRestrictions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRestrictions.h; sourceTree = "<group>"; };
+		353F2B351BD7472D006B3417 /* DPRestrictions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRestrictions.m; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -533,6 +536,8 @@
 				35DB3C4F1BD1D90F0006E2B1 /* DPSort.m */,
 				3515A3121BD33F1100859FA6 /* DPDeal.h */,
 				3515A3131BD33F1100859FA6 /* DPDeal.m */,
+				353F2B341BD7472D006B3417 /* DPRestrictions.h */,
+				353F2B351BD7472D006B3417 /* DPRestrictions.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -932,6 +937,7 @@
 				3515A3411BD35C6700859FA6 /* SDWebImageDownloader.m in Sources */,
 				3515A3781BD4913500859FA6 /* DPSearchViewController.m in Sources */,
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
+				353F2B361BD7472D006B3417 /* DPRestrictions.m in Sources */,
 				353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				353F2B321BD5E78D006B3417 /* DPDetailViewController.m in Sources */,

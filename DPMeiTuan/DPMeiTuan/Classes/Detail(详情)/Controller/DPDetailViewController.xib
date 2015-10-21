@@ -9,10 +9,15 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DPDetailViewController">
             <connections>
                 <outlet property="activityInddicatorView" destination="AA3-Gz-tQT" id="dC3-Tb-0Vk"/>
+                <outlet property="collectButton" destination="Dm8-QV-SIj" id="fQ8-gW-acd"/>
                 <outlet property="currentPriceLabel" destination="0bC-uJ-FE6" id="zOu-zv-a3Y"/>
                 <outlet property="descLabel" destination="nlB-Ev-yg1" id="95p-NG-Lvd"/>
                 <outlet property="imageView" destination="XyT-91-Q7h" id="MyG-Yl-dyh"/>
-                <outlet property="plistPriceLabel" destination="zIt-zq-yDW" id="Tjm-c6-Uk4"/>
+                <outlet property="leftTimeButton" destination="jeX-dh-dkL" id="RTE-sf-bjD"/>
+                <outlet property="listPriceLabel" destination="zIt-zq-yDW" id="sHR-a4-cOO"/>
+                <outlet property="purchaseCountButton" destination="Ehd-G0-iwY" id="fh7-2I-zoU"/>
+                <outlet property="refundableAnyTimeButton" destination="zhA-oI-aal" id="DTg-Ab-i95"/>
+                <outlet property="refundableExpireButton" destination="AnH-HE-nLr" id="hdf-iL-fTV"/>
                 <outlet property="titleLabel" destination="mdz-FL-chT" id="LQh-3N-c5o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="webView" destination="pnu-3Q-0zL" id="zQk-Vw-bBg"/>
@@ -133,7 +138,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kns-Dz-ttp">
                                     <rect key="frame" x="0.0" y="378" width="370" height="60"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-oI-aal">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zhA-oI-aal">
                                             <rect key="frame" x="0.0" y="0.0" width="185" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -142,8 +147,9 @@
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="icon_order_refundable"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-dh-dkL">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-dh-dkL">
                                             <rect key="frame" x="185" y="0.0" width="185" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -153,7 +159,7 @@
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnH-HE-nLr">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnH-HE-nLr">
                                             <rect key="frame" x="0.0" y="30" width="185" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -162,8 +168,9 @@
                                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <state key="selected" image="icon_order_refundable"/>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-G0-iwY">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ehd-G0-iwY">
                                             <rect key="frame" x="185" y="30" width="185" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -204,7 +211,7 @@
                                     <color key="textColor" red="0.72941176470000002" green="0.1333333333" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="门店价" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIt-zq-yDW">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="门店价" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIt-zq-yDW" customClass="DPCenterLineLabel">
                                     <rect key="frame" x="74" y="291" width="42" height="15"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,6 +293,7 @@
         <image name="icon_collect_highlighted" width="86" height="87"/>
         <image name="icon_deal_soldNumber" width="17" height="17"/>
         <image name="icon_deal_timer" width="17" height="17"/>
+        <image name="icon_order_refundable" width="17" height="17"/>
         <image name="icon_order_unrefundable" width="17" height="17"/>
         <image name="icon_share" width="86" height="87"/>
         <image name="icon_share_highlighted" width="86" height="87"/>
