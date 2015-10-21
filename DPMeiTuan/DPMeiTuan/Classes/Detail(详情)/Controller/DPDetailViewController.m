@@ -13,6 +13,7 @@
 #import "MJExtension.h"
 #import "DPRestrictions.h"
 #import "MBProgressHUD+MJ.h"
+#import "DPDealTool.h"
 
 @interface DPDetailViewController () <UIWebViewDelegate, DPRequestDelegate>
 
@@ -34,11 +35,11 @@
 
 
 
-- (IBAction)buy:(UIButton *)sender;
-- (IBAction)collect:(UIButton *)sender;
-- (IBAction)share:(UIButton *)sender;
+- (IBAction)buy:(UIButton *)btn;
+- (IBAction)collect:(UIButton *)btn;
+- (IBAction)share:(UIButton *)btn;
 
-- (IBAction)back:(UIButton *)sender;
+- (IBAction)back:(UIButton *)btn;
 @end
 
 @implementation DPDetailViewController
@@ -118,6 +119,9 @@
     } else {
         [self.leftTimeButton setTitle:[NSString stringWithFormat:@"%ld天%ld小时%ld分钟", cmps.day, cmps.hour, cmps.minute] forState:UIControlStateNormal];
     }
+    
+    // 设置收藏状态
+    self.collectButton.selected = [DPDealTool isCollected:self.deal];
 }
 
 /**
@@ -175,23 +179,35 @@
 /**
  *  返回
  */
-- (IBAction)back:(UIButton *)sender {
+- (IBAction)back:(UIButton *)btn {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 /**
  *  立即购买
  */
-- (IBAction)buy:(UIButton *)sender {
+- (IBAction)buy:(UIButton *)btn {
 }
 /**
  *  收藏
  */
-- (IBAction)collect:(UIButton *)sender {
+- (IBAction)collect:(UIButton *)btn {
+    if (btn.isSelected) { // 取消收藏
+        [DPDealTool removeCollectDeal:self.deal];
+        [MBProgressHUD showSuccess:@"取消收藏成功" toView:self.view];
+    } else { // 收藏
+        [DPDealTool addCollectDeal:self.deal];
+        [MBProgressHUD showSuccess:@"收藏成功" toView:self.view];
+    }
+    
+    // 按钮选中取反
+    btn.selected = !btn.isSelected;
+    
+    
 }
 /**
  *  分享
  */
-- (IBAction)share:(UIButton *)sender {
+- (IBAction)share:(UIButton *)btn {
 }
 
 
