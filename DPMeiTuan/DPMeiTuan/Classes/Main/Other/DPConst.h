@@ -28,3 +28,8 @@ extern NSString *const DPSelectSubregionName;
 extern NSString *const DPCategaryDidChangeNotification;
 extern NSString *const DPSelectCategary;
 extern NSString *const DPSelectSubCategaryName;
+
+// 通知 收藏改变
+extern NSString *const DPCollectStateDidChangeNotification;
+extern NSString *const DPCollectDealKey;
+extern NSString *const DPIsCollectedKey;

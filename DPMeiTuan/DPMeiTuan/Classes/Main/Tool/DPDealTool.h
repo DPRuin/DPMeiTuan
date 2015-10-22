@@ -29,4 +29,9 @@
  *  团购是否收藏
  */
 + (BOOL)isCollected:(DPDeal *)deal;
+
+/**
+ *  收藏的团购的数量
+ */
++ (int)collectDealsCount;
 @end

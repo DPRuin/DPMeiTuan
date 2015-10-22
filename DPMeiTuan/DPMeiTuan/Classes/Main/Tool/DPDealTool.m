@@ -25,9 +25,9 @@ static FMDatabase *_db;
 
 + (NSArray *)collectDeals:(int)page
 {
-    int size = 20;
+    int size = 1;
     int pose = (page - 1) * size;
-    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT * FROM t_collect_deal ORDER BY id DSEC LIMIT %d,%d;", pose, size];
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT * FROM t_collect_deal ORDER BY id DESC LIMIT %d,%d;", pose, size];
     
     NSMutableArray *deals = [NSMutableArray array];
     while ([set next]) {
@@ -57,4 +57,10 @@ static FMDatabase *_db;
     
 }
 
++ (int)collectDealsCount
+{
+    FMResultSet *set = [_db executeQuery:@"SELECT count(*) AS deal_count FROM t_collect_deal;"];
+    [set next];
+    return [set intForColumn:@"deal_count"];
+}
 @end

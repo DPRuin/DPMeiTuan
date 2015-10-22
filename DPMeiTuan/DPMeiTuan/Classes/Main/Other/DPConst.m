@@ -13,3 +13,8 @@ NSString *const DPSelectSubregionName = @"DPSelectSubregionName";
 NSString *const DPCategaryDidChangeNotification = @"DPCategaryDidChangeNotification";
 NSString *const DPSelectCategary = @"DPSelectCategary";
 NSString *const DPSelectSubCategaryName = @"DPSelectSubCategaryName";
+
+NSString *const DPCollectStateDidChangeNotification = @"DPCollectStateDidChangeNotification";
+NSString *const DPCollectDealKey = @"DPCollectDealKey";
+NSString *const DPIsCollectedKey = @"DPIsCollectedKey";
+

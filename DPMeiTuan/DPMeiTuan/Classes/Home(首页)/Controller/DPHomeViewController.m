@@ -119,7 +119,7 @@
     menu.menuWholeAngle = M_PI_2;
     menu.animationDuration = 0.5;
     menu.startPoint = CGPointMake(50.0, 150.0);
-    menu.alpha = 0.3;
+    menu.alpha = 0.5;
     // 不要旋转中间按钮
     menu.rotateAddButton = NO;
     [self.view addSubview:menu];
@@ -135,12 +135,12 @@
 - (void)awesomeMenu:(AwesomeMenu *)menu didSelectIndex:(NSInteger)idx
 {
     switch (idx) {
-        case 0: { // 收藏
+        case 1: { // 收藏
             DPNavigationController *collectNav = [[DPNavigationController alloc] initWithRootViewController:[[DPCollectViewController alloc] init]];
             [self presentViewController:collectNav animated:YES completion:nil];
             break;
         }
-        case 1: { // 最近
+        case 2: { // 最近
             DPNavigationController *recentNav = [[DPNavigationController alloc] initWithRootViewController:[[DPRecentViewController alloc] init]];
             [self presentViewController:recentNav animated:YES completion:nil];
             break;
@@ -149,12 +149,18 @@
         default:
             break;
     }
+    
+    // 更改图片
+    [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]];
+    // 半透明显示
+    menu.alpha = 0.5;
+    
 }
 - (void)awesomeMenuDidFinishAnimationClose:(AwesomeMenu *)menu {
     // 更改图片
     [menu setContentImage:[UIImage imageNamed:@"icon_pathMenu_mainMine_normal"]];
     // 半透明显示
-    menu.alpha = 0.3;
+    menu.alpha = 0.5;
 }
 - (void)awesomeMenuDidFinishAnimationOpen:(AwesomeMenu *)menu {
 

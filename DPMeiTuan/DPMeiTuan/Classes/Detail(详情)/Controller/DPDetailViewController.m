@@ -40,6 +40,11 @@
 - (IBAction)share:(UIButton *)btn;
 
 - (IBAction)back:(UIButton *)btn;
+
+/**
+ *  为了解决服务器图片bug 创建这个属性
+ */
+@property (nonatomic, strong) DPDeal *singleDeal;
 @end
 
 @implementation DPDetailViewController
@@ -140,10 +145,10 @@
 #pragma mark - DPRequestDelegate
 - (void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
 {
-    self.deal = [DPDeal objectWithKeyValues:[result[@"deals"] lastObject]];
+    self.singleDeal = [DPDeal objectWithKeyValues:[result[@"deals"] lastObject]];
     // 设置退款信息
-    self.refundableAnyTimeButton.selected = self.deal.restrictions.is_refundable;
-    self.refundableExpireButton.selected = self.deal.restrictions.is_refundable;
+    self.refundableAnyTimeButton.selected = self.singleDeal.restrictions.is_refundable;
+    self.refundableExpireButton.selected = self.singleDeal.restrictions.is_refundable;
 }
 
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
@@ -191,17 +196,27 @@
  *  收藏
  */
 - (IBAction)collect:(UIButton *)btn {
+    
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[DPCollectDealKey] = self.deal;
+    
     if (btn.isSelected) { // 取消收藏
         [DPDealTool removeCollectDeal:self.deal];
         [MBProgressHUD showSuccess:@"取消收藏成功" toView:self.view];
+        
+        userInfo[DPIsCollectedKey] = @NO;
     } else { // 收藏
         [DPDealTool addCollectDeal:self.deal];
         [MBProgressHUD showSuccess:@"收藏成功" toView:self.view];
+        
+        userInfo[DPIsCollectedKey] = @YES;
     }
     
     // 按钮选中取反
     btn.selected = !btn.isSelected;
     
+    // 发出通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPCollectStateDidChangeNotification object:nil userInfo:userInfo];
     
 }
 /**
