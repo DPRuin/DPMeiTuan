@@ -14,13 +14,14 @@
 #import "DPDetailViewController.h"
 #import "DPDealTool.h"
 #import "UIBarButtonItem+Extension.h"
+#import "DPDeal.h"
 
 NSString *const MTEdit = @"编辑";
 NSString *const MTDone = @"完成";
 #define DPString(str) [NSString stringWithFormat:@"  %@  ", str]
 
 
-@interface DPCollectViewController ()
+@interface DPCollectViewController () <DPDealCellDelegate>
 
 /** 收藏的团购数据 */
 @property (nonatomic, strong) NSMutableArray *deals;
@@ -141,6 +142,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 {
     if (!_selectAllItem) {
         self.selectAllItem = [[UIBarButtonItem alloc] initWithTitle:DPString(@"全选") style:UIBarButtonItemStyleDone target:self action:@selector(selectAll)];
+        self.selectAllItem.enabled = (self.deals.count != 0);
     }
     return _selectAllItem;
 }
@@ -149,6 +151,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 {
     if (!_unselectAllbackItem) {
         self.unselectAllbackItem = [[UIBarButtonItem alloc] initWithTitle:DPString(@"全不选") style:UIBarButtonItemStyleDone target:self action:@selector(unselectAllback)];
+        self.unselectAllbackItem.enabled = (self.deals.count != 0);
     }
     return _unselectAllbackItem;
 }
@@ -157,6 +160,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 {
     if (!_removeItem) {
         self.removeItem = [[UIBarButtonItem alloc] initWithTitle:DPString(@"删除") style:UIBarButtonItemStyleDone target:self action:@selector(remove)];
+        self.removeItem.enabled = NO;
     }
     return _removeItem;
 }
@@ -166,11 +170,26 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 {
     if ([btnItem.title isEqualToString:MTEdit]) { // 编辑
         self.navigationItem.leftBarButtonItems = @[self.backItem, self.selectAllItem, self.unselectAllbackItem, self.removeItem];
+        
+        // 进入编辑状态
+        for (DPDeal *deal in self.deals) {
+            deal.editing = YES;
+        }
+        
         [btnItem setTitle:MTDone];
     } else { // 完成
         self.navigationItem.leftBarButtonItems = @[self.backItem];
+        
+        // 结束编辑状态
+        for (DPDeal *deal in self.deals) {
+            deal.editing = NO;
+        }
+        
         [btnItem setTitle:MTEdit];
     }
+    
+    //刷新表格
+    [self.collectionView reloadData];
 }
 
 - (void)back
@@ -180,17 +199,45 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 
 - (void)selectAll
 {
+    for (DPDeal *deal in self.deals) {
+        deal.checking = YES;
+    }
     
+    self.removeItem.enabled = YES;
+    //刷新表格
+    [self.collectionView reloadData];
 }
 
 - (void)unselectAllback
 {
+    for (DPDeal *deal in self.deals) {
+        deal.checking = NO;
+    }
     
+    self.removeItem.enabled = NO;
+    //刷新表格
+    [self.collectionView reloadData];
+
 }
 
 - (void)remove
 {
+    NSMutableArray *tempDeals = [NSMutableArray array];
+    for (DPDeal *deal in self.deals) {
+        if (deal.checking) {
+            // 删除数据库的模型
+            [DPDealTool removeCollectDeal:deal];
+            
+            [tempDeals addObject:deal];
+        }
+    }
+    // 删除所有打钩的模型
+    [self.deals removeObjectsInArray:tempDeals];
     
+    //刷新表格
+    [self.collectionView reloadData];
+    
+    self.removeItem.enabled = NO;
 }
 
 
@@ -207,6 +254,21 @@ static NSString * const reuseIdentifier = @"DPDealCell";
     self.currentPage = 0;
     [self loadMoreDeals];
 
+}
+
+#pragma mark - DPDealCellDelegate
+- (void)dealCellCheckingStateDidChang:(DPDealCell *)Cell
+{
+    BOOL hasChecking = NO;
+    for (DPDeal *deal in self.deals) {
+        if (deal.isChecking) {
+            hasChecking = YES;
+            break;
+        }
+    }
+    // 根据有没有打钩的情况,决定删除按钮是否可用
+    self.removeItem.enabled = hasChecking;
+    
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -227,6 +289,7 @@ static NSString * const reuseIdentifier = @"DPDealCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     DPDealCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.delegate = self;
     
     // 传递模型数据
     cell.deal = self.deals[indexPath.item];

@@ -20,6 +20,12 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *dealNewView;
 
+/** 收藏编辑时的遮盖 */
+@property (weak, nonatomic) IBOutlet UIButton *coverButton;
+- (IBAction)coverClick:(UIButton *)btn;
+/** 收藏编辑时打钩 */
+@property (weak, nonatomic) IBOutlet UIImageView *checkView;
+
 @end
 
 @implementation DPDealCell
@@ -57,11 +63,28 @@
     // 发布日期 《 now 隐藏
     self.dealNewView.hidden = ([self.deal.publish_date compare:nowDate] == NSOrderedAscending);
     
+    // 根据模型决定遮盖是否显示和隐藏
+    self.coverButton.hidden = !deal.isEditing;
+    // 根据模型决定打钩是否显示和隐藏
+    self.checkView.hidden = !deal.checking;
+    
 }
 
 - (void)drawRect:(CGRect)rect
 {
     // 背景图片
     [[UIImage imageNamed:@"bg_dealcell"] drawInRect:rect];
+}
+- (IBAction)coverClick:(UIButton *)btn {
+    // 修改模型打钩状态
+    self.deal.checking = !self.deal.isChecking;
+    
+   // 直接修改状态
+    self.checkView.hidden = !self.checkView.isHidden;
+    
+    // 通知代理打钩状态改变了
+    if ([self.delegate respondsToSelector:@selector(dealCellCheckingStateDidChang:)]) {
+        [self.delegate dealCellCheckingStateDidChang:self];
+    }
 }
 @end

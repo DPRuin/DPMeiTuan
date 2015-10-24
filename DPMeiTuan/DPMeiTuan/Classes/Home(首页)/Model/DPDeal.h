@@ -39,4 +39,9 @@
 
 /** 团购限制条件 */
 @property (nonatomic, strong) DPRestrictions *restrictions;
+
+/** 是否在编辑 */
+@property (nonatomic, assign, getter=isEditing) BOOL editing;
+/** 是否勾选了 */
+@property (nonatomic, assign, getter=isChecking) BOOL checking;
 @end

@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 @class DPDeal;
+@class DPDealCell;
+
+@protocol DPDealCellDelegate <NSObject>
+
+@optional
+- (void)dealCellCheckingStateDidChang:(DPDealCell *)Cell;
+
+@end
 
 @interface DPDealCell : UICollectionViewCell
 /** 模型数据 */
 @property (nonatomic, strong) DPDeal *deal;
+
+@property (nonatomic, weak) id<DPDealCellDelegate> delegate;
 
 @end
