@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DPHomeViewController.h"
 #import "DPNavigationController.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AppDelegate ()
 
@@ -26,6 +27,20 @@
     self.window.rootViewController = [[DPNavigationController alloc] initWithRootViewController:[[DPHomeViewController alloc] init]];
     // 显示窗口
     [self.window makeKeyAndVisible];
+    return YES;
+}
+
+/**
+ *  当从其他应用跳转到当前应用时,就会调用这个方法
+ */
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    ////跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+#warning 在支付宝客户端支付后回传结果
+        
+    }];
+    
     return YES;
 }
 

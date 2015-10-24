@@ -15,6 +15,13 @@
 #import "MBProgressHUD+MJ.h"
 #import "DPDealTool.h"
 
+// 支付宝头文件
+#import <AlipaySDK/AlipaySDK.h>
+#import "Order.h"
+#import "DataSigner.h"
+
+
+
 @interface DPDetailViewController () <UIWebViewDelegate, DPRequestDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
@@ -191,7 +198,29 @@
  *  立即购买
  */
 - (IBAction)buy:(UIButton *)btn {
+    // 1.生成订单信息
+    Order *order = [[Order alloc] init];
+    order.partner = DPPartnerID;
+    order.seller = DPSellerID;
+    order.productName = self.deal.title;
+    order.productDescription = self.deal.desc;
+    order.amount = [self.deal.current_price description];
+    
+    // 2.签名加密
+    id<DataSigner> signer = CreateRSADataSigner(DPPartnerPrivKey);
+    NSString *signedString = [signer signString:[order description]];
+    
+    // 3.利用订单信息、签名信息、签名类型生成一个订单字符串
+    NSString *orderString = [NSString stringWithFormat:@"%@&sign=\"%@\"&sign_type=\"%@\"",
+                             [order description], signedString, @"RSA"];
+    
+    // 4.打开客户端,进行支付(商品名称,商品价格,商户信息)
+    [[AlipaySDK defaultService] payOrder:orderString fromScheme:@"dpmeituan" callback:^(NSDictionary *resultDic) {
+#warning 网页支付回传结果
+        
+    }];
 }
+
 /**
  *  收藏
  */

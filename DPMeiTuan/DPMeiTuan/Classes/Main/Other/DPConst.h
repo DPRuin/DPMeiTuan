@@ -33,3 +33,8 @@ extern NSString *const DPSelectSubCategaryName;
 extern NSString *const DPCollectStateDidChangeNotification;
 extern NSString *const DPCollectDealKey;
 extern NSString *const DPIsCollectedKey;
+
+// 支付宝
+extern NSString *const DPPartnerID;
+extern NSString *const DPSellerID;
+extern NSString *const DPPartnerPrivKey; // 商户私钥
