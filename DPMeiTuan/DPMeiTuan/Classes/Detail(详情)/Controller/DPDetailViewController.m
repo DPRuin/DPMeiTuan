@@ -65,6 +65,9 @@
     [self setupLeftContent];
     // 设置右边的内容
     [self setupRightContent];
+    
+    // 保存浏览记录
+    [self saveRecentDeal];
 }
 
 // 返回控制器支持的反向 只支持横屏
@@ -72,6 +75,24 @@
 {
     return UIInterfaceOrientationMaskLandscape;
 }
+
+/**
+ *  保存浏览记录
+ */
+- (void)saveRecentDeal
+{
+    if ([DPDealTool isRecented:self.deal]) {
+        [DPDealTool removeRecentDeal:self.deal];
+
+    }
+    
+    [DPDealTool addRecentDeal:self.deal];
+    
+    // 发送通知
+    [[NSNotificationCenter defaultCenter] postNotificationName:DPRecentStateDidChangeNotification object:nil userInfo:@{DPRecentDealKey : self.deal}];
+    
+}
+
 
 #pragma mark - 设置左边和右边的内容
 /**
@@ -252,6 +273,7 @@
  *  分享
  */
 - (IBAction)share:(UIButton *)btn {
+#warning 可以添加友盟分享
     
 }
 

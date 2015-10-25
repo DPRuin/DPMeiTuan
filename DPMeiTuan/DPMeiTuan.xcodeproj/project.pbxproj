@@ -100,6 +100,7 @@
 		353F2EC61BDCC7E5006B3417 /* DPBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EC51BDCC7E5006B3417 /* DPBusiness.m */; };
 		353F2EC81BDCE0D2006B3417 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353F2EC71BDCE0D2006B3417 /* CFNetwork.framework */; };
 		353F2ECB1BDCF4EB006B3417 /* DPDealAnnoRightButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2ECA1BDCF4EB006B3417 /* DPDealAnnoRightButton.m */; };
+		353F2F091BDD51EC006B3417 /* DPDealsLocalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2F081BDD51EC006B3417 /* DPDealsLocalViewController.m */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -387,6 +388,8 @@
 		353F2EC71BDCE0D2006B3417 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		353F2EC91BDCF4EB006B3417 /* DPDealAnnoRightButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDealAnnoRightButton.h; sourceTree = "<group>"; };
 		353F2ECA1BDCF4EB006B3417 /* DPDealAnnoRightButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealAnnoRightButton.m; sourceTree = "<group>"; };
+		353F2F071BDD51EC006B3417 /* DPDealsLocalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDealsLocalViewController.h; sourceTree = "<group>"; };
+		353F2F081BDD51EC006B3417 /* DPDealsLocalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealsLocalViewController.m; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -760,6 +763,8 @@
 				35DB3C2A1BCF5CF70006E2B1 /* DPNavigationController.m */,
 				353F2B131BD4F3F0006B3417 /* DPDealsViewController.h */,
 				353F2B141BD4F3F0006B3417 /* DPDealsViewController.m */,
+				353F2F071BDD51EC006B3417 /* DPDealsLocalViewController.h */,
+				353F2F081BDD51EC006B3417 /* DPDealsLocalViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1314,6 +1319,7 @@
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,
 				3515A3471BD35C6700859FA6 /* UIImage+MultiFormat.m in Sources */,
 				3515A3671BD3A12900859FA6 /* UIView+MJExtension.m in Sources */,
+				353F2F091BDD51EC006B3417 /* DPDealsLocalViewController.m in Sources */,
 				35DB3C2B1BCF5CF70006E2B1 /* DPNavigationController.m in Sources */,
 				3515A3481BD35C6700859FA6 /* UIImage+WebP.m in Sources */,
 				353F2B2A1BD53D9A006B3417 /* DPRecentViewController.m in Sources */,

@@ -34,6 +34,10 @@ extern NSString *const DPCollectStateDidChangeNotification;
 extern NSString *const DPCollectDealKey;
 extern NSString *const DPIsCollectedKey;
 
+// 通知 浏览记录改变
+extern NSString *const DPRecentStateDidChangeNotification;
+extern NSString *const DPRecentDealKey;
+
 // 支付宝
 extern NSString *const DPPartnerID;
 extern NSString *const DPSellerID;

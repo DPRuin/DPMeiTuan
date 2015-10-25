@@ -21,8 +21,10 @@ static FMDatabase *_db;
     
     // 创建表
     [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_collect_deal(id integer PRIMARY KEY, deal blob NOT NULL, deal_id text NOT NULL);"];
+    [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_recent_deal(id integer PRIMARY KEY, deal blob NOT NULL, deal_id text NOT NULL);"];
 }
 
+#pragma mark - 收藏的方法
 + (NSArray *)collectDeals:(int)page
 {
     int size = 20;
@@ -62,5 +64,46 @@ static FMDatabase *_db;
     FMResultSet *set = [_db executeQuery:@"SELECT count(*) AS deal_count FROM t_collect_deal;"];
     [set next];
     return [set intForColumn:@"deal_count"];
+}
+
+#pragma mark - 最近的方法
++ (NSArray *)recentDeals:(int)page
+{
+    int size = 20;
+    int pose = (page - 1) * size;
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT * FROM t_recent_deal ORDER BY id DESC LIMIT %d,%d;", pose, size];
+    
+    NSMutableArray *deals = [NSMutableArray array];
+    while ([set next]) {
+        DPDeal *deal = [NSKeyedUnarchiver unarchiveObjectWithData:[set objectForColumnName:@"deal"]];
+        [deals addObject:deal];
+    }
+    
+    return deals;
+}
+
++ (void)addRecentDeal:(DPDeal *)deal
+{
+    NSData *dealData = [NSKeyedArchiver archivedDataWithRootObject:deal];
+    [_db executeUpdateWithFormat:@"INSERT INTO t_recent_deal(deal, deal_id) VALUES(%@, %@);", dealData, deal.deal_id];
+}
+
++ (void)removeRecentDeal:(DPDeal *)deal
+{
+    [_db executeUpdateWithFormat:@"DELETE FROM t_recent_deal WHERE deal_id=%@;", deal.deal_id];
+}
+
++ (int)recentDealsCount
+{
+    FMResultSet *set = [_db executeQuery:@"SELECT count(*) AS deal_count FROM t_recent_deal;"];
+    [set next];
+    return [set intForColumn:@"deal_count"];
+}
+
++ (BOOL)isRecented:(DPDeal *)deal
+{
+    FMResultSet *set = [_db executeQueryWithFormat:@"SELECT count(*) AS deal_count FROM t_recent_deal WHERE deal_id=%@;", deal.deal_id];
+    [set next];
+    return [set intForColumn:@"deal_count"] == 1;
 }
 @end

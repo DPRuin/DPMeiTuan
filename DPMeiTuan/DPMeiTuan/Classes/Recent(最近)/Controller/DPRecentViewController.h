@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DPDealsLocalViewController.h"
 
-@interface DPRecentViewController : UICollectionViewController
+@interface DPRecentViewController : DPDealsLocalViewController
 
 @end

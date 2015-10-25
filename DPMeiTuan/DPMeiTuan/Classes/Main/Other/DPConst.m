@@ -18,6 +18,9 @@ NSString *const DPCollectStateDidChangeNotification = @"DPCollectStateDidChangeN
 NSString *const DPCollectDealKey = @"DPCollectDealKey";
 NSString *const DPIsCollectedKey = @"DPIsCollectedKey";
 
+NSString *const DPRecentStateDidChangeNotification = @"DPRecentStateDidChangeNotification";
+NSString *const DPRecentDealKey = @"DPRecentDealKey";
+
 NSString *const DPPartnerID = @"";
 NSString *const DPSellerID = @"";
 NSString *const DPPartnerPrivKey = @"";
