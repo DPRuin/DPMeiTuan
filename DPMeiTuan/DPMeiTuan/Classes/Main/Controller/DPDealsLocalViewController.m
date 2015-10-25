@@ -20,7 +20,6 @@ NSString *const MTDone = @"完成";
 #define DPString(str) [NSString stringWithFormat:@"  %@  ", str]
 
 @interface DPDealsLocalViewController () <DPDealCellDelegate>
-
 /** 收藏的团购数据 */
 @property (nonatomic, strong) NSMutableArray *deals;
 
