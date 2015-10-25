@@ -26,6 +26,7 @@
 #import "DPCollectViewController.h"
 #import "DPRecentViewController.h"
 #import "MBProgressHUD+MJ.h"
+#import "DPMapViewController.h"
 
 @interface DPHomeViewController () <AwesomeMenuDelegate>
 /** 分类 */
@@ -331,7 +332,7 @@
 
 - (void)setupRightNav
 {
-    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:nil action:nil Image:@"icon_map" highlightImage:@"icon_map_highlighted"];
+    UIBarButtonItem *mapItem = [UIBarButtonItem itemWithTarget:self action:@selector(mapClick) Image:@"icon_map" highlightImage:@"icon_map_highlighted"];
     mapItem.customView.width = 60;
     
     UIBarButtonItem *searchItem = [UIBarButtonItem itemWithTarget:self action:@selector(searchClick) Image:@"icon_search" highlightImage:@"icon_search_highlighted"];
@@ -340,6 +341,12 @@
 }
 
 #pragma mark - 导航栏按钮点击
+- (void)mapClick
+{
+    DPNavigationController *mapNav = [[DPNavigationController alloc] initWithRootViewController:[[DPMapViewController alloc] init]];
+    [self presentViewController:mapNav animated:YES completion:nil];
+}
+
 - (void)searchClick
 {
     if (self.selectedCityName) { // 选中了城市

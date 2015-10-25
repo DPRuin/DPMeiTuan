@@ -11,6 +11,7 @@
 #import "DPCity.h"
 #import "MJExtension.h"
 #import "DPSort.h"
+#import "DPDeal.h"
 
 @implementation DPMetalTool
 
@@ -39,6 +40,19 @@ static  NSArray *_sorts;
         _sorts = [DPSort objectArrayWithFilename:@"sorts.plist"];
     }
     return _sorts;
+}
+
++ (DPCategary *)categaryWithDeal:(DPDeal *)deal
+{
+    NSArray *categaries = [self categaries];
+    NSString *categaryName  = [deal.categories firstObject];
+    
+    for (DPCategary *categary in categaries) {
+        if ([categaryName isEqualToString:categary.name]) return categary;
+        if ([categary.subcategories containsObject:categaryName]) return categary;
+    }
+    
+    return nil;
 }
 
 @end

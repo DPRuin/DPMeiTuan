@@ -94,6 +94,10 @@
 		353F2EB11BDBF3C6006B3417 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EA21BDBF3C6006B3417 /* RSADataSigner.m */; };
 		353F2EB21BDBF3C6006B3417 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EA41BDBF3C6006B3417 /* RSADataVerifier.m */; };
 		353F2EB41BDBF412006B3417 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353F2EB31BDBF412006B3417 /* SystemConfiguration.framework */; };
+		353F2EBC1BDC6E24006B3417 /* DPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EBA1BDC6E24006B3417 /* DPMapViewController.m */; };
+		353F2EBD1BDC6E24006B3417 /* DPMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353F2EBB1BDC6E24006B3417 /* DPMapViewController.xib */; };
+		353F2EC31BDCBA75006B3417 /* DPDealAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EC21BDCBA75006B3417 /* DPDealAnnotation.m */; };
+		353F2EC61BDCC7E5006B3417 /* DPBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EC51BDCC7E5006B3417 /* DPBusiness.m */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -371,6 +375,13 @@
 		353F2EA31BDBF3C6006B3417 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		353F2EA41BDBF3C6006B3417 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
 		353F2EB31BDBF412006B3417 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		353F2EB91BDC6E24006B3417 /* DPMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPMapViewController.h; sourceTree = "<group>"; };
+		353F2EBA1BDC6E24006B3417 /* DPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPMapViewController.m; sourceTree = "<group>"; };
+		353F2EBB1BDC6E24006B3417 /* DPMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPMapViewController.xib; sourceTree = "<group>"; };
+		353F2EC11BDCBA75006B3417 /* DPDealAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDealAnnotation.h; sourceTree = "<group>"; };
+		353F2EC21BDCBA75006B3417 /* DPDealAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealAnnotation.m; sourceTree = "<group>"; };
+		353F2EC41BDCC7E5006B3417 /* DPBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPBusiness.h; sourceTree = "<group>"; };
+		353F2EC51BDCC7E5006B3417 /* DPBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPBusiness.m; sourceTree = "<group>"; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -623,6 +634,7 @@
 		3521D5EF1BCE40C200C4BF0D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				353F2EB51BDC6DF3006B3417 /* Map(地图) */,
 				353F2B2B1BD5D9FB006B3417 /* Detail(详情) */,
 				353F2B211BD53D5D006B3417 /* Collect(收藏) */,
 				353F2B1D1BD53D4D006B3417 /* Recent(最近) */,
@@ -682,6 +694,8 @@
 				3515A3131BD33F1100859FA6 /* DPDeal.m */,
 				353F2B341BD7472D006B3417 /* DPRestrictions.h */,
 				353F2B351BD7472D006B3417 /* DPRestrictions.m */,
+				353F2EC41BDCC7E5006B3417 /* DPBusiness.h */,
+				353F2EC51BDCC7E5006B3417 /* DPBusiness.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1074,6 +1088,42 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		353F2EB51BDC6DF3006B3417 /* Map(地图) */ = {
+			isa = PBXGroup;
+			children = (
+				353F2EB61BDC6DF3006B3417 /* Controller */,
+				353F2EB71BDC6DF3006B3417 /* Model */,
+				353F2EB81BDC6DF3006B3417 /* View */,
+			);
+			path = "Map(地图)";
+			sourceTree = "<group>";
+		};
+		353F2EB61BDC6DF3006B3417 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				353F2EB91BDC6E24006B3417 /* DPMapViewController.h */,
+				353F2EBA1BDC6E24006B3417 /* DPMapViewController.m */,
+				353F2EBB1BDC6E24006B3417 /* DPMapViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		353F2EB71BDC6DF3006B3417 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				353F2EC11BDCBA75006B3417 /* DPDealAnnotation.h */,
+				353F2EC21BDCBA75006B3417 /* DPDealAnnotation.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		353F2EB81BDC6DF3006B3417 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		35DB3C3B1BCFAC630006E2B1 /* UIView-AutoLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,6 +1237,7 @@
 				3515A3191BD343CD00859FA6 /* DPDealCell.xib in Resources */,
 				3521D5FD1BCE489500C4BF0D /* DPHomeDropdown.xib in Resources */,
 				3521D6081BCE888000C4BF0D /* cityGroups.plist in Resources */,
+				353F2EBD1BDC6E24006B3417 /* DPMapViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,6 +1258,7 @@
 				3515A3451BD35C6700859FA6 /* UIButton+WebCache.m in Sources */,
 				3521D6221BCE88AE00C4BF0D /* MJArgument.m in Sources */,
 				353F2EB01BDBF3C6006B3417 /* openssl_wrapper.m in Sources */,
+				353F2EC61BDCC7E5006B3417 /* DPBusiness.m in Sources */,
 				3521D6291BCE88AE00C4BF0D /* MJTypeEncoding.m in Sources */,
 				35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */,
 				35DB3C281BCF5CE30006E2B1 /* UIView+Extension.m in Sources */,
@@ -1235,6 +1287,7 @@
 				353F2EAD1BDBF3C6006B3417 /* DataVerifier.m in Sources */,
 				3515A3701BD480A200859FA6 /* MBProgressHUD.m in Sources */,
 				3515A3621BD3A12900859FA6 /* MJRefreshConst.m in Sources */,
+				353F2EBC1BDC6E24006B3417 /* DPMapViewController.m in Sources */,
 				3515A3401BD35C6700859FA6 /* SDWebImageDecoder.m in Sources */,
 				353F2EB21BDBF3C6006B3417 /* RSADataVerifier.m in Sources */,
 				35DB3C211BCF5BEB0006E2B1 /* DPConst.m in Sources */,
@@ -1245,6 +1298,7 @@
 				35DB3C421BD105C40006E2B1 /* DPMetalTool.m in Sources */,
 				353F2B361BD7472D006B3417 /* DPRestrictions.m in Sources */,
 				353F2B271BD53D7C006B3417 /* DPCollectViewController.m in Sources */,
+				353F2EC31BDCBA75006B3417 /* DPDealAnnotation.m in Sources */,
 				35DB3C371BCF72530006E2B1 /* DPCityGroup.m in Sources */,
 				353F2B321BD5E78D006B3417 /* DPDetailViewController.m in Sources */,
 				35DB3C271BCF5CE30006E2B1 /* UIBarButtonItem+Extension.m in Sources */,

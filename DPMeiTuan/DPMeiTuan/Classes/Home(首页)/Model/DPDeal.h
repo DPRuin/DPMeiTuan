@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 @class DPRestrictions;
+@class DPBusinesses;
 
 @interface DPDeal : NSObject
 /** 团购单ID */
@@ -44,4 +45,9 @@
 @property (nonatomic, assign, getter=isEditing) BOOL editing;
 /** 是否勾选了 */
 @property (nonatomic, assign, getter=isChecking) BOOL checking;
+
+/** 团购所适用的商户列表 */
+@property (nonatomic, strong) NSArray *businesses;
+/** 团购所属分类 */
+@property (nonatomic, strong) NSArray *categories;
 @end

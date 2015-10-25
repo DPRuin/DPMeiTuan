@@ -8,6 +8,7 @@
 
 #import "DPDeal.h"
 #import "MJExtension.h"
+#import "DPBusiness.h"
 
 @implementation DPDeal
 - (NSDictionary *)replacedKeyFromPropertyName
@@ -18,6 +19,11 @@
 - (BOOL)isEqual:(DPDeal *)other
 {
     return [self.deal_id isEqual:other.deal_id];
+}
+
+- (NSDictionary *)objectClassInArray
+{
+    return @{@"businesses" : [DPBusiness class]};
 }
 
 MJCodingImplementation

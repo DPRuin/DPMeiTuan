@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class DPCategary, DPDeal;
 
 @interface DPMetalTool : NSObject
 /**
@@ -18,6 +19,7 @@
  *  返回分类模型数组
  */
 +(NSArray *)categaries;
++(DPCategary *)categaryWithDeal:(DPDeal *)deal;
 
 /**
  *  返回排序模型数组
