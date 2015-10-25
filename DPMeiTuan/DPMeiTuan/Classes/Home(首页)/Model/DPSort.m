@@ -7,7 +7,8 @@
 //
 
 #import "DPSort.h"
+#import "MJExtension.h"
 
 @implementation DPSort
-
+MJCodingImplementation
 @end

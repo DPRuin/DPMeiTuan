@@ -13,6 +13,9 @@
 #import "DPSort.h"
 #import "DPDeal.h"
 
+#define DPSelectedCityNamesFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"selectedCityNames.plist"]
+#define DPSelectedSortFile [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"selectedSort.data"]
+
 @implementation DPMetalTool
 
 static  NSArray *_cities;
@@ -55,4 +58,55 @@ static  NSArray *_sorts;
     return nil;
 }
 
+#pragma mark - 存储方法
+static NSMutableArray *_selectedCityNames;
++ (NSMutableArray *)selectedCityNames;
+{
+    if (!_selectedCityNames) {
+        _selectedCityNames = [NSMutableArray arrayWithContentsOfFile:DPSelectedCityNamesFile];
+        
+        if (!_selectedCityNames) {
+            _selectedCityNames = [NSMutableArray array];
+        }
+    }
+    return _selectedCityNames;
+}
+
++ (void)saveSelectedCityName:(NSString *)name
+{
+    if (name.length == 0) return;
+    _selectedCityNames = [self selectedCityNames];
+    // 存储城市名字
+    [_selectedCityNames removeObject:name];
+    [_selectedCityNames insertObject:name atIndex:0];
+    
+    // 写入plist
+    [_selectedCityNames writeToFile:DPSelectedCityNamesFile atomically:YES];
+    
+}
+
++ (void)saveSelectedSort:(DPSort *)sort
+{
+    if (sort == nil) return;
+    [NSKeyedArchiver archiveRootObject:sort toFile:DPSelectedSortFile];
+}
+
++ (NSString *)selectedCityName
+{
+    _selectedCityNames = [self selectedCityNames];
+    NSString *cityName = [_selectedCityNames firstObject];
+    if (cityName.length == 0) {
+        cityName = @"北京";
+    }
+    return cityName;
+}
+
++ (DPSort *)selectedSort
+{
+    DPSort *sort = [NSKeyedUnarchiver unarchiveObjectWithFile:DPSelectedSortFile];
+    if (sort == nil) {
+        sort = [_sorts firstObject];
+    }
+    return sort;
+}
 @end

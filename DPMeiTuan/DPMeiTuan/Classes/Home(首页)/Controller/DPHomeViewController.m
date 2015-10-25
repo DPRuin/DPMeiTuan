@@ -67,8 +67,10 @@ NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 进入刷新
-    self.selectedCityName = [[NSUserDefaults standardUserDefaults] objectForKey:DPLastSelectedCityKey];
+    
+    // 进入刷新状态
+    self.selectedCityName = [DPMetalTool selectedCityName];
+    self.selectedSort = [DPMetalTool selectedSort];
     [self.collectionView headerBeginRefreshing];
     
     // 设置导航栏内容
@@ -80,8 +82,6 @@ NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
     
     // 初始化Aswesome
     [self setupAwesomeMenu];
-    
-
     
 }
 
@@ -288,6 +288,9 @@ NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
     
     // 刷新表格数据
     [self.collectionView headerBeginRefreshing];
+    
+    // 选中的排序存进沙盒
+    [DPMetalTool saveSelectedSort:self.selectedSort];
 }
 
 /**
@@ -306,8 +309,7 @@ NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
     
     
     // 将当前城市存进沙盒
-    [[NSUserDefaults standardUserDefaults] setObject:self.selectedCityName forKey:DPLastSelectedCityKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [DPMetalTool saveSelectedCityName:self.selectedCityName];
     
 }
 
