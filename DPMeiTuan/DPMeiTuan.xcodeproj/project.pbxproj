@@ -98,6 +98,7 @@
 		353F2EBD1BDC6E24006B3417 /* DPMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353F2EBB1BDC6E24006B3417 /* DPMapViewController.xib */; };
 		353F2EC31BDCBA75006B3417 /* DPDealAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EC21BDCBA75006B3417 /* DPDealAnnotation.m */; };
 		353F2EC61BDCC7E5006B3417 /* DPBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 353F2EC51BDCC7E5006B3417 /* DPBusiness.m */; };
+		353F2EC81BDCE0D2006B3417 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 353F2EC71BDCE0D2006B3417 /* CFNetwork.framework */; };
 		35DB3C0B1BCF51FC0006E2B1 /* DPDistrictViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */; };
 		35DB3C0C1BCF51FC0006E2B1 /* DPDistrictViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */; };
 		35DB3C101BCF58380006E2B1 /* DPCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35DB3C0E1BCF58380006E2B1 /* DPCityViewController.m */; };
@@ -382,6 +383,7 @@
 		353F2EC21BDCBA75006B3417 /* DPDealAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDealAnnotation.m; sourceTree = "<group>"; };
 		353F2EC41BDCC7E5006B3417 /* DPBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPBusiness.h; sourceTree = "<group>"; };
 		353F2EC51BDCC7E5006B3417 /* DPBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPBusiness.m; sourceTree = "<group>"; };
+		353F2EC71BDCE0D2006B3417 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		35DB3C081BCF51FC0006E2B1 /* DPDistrictViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPDistrictViewController.h; sourceTree = "<group>"; };
 		35DB3C091BCF51FC0006E2B1 /* DPDistrictViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPDistrictViewController.m; sourceTree = "<group>"; };
 		35DB3C0A1BCF51FC0006E2B1 /* DPDistrictViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DPDistrictViewController.xib; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353F2EC81BDCE0D2006B3417 /* CFNetwork.framework in Frameworks */,
 				353F2EB41BDBF412006B3417 /* SystemConfiguration.framework in Frameworks */,
 				353F2EA91BDBF3C6006B3417 /* libssl.a in Frameworks */,
 				353F2B491BD7AFC1006B3417 /* libsqlite3.0.dylib in Frameworks */,
@@ -578,6 +581,7 @@
 		3521D5A81BCDEA0B00C4BF0D = {
 			isa = PBXGroup;
 			children = (
+				353F2EC71BDCE0D2006B3417 /* CFNetwork.framework */,
 				353F2EB31BDBF412006B3417 /* SystemConfiguration.framework */,
 				353F2B481BD7AFC1006B3417 /* libsqlite3.0.dylib */,
 				3521D5B31BCDEA0B00C4BF0D /* DPMeiTuan */,

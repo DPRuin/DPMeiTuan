@@ -188,7 +188,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"city"] = self.city;
     if (self.selectedCategaryName) {
-        params[@"categary"] = self.selectedCategaryName;
+        params[@"category"] = self.selectedCategaryName;
     }
     params[@"latitude"] = @(mapView.region.center.latitude);
     params[@"longitude"] = @(mapView.region.center.longitude);

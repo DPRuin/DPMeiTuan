@@ -10,4 +10,8 @@
 
 @implementation DPDealAnnotation
 
+- (BOOL)isEqual:(DPDealAnnotation *)other
+{
+    return [self.title isEqual:other.title];
+}
 @end
