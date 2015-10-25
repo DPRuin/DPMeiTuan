@@ -18,6 +18,9 @@
 #import "DPDeal.h"
 #import "DPBusiness.h"
 #import "DPMetalTool.h"
+#import "MBProgressHUD+MJ.h"
+#import "DPDealAnnoRightButton.h"
+#import "DPDetailViewController.h"
 
 @interface DPMapViewController () <MKMapViewDelegate, DPRequestDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -34,6 +37,9 @@
 @property (nonatomic, copy) NSString *selectedCategaryName;
 
 @property (nonatomic, strong) DPRequest *lastRequest;
+
+/** 回到用户位置 */
+- (IBAction)backToUserLocation:(UIButton *)sender;
 
 @end
 
@@ -105,6 +111,13 @@
 }
 
 #pragma mark - 按钮点击
+/**
+ *  返回用户位置
+ */
+- (IBAction)backToUserLocation:(UIButton *)sender {
+    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate animated:YES];
+}
+
 - (void)back {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -114,6 +127,16 @@
     // 显示分类菜单
     self.categoryPopover = [[UIPopoverController alloc] initWithContentViewController:[[DPCategaryViewController alloc] init]];
     [self.categoryPopover presentPopoverFromBarButtonItem:self.categaryItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+/**
+ *  大头针右边按钮点击
+ */
+- (void)dealClick:(DPDealAnnoRightButton *)btn
+{
+    DPDetailViewController *detailVC = [[DPDetailViewController alloc] init];
+    detailVC.deal = btn.deal;
+    [self presentViewController:detailVC animated:YES completion:nil];
 }
 
 #pragma mark - 懒加载
@@ -164,13 +187,21 @@
     
     // 创建大头针
     static NSString *ID = @"annoView";
+    DPDealAnnoRightButton *rightBtn = nil;
     MKAnnotationView *annoView = [mapView dequeueReusableAnnotationViewWithIdentifier:ID];
     if (!annoView) {
         annoView = [[MKAnnotationView alloc] initWithAnnotation:nil reuseIdentifier:ID];
         annoView.canShowCallout = YES;
+        rightBtn = [DPDealAnnoRightButton buttonWithType:UIButtonTypeDetailDisclosure];
+        [rightBtn addTarget:self action:@selector(dealClick:) forControlEvents:UIControlEventTouchUpInside];
+        annoView.rightCalloutAccessoryView = rightBtn;
+    } else { // 从缓存池取rightButton
+        rightBtn = (DPDealAnnoRightButton *)annoView.rightCalloutAccessoryView;
     }
     // 传递模型
     annoView.annotation = annotation;
+    
+    rightBtn.deal = annotation.deal;
     
     // 设置图片
     annoView.image = [UIImage imageNamed:annotation.icon];
@@ -213,6 +244,9 @@
             anno.subtitle = deal.title;
             anno.icon = categary.map_icon;
             
+            // 大头针绑定的模型
+            anno.deal = deal;
+            
             if ([self.mapView.annotations containsObject:anno]) break;
             [self.mapView addAnnotation:anno];
         }
@@ -222,7 +256,8 @@
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
 {
     if (request != self.lastRequest) return;
-    DPLog(@"%@", error);
+    [MBProgressHUD showError:@"加载团购失败，请稍后再试"];
 }
+
 
 @end
