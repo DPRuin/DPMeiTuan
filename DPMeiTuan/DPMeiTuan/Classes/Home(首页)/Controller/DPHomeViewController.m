@@ -28,6 +28,8 @@
 #import "MBProgressHUD+MJ.h"
 #import "DPMapViewController.h"
 
+NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
+
 @interface DPHomeViewController () <AwesomeMenuDelegate>
 /** 分类 */
 @property (nonatomic, weak) UIBarButtonItem *categaryItem;
@@ -65,6 +67,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 进入刷新
+    self.selectedCityName = [[NSUserDefaults standardUserDefaults] objectForKey:DPLastSelectedCityKey];
+    [self.collectionView headerBeginRefreshing];
     
     // 设置导航栏内容
     [self setupLeftNav];
@@ -75,6 +80,8 @@
     
     // 初始化Aswesome
     [self setupAwesomeMenu];
+    
+
     
 }
 
@@ -297,6 +304,11 @@
     // 刷新表格数据
     [self.collectionView headerBeginRefreshing];
     
+    
+    // 将当前城市存进沙盒
+    [[NSUserDefaults standardUserDefaults] setObject:self.selectedCityName forKey:DPLastSelectedCityKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
 }
 
 #pragma mark - 设置导航栏内容
@@ -308,12 +320,15 @@
     
     // 类别
     DPHomeTopItem *categaryTopItem = [DPHomeTopItem item];
+    [categaryTopItem setIcon:[UIImage imageNamed:@"icon_category_-1"] highIcon:[UIImage imageNamed:@"icon_category_highlighted_-1"]];
+    [categaryTopItem setTitle:@"全部分类"];
     [categaryTopItem addTarget:self action:@selector(categaryClick)];
     UIBarButtonItem *categaryItem = [[UIBarButtonItem alloc] initWithCustomView:categaryTopItem];
     self.categaryItem = categaryItem;
     
     // 地区
     DPHomeTopItem *districtTopItem = [DPHomeTopItem item];
+    [districtTopItem setTitle:[NSString stringWithFormat:@"%@ - 全部", self.selectedCityName]];
     [districtTopItem addTarget:self action:@selector(districtClick)];
     [districtTopItem setIcon:[UIImage imageNamed:@"icon_district"] highIcon:[UIImage imageNamed:@"icon_district_highlighted"]];
     UIBarButtonItem *districtItem = [[UIBarButtonItem alloc] initWithCustomView:districtTopItem];

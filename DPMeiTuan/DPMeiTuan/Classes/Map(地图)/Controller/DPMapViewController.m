@@ -53,6 +53,8 @@
     
     // 设置左上角的分类菜单
     DPHomeTopItem *categaryTopItem = [DPHomeTopItem item];
+    [categaryTopItem setIcon:[UIImage imageNamed:@"icon_category_-1"] highIcon:[UIImage imageNamed:@"icon_category_highlighted_-1"]];
+    [categaryTopItem setTitle:@"全部分类"];
     [categaryTopItem addTarget:self action:@selector(categaryClick)];
     UIBarButtonItem *categaryItem = [[UIBarButtonItem alloc] initWithCustomView:categaryTopItem];
      self.navigationItem.leftBarButtonItems = @[backItem, categaryItem];
