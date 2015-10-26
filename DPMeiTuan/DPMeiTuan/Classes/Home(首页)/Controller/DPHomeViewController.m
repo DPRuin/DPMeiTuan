@@ -340,6 +340,7 @@ NSString *const DPLastSelectedCityKey = @"DPLastSelectedCity";
     DPHomeTopItem *sortTopItem = [DPHomeTopItem item];
     [sortTopItem addTarget:self action:@selector(sortClick)];
     [sortTopItem setTitle:@"排序"];
+    [sortTopItem setSubTitle:self.selectedSort.label];
     [sortTopItem setIcon:[UIImage imageNamed:@"icon_sort"] highIcon:[UIImage imageNamed:@"icon_sort_highlighted"]];
     UIBarButtonItem *sortItem = [[UIBarButtonItem alloc] initWithCustomView:sortTopItem];
     self.sortItem = sortItem;
