@@ -66,6 +66,7 @@
     if ([[UIDevice currentDevice].systemVersion doubleValue] >= 8.0) {
         [self.locationMgr requestAlwaysAuthorization];
     }
+    
     // 设置地图跟踪用户位置
     self.mapView.userTrackingMode = MKUserTrackingModeFollow;
     
@@ -258,7 +259,7 @@
 - (void)request:(DPRequest *)request didFailWithError:(NSError *)error
 {
     if (request != self.lastRequest) return;
-    [MBProgressHUD showError:@"加载团购失败，请稍后再试"];
+    [MBProgressHUD showError:@"加载团购失败，请稍后再试" toView:self.mapView];
 }
 
 
